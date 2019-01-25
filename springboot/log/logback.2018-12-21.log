@@ -1,0 +1,135 @@
+2018-12-21 09:01:44.382 logback [Thread-5] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2018-12-21 09:01:44.390 logback [Thread-5] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2018-12-21 09:01:44.394 logback [Thread-5] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2018-12-21 09:01:44.403 logback [Thread-5] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2018-12-21 09:01:44.669 logback [restartedMain] INFO  com.yx.SpringbootApplication - Starting SpringbootApplication on yx-PC with PID 55100 (E:\Workspaces_springboot\architecture_springboot\springboot\target\classes started by CJ in E:\Workspaces_springboot\architecture_springboot\springboot)
+2018-12-21 09:01:44.669 logback [restartedMain] INFO  com.yx.SpringbootApplication - No active profile set, falling back to default profiles: default
+2018-12-21 09:01:45.116 logback [restartedMain] WARN  o.m.s.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.yx.mapper.*]' package. Please check your configuration.
+2018-12-21 09:01:45.188 logback [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+2018-12-21 09:01:45.193 logback [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 5ms. Found 0 repository interfaces.
+2018-12-21 09:01:45.368 logback [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$fad623f1] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-21 09:01:46.010 logback [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8089 (http)
+2018-12-21 09:01:46.011 logback [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8089"]
+2018-12-21 09:01:46.011 logback [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2018-12-21 09:01:46.011 logback [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/9.0.13
+2018-12-21 09:01:46.053 logback [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2018-12-21 09:01:46.054 logback [restartedMain] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1381 ms
+2018-12-21 09:01:46.168 logback [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
+2018-12-21 09:01:46.174 logback [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
+2018-12-21 09:01:46.184 logback [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-12-21 09:01:46.196 logback [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-12-21 09:01:46.217 logback [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-12-21 09:01:46.430 logback [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2018-12-21 09:01:46.436 logback [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration$JpaWebMvcConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2018-12-21 09:01:46.530 logback [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2018-12-21 09:01:46.552 logback [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8089"]
+2018-12-21 09:01:46.553 logback [restartedMain] INFO  o.a.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2018-12-21 09:01:46.557 logback [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8089 (http) with context path ''
+2018-12-21 09:01:46.558 logback [restartedMain] INFO  com.yx.SpringbootApplication - Started SpringbootApplication in 2.021 seconds (JVM running for 59732.628)
+2018-12-21 09:01:46.561 logback [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2018-12-21 09:01:48.971 logback [Thread-9] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2018-12-21 09:01:48.972 logback [Thread-9] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2018-12-21 09:01:48.973 logback [Thread-9] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
+2018-12-21 09:01:49.001 logback [Thread-9] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.
+2018-12-21 09:01:49.148 logback [restartedMain] INFO  com.yx.SpringbootApplication - Starting SpringbootApplication on yx-PC with PID 55100 (E:\Workspaces_springboot\architecture_springboot\springboot\target\classes started by CJ in E:\Workspaces_springboot\architecture_springboot\springboot)
+2018-12-21 09:01:49.149 logback [restartedMain] INFO  com.yx.SpringbootApplication - No active profile set, falling back to default profiles: default
+2018-12-21 09:01:49.382 logback [restartedMain] WARN  o.m.s.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.yx.mapper.*]' package. Please check your configuration.
+2018-12-21 09:01:49.431 logback [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+2018-12-21 09:01:49.436 logback [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 5ms. Found 0 repository interfaces.
+2018-12-21 09:01:49.500 logback [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$fad623f1] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-21 09:01:49.579 logback [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8089 (http)
+2018-12-21 09:01:49.580 logback [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8089"]
+2018-12-21 09:01:49.581 logback [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2018-12-21 09:01:49.581 logback [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/9.0.13
+2018-12-21 09:01:49.626 logback [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2018-12-21 09:01:49.627 logback [restartedMain] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 475 ms
+2018-12-21 09:01:49.674 logback [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Starting...
+2018-12-21 09:01:49.679 logback [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Start completed.
+2018-12-21 09:01:49.686 logback [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-12-21 09:01:49.696 logback [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-12-21 09:01:49.711 logback [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-12-21 09:01:49.865 logback [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2018-12-21 09:01:49.870 logback [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration$JpaWebMvcConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2018-12-21 09:01:49.938 logback [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2018-12-21 09:01:49.951 logback [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8089"]
+2018-12-21 09:01:49.952 logback [restartedMain] INFO  o.a.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2018-12-21 09:01:49.964 logback [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8089 (http) with context path ''
+2018-12-21 09:01:49.965 logback [restartedMain] INFO  com.yx.SpringbootApplication - Started SpringbootApplication in 0.857 seconds (JVM running for 59736.035)
+2018-12-21 09:01:49.967 logback [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2018-12-21 09:26:48.753 logback [restartedMain] INFO  com.yx.SpringbootApplication - Starting SpringbootApplication on yx-PC with PID 118060 (E:\Workspaces_springboot\architecture_springboot\springboot\target\classes started by CJ in E:\Workspaces_springboot\architecture_springboot\springboot)
+2018-12-21 09:26:48.872 logback [restartedMain] INFO  com.yx.SpringbootApplication - No active profile set, falling back to default profiles: default
+2018-12-21 09:26:48.995 logback [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2018-12-21 09:26:48.995 logback [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2018-12-21 09:26:49.780 logback [restartedMain] WARN  o.m.s.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.yx.mapper.*]' package. Please check your configuration.
+2018-12-21 09:26:50.023 logback [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+2018-12-21 09:26:50.045 logback [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 11ms. Found 0 repository interfaces.
+2018-12-21 09:26:50.592 logback [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$89009fd3] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-21 09:26:51.314 logback [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8089 (http)
+2018-12-21 09:26:51.340 logback [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8089"]
+2018-12-21 09:26:51.356 logback [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2018-12-21 09:26:51.357 logback [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/9.0.13
+2018-12-21 09:26:51.370 logback [restartedMain] INFO  o.a.c.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Users\CJ\AppData\Local\MyEclipse CI\binary\com.sun.java.jdk10.win32.x86_64_1.10.1\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\app\CJ\product\11.2.0\client_1;E:\app\CJ\product\11.2.0\client_1\bin;C:\Program Files\Java\jdk1.7.0_07\bin;C:\Program Files\Java\jdk1.7.0_07\jre\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Skype\Phone\;C:\Program Files\TortoiseSVN\bin;C:\Program Files\Git\cmd;E:\mysql-5.6.21-win32\bin;F:\apache-maven-3.3.3\bin;;C:\Program Files\Microsoft VS Code\bin;.]
+2018-12-21 09:26:51.533 logback [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2018-12-21 09:26:51.533 logback [restartedMain] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 2538 ms
+2018-12-21 09:26:51.754 logback [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2018-12-21 09:26:51.961 logback [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2018-12-21 09:26:52.049 logback [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-12-21 09:26:52.148 logback [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.3.7.Final}
+2018-12-21 09:26:52.150 logback [restartedMain] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+2018-12-21 09:26:52.356 logback [restartedMain] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2018-12-21 09:26:52.545 logback [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-12-21 09:26:52.950 logback [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-12-21 09:26:53.550 logback [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2018-12-21 09:26:53.610 logback [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration$JpaWebMvcConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2018-12-21 09:26:53.850 logback [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2018-12-21 09:26:53.893 logback [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8089"]
+2018-12-21 09:26:53.905 logback [restartedMain] INFO  o.a.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2018-12-21 09:26:53.928 logback [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8089 (http) with context path ''
+2018-12-21 09:26:53.934 logback [restartedMain] INFO  com.yx.SpringbootApplication - Started SpringbootApplication in 6.046 seconds (JVM running for 6.965)
+2018-12-21 09:32:34.675 logback [restartedMain] INFO  com.yx.SpringbootApplication - Starting SpringbootApplication on yx-PC with PID 125212 (E:\Workspaces_springboot\architecture_springboot\springboot\target\classes started by CJ in E:\Workspaces_springboot\architecture_springboot\springboot)
+2018-12-21 09:32:34.679 logback [restartedMain] INFO  com.yx.SpringbootApplication - No active profile set, falling back to default profiles: default
+2018-12-21 09:32:34.759 logback [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2018-12-21 09:32:34.760 logback [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2018-12-21 09:32:35.626 logback [restartedMain] WARN  o.m.s.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.yx.mapper.*]' package. Please check your configuration.
+2018-12-21 09:32:35.893 logback [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+2018-12-21 09:32:35.919 logback [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 15ms. Found 0 repository interfaces.
+2018-12-21 09:32:36.581 logback [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$634f45ac] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-21 09:32:37.293 logback [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8089 (http)
+2018-12-21 09:32:37.315 logback [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8089"]
+2018-12-21 09:32:37.340 logback [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2018-12-21 09:32:37.341 logback [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/9.0.13
+2018-12-21 09:32:37.358 logback [restartedMain] INFO  o.a.c.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Users\CJ\AppData\Local\MyEclipse CI\binary\com.sun.java.jdk10.win32.x86_64_1.10.1\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\app\CJ\product\11.2.0\client_1;E:\app\CJ\product\11.2.0\client_1\bin;C:\Program Files\Java\jdk1.7.0_07\bin;C:\Program Files\Java\jdk1.7.0_07\jre\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Skype\Phone\;C:\Program Files\TortoiseSVN\bin;C:\Program Files\Git\cmd;E:\mysql-5.6.21-win32\bin;F:\apache-maven-3.3.3\bin;;C:\Program Files\Microsoft VS Code\bin;.]
+2018-12-21 09:32:37.556 logback [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2018-12-21 09:32:37.556 logback [restartedMain] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 2796 ms
+2018-12-21 09:32:37.796 logback [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2018-12-21 09:32:37.977 logback [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2018-12-21 09:32:38.066 logback [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-12-21 09:32:38.191 logback [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.3.7.Final}
+2018-12-21 09:32:38.195 logback [restartedMain] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+2018-12-21 09:32:38.397 logback [restartedMain] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2018-12-21 09:32:38.569 logback [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-12-21 09:32:38.865 logback [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-12-21 09:32:39.430 logback [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2018-12-21 09:32:39.494 logback [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration$JpaWebMvcConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2018-12-21 09:32:39.777 logback [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2018-12-21 09:32:39.818 logback [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8089"]
+2018-12-21 09:32:39.831 logback [restartedMain] INFO  o.a.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2018-12-21 09:32:39.866 logback [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8089 (http) with context path ''
+2018-12-21 09:32:39.871 logback [restartedMain] INFO  com.yx.SpringbootApplication - Started SpringbootApplication in 5.87 seconds (JVM running for 6.544)
+2018-12-21 09:32:52.610 logback [http-nio-8089-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2018-12-21 09:32:52.610 logback [http-nio-8089-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2018-12-21 09:32:52.626 logback [http-nio-8089-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 15 ms
+2018-12-21 09:32:52.814 logback [http-nio-8089-exec-1] DEBUG c.yx.dao.TestMapper.selectByExample - ==>  Preparing: select id, name, sex from test 
+2018-12-21 09:32:52.858 logback [http-nio-8089-exec-1] DEBUG c.yx.dao.TestMapper.selectByExample - ==> Parameters: 
+2018-12-21 09:32:52.888 logback [http-nio-8089-exec-1] DEBUG c.yx.dao.TestMapper.selectByExample - <==      Total: 3
+2018-12-21 09:33:08.514 logback [http-nio-8089-exec-4] DEBUG c.yx.dao.TestMapper.selectByExample - ==>  Preparing: select id, name, sex from test 
+2018-12-21 09:33:08.515 logback [http-nio-8089-exec-4] DEBUG c.yx.dao.TestMapper.selectByExample - ==> Parameters: 
+2018-12-21 09:33:08.522 logback [http-nio-8089-exec-4] DEBUG c.yx.dao.TestMapper.selectByExample - <==      Total: 3

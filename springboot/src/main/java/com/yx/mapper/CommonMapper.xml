@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yx.dao.CommonMapper" >
+	<select id="getDataTypeInfo" resultType="com.yx.entity.GetDataTypeDetailEntity" parameterType="com.yx.entity.GetDataTypeDetailParm" >
+		SELECT 
+			datatype.typeCode,datatypedetail.typeDetailCode,datatypedetail.typeDetailName
+		FROM
+			m_datatype datatype,m_datatypedetail datatypedetail
+		WHERE
+			datatype.typeCode = datatypedetail.typeCode
+			AND datatype.delflag = 0
+			AND datatypedetail.delflag = 0
+			AND datatype.typeCode = #{typeCode}
+		ORDER BY 
+			datatype.typeCode,datatypedetail.typeDetailCode
+	</select>
+	
+	<select id="getDataTypeInfoByDetailCode" resultType="String" parameterType="com.yx.entity.GetDataTypeInfoByDetailCodeParm" >
+		SELECT
+			typeDetailName
+		FROM
+			m_datatypedetail
+		WHERE
+			typeCode = #{typeCode}
+			AND typeDetailCode = #{typeDetailCode}
+			AND delflag = 0
+	</select>
+</mapper>

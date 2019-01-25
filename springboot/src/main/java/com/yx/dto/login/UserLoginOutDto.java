@@ -1,21 +1,25 @@
 package com.yx.dto.login;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import java.util.List;
 
-@Getter
-@Setter
-@ToString
-@EqualsAndHashCode
-public class UserLoginOutDto {
+import com.yx.dto.BaseOutDto;
+import com.yx.dto.examination.QuestionInfoDto;
+
+import lombok.Data;
+
+@Data
+public class UserLoginOutDto extends BaseOutDto {
+
+	// 学员编号
+	private String studentNo;
 	
-    private static final long serialVersionUID = 1L;
-    
-    // 用户名
-	private String returnCode;
+	// 身份证号
+	private String idCard;
 	
-	// 密码
-	private String msg;
+	// 姓名
+	private String name;
+	
+	// 所属单位
+	private String units;
+	
 }

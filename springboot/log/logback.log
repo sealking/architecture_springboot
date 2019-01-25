@@ -1,0 +1,618 @@
+2019-01-25 09:21:59.747 logback [http-nio-8089-exec-9] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==>  Preparing: SELECT datatype.typeCode,datatypedetail.typeDetailCode,datatypedetail.typeDetailName FROM m_datatype datatype,m_datatypedetail datatypedetail WHERE datatype.typeCode = datatypedetail.typeCode AND datatype.delflag = 0 AND datatypedetail.delflag = 0 AND datatype.typeCode = ? ORDER BY datatype.typeCode,datatypedetail.typeDetailCode 
+2019-01-25 09:21:59.756 logback [http-nio-8089-exec-9] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==> Parameters: gz(String)
+2019-01-25 09:21:59.745 logback [http-nio-8089-exec-10] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==>  Preparing: SELECT datatype.typeCode,datatypedetail.typeDetailCode,datatypedetail.typeDetailName FROM m_datatype datatype,m_datatypedetail datatypedetail WHERE datatype.typeCode = datatypedetail.typeCode AND datatype.delflag = 0 AND datatypedetail.delflag = 0 AND datatype.typeCode = ? ORDER BY datatype.typeCode,datatypedetail.typeDetailCode 
+2019-01-25 09:21:59.762 logback [http-nio-8089-exec-10] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==> Parameters: pxcc(String)
+2019-01-25 09:21:59.764 logback [http-nio-8089-exec-10] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - <==      Total: 3
+2019-01-25 09:21:59.746 logback [http-nio-8089-exec-5] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==>  Preparing: SELECT datatype.typeCode,datatypedetail.typeDetailCode,datatypedetail.typeDetailName FROM m_datatype datatype,m_datatypedetail datatypedetail WHERE datatype.typeCode = datatypedetail.typeCode AND datatype.delflag = 0 AND datatypedetail.delflag = 0 AND datatype.typeCode = ? ORDER BY datatype.typeCode,datatypedetail.typeDetailCode 
+2019-01-25 09:21:59.767 logback [http-nio-8089-exec-5] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==> Parameters: pxlb(String)
+2019-01-25 09:21:59.768 logback [http-nio-8089-exec-5] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - <==      Total: 2
+2019-01-25 09:21:59.758 logback [http-nio-8089-exec-9] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - <==      Total: 4
+2019-01-25 09:22:02.193 logback [http-nio-8089-exec-6] DEBUG c.y.d.E.getQuestionsType - ==>  Preparing: SELECT tksd.tmzl,SUM(tksd.tmsl) AS tmsl FROM b_tkxx tkxx, b_tksd tksd WHERE tkxx.gz = ? AND tkxx.tkbh = tksd.tkbh AND tkxx.delFlag = 0 AND tksd.delFlag = 0 GROUP BY tksd.tmzl 
+2019-01-25 09:22:02.194 logback [http-nio-8089-exec-6] DEBUG c.y.d.E.getQuestionsType - ==> Parameters: 1(String)
+2019-01-25 09:22:02.196 logback [http-nio-8089-exec-6] DEBUG c.y.d.E.getQuestionsType - <==      Total: 2
+2019-01-25 09:22:02.197 logback [http-nio-8089-exec-6] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==>  Preparing: SELECT typeDetailName FROM m_datatypedetail WHERE typeCode = ? AND typeDetailCode = ? AND delflag = 0 
+2019-01-25 09:22:02.197 logback [http-nio-8089-exec-6] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==> Parameters: tmzl(String), 1(String)
+2019-01-25 09:22:02.198 logback [http-nio-8089-exec-6] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - <==      Total: 1
+2019-01-25 09:22:02.199 logback [http-nio-8089-exec-6] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==>  Preparing: SELECT typeDetailName FROM m_datatypedetail WHERE typeCode = ? AND typeDetailCode = ? AND delflag = 0 
+2019-01-25 09:22:02.199 logback [http-nio-8089-exec-6] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==> Parameters: tmzl(String), 2(String)
+2019-01-25 09:22:02.200 logback [http-nio-8089-exec-6] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - <==      Total: 1
+2019-01-25 09:22:03.283 logback [http-nio-8089-exec-8] DEBUG c.y.d.E.getExamListByStuNo - ==>  Preparing: SELECT tkls.xybh, tkls.tkbh, tkls.sdrq FROM b_tkls tkls, b_tkxx tkxx WHERE tkls.xybh = ? AND tkls.tkbh = tkxx.tkbh AND tkxx.gz = ? AND tkls.delFlag = 0 GROUP BY tkls.tkbh,tkls.sdrq ORDER BY tkls.sdrq 
+2019-01-25 09:22:03.284 logback [http-nio-8089-exec-8] DEBUG c.y.d.E.getExamListByStuNo - ==> Parameters: 402881e667bb958b0167bba3a9ae0002(String), 1(String)
+2019-01-25 09:22:03.286 logback [http-nio-8089-exec-8] DEBUG c.y.d.E.getExamListByStuNo - <==      Total: 12
+2019-01-25 09:22:06.056 logback [http-nio-8089-exec-7] DEBUG c.y.d.E.getQuestionsByDate - ==>  Preparing: SELECT tmxx.tmbh, tmxx.tmzl, tmxx.tmlx, tmxx.tmnr, tmxx.tmxx, tmxx.tmda, tmxx.tmfz FROM b_tkls tkls, b_tmxx tmxx WHERE tkls.xybh = ? AND tkls.tkbh = ? AND tkls.sdrq = ? AND tkls.tmbh = tmxx.tmbh AND tkls.delflag = 0 AND tmxx.delflag = 0 ORDER BY tmxx.tmlx,tmxx.tmzl,tmxx.createtime 
+2019-01-25 09:22:06.057 logback [http-nio-8089-exec-7] DEBUG c.y.d.E.getQuestionsByDate - ==> Parameters: 402881e667bb958b0167bba3a9ae0002(String), 001(String), 2019-01-18 13:41:16(String)
+2019-01-25 09:22:06.066 logback [http-nio-8089-exec-7] DEBUG c.y.d.E.getQuestionsByDate - <==      Total: 6
+2019-01-25 09:23:39.731 logback [http-nio-8089-exec-4] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==>  Preparing: SELECT datatype.typeCode,datatypedetail.typeDetailCode,datatypedetail.typeDetailName FROM m_datatype datatype,m_datatypedetail datatypedetail WHERE datatype.typeCode = datatypedetail.typeCode AND datatype.delflag = 0 AND datatypedetail.delflag = 0 AND datatype.typeCode = ? ORDER BY datatype.typeCode,datatypedetail.typeDetailCode 
+2019-01-25 09:23:39.732 logback [http-nio-8089-exec-4] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==> Parameters: pxlb(String)
+2019-01-25 09:23:39.733 logback [http-nio-8089-exec-4] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - <==      Total: 2
+2019-01-25 09:23:39.743 logback [http-nio-8089-exec-10] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==>  Preparing: SELECT datatype.typeCode,datatypedetail.typeDetailCode,datatypedetail.typeDetailName FROM m_datatype datatype,m_datatypedetail datatypedetail WHERE datatype.typeCode = datatypedetail.typeCode AND datatype.delflag = 0 AND datatypedetail.delflag = 0 AND datatype.typeCode = ? ORDER BY datatype.typeCode,datatypedetail.typeDetailCode 
+2019-01-25 09:23:39.744 logback [http-nio-8089-exec-10] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==> Parameters: pxcc(String)
+2019-01-25 09:23:39.745 logback [http-nio-8089-exec-10] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - <==      Total: 3
+2019-01-25 09:23:39.760 logback [http-nio-8089-exec-5] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==>  Preparing: SELECT datatype.typeCode,datatypedetail.typeDetailCode,datatypedetail.typeDetailName FROM m_datatype datatype,m_datatypedetail datatypedetail WHERE datatype.typeCode = datatypedetail.typeCode AND datatype.delflag = 0 AND datatypedetail.delflag = 0 AND datatype.typeCode = ? ORDER BY datatype.typeCode,datatypedetail.typeDetailCode 
+2019-01-25 09:23:39.761 logback [http-nio-8089-exec-5] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==> Parameters: gz(String)
+2019-01-25 09:23:39.762 logback [http-nio-8089-exec-5] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - <==      Total: 4
+2019-01-25 09:23:42.511 logback [http-nio-8089-exec-9] DEBUG c.y.d.E.getQuestionsType - ==>  Preparing: SELECT tksd.tmzl,SUM(tksd.tmsl) AS tmsl FROM b_tkxx tkxx, b_tksd tksd WHERE tkxx.gz = ? AND tkxx.tkbh = tksd.tkbh AND tkxx.delFlag = 0 AND tksd.delFlag = 0 GROUP BY tksd.tmzl 
+2019-01-25 09:23:42.511 logback [http-nio-8089-exec-9] DEBUG c.y.d.E.getQuestionsType - ==> Parameters: 1(String)
+2019-01-25 09:23:42.514 logback [http-nio-8089-exec-9] DEBUG c.y.d.E.getQuestionsType - <==      Total: 2
+2019-01-25 09:23:42.517 logback [http-nio-8089-exec-9] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==>  Preparing: SELECT typeDetailName FROM m_datatypedetail WHERE typeCode = ? AND typeDetailCode = ? AND delflag = 0 
+2019-01-25 09:23:42.517 logback [http-nio-8089-exec-9] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==> Parameters: tmzl(String), 1(String)
+2019-01-25 09:23:42.519 logback [http-nio-8089-exec-9] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - <==      Total: 1
+2019-01-25 09:23:42.520 logback [http-nio-8089-exec-9] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==>  Preparing: SELECT typeDetailName FROM m_datatypedetail WHERE typeCode = ? AND typeDetailCode = ? AND delflag = 0 
+2019-01-25 09:23:42.520 logback [http-nio-8089-exec-9] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==> Parameters: tmzl(String), 2(String)
+2019-01-25 09:23:42.522 logback [http-nio-8089-exec-9] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - <==      Total: 1
+2019-01-25 09:23:43.144 logback [http-nio-8089-exec-6] DEBUG c.y.d.E.getExamListByStuNo - ==>  Preparing: SELECT tkls.xybh, tkls.tkbh, tkls.sdrq FROM b_tkls tkls, b_tkxx tkxx WHERE tkls.xybh = ? AND tkls.tkbh = tkxx.tkbh AND tkxx.gz = ? AND tkls.delFlag = 0 GROUP BY tkls.tkbh,tkls.sdrq ORDER BY tkls.sdrq 
+2019-01-25 09:23:43.144 logback [http-nio-8089-exec-6] DEBUG c.y.d.E.getExamListByStuNo - ==> Parameters: 402881e667bb958b0167bba3a9ae0002(String), 1(String)
+2019-01-25 09:23:43.147 logback [http-nio-8089-exec-6] DEBUG c.y.d.E.getExamListByStuNo - <==      Total: 12
+2019-01-25 09:23:45.213 logback [http-nio-8089-exec-8] DEBUG c.y.d.E.getQuestionsByDate - ==>  Preparing: SELECT tmxx.tmbh, tmxx.tmzl, tmxx.tmlx, tmxx.tmnr, tmxx.tmxx, tmxx.tmda, tmxx.tmfz FROM b_tkls tkls, b_tmxx tmxx WHERE tkls.xybh = ? AND tkls.tkbh = ? AND tkls.sdrq = ? AND tkls.tmbh = tmxx.tmbh AND tkls.delflag = 0 AND tmxx.delflag = 0 ORDER BY tmxx.tmlx,tmxx.tmzl,tmxx.createtime 
+2019-01-25 09:23:45.213 logback [http-nio-8089-exec-8] DEBUG c.y.d.E.getQuestionsByDate - ==> Parameters: 402881e667bb958b0167bba3a9ae0002(String), 001(String), 2019-01-18 13:28:41(String)
+2019-01-25 09:23:45.217 logback [http-nio-8089-exec-8] DEBUG c.y.d.E.getQuestionsByDate - <==      Total: 6
+2019-01-25 09:57:29.127 logback [http-nio-8089-exec-4] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==>  Preparing: SELECT datatype.typeCode,datatypedetail.typeDetailCode,datatypedetail.typeDetailName FROM m_datatype datatype,m_datatypedetail datatypedetail WHERE datatype.typeCode = datatypedetail.typeCode AND datatype.delflag = 0 AND datatypedetail.delflag = 0 AND datatype.typeCode = ? ORDER BY datatype.typeCode,datatypedetail.typeDetailCode 
+2019-01-25 09:57:29.127 logback [http-nio-8089-exec-4] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==> Parameters: pxcc(String)
+2019-01-25 09:57:29.128 logback [http-nio-8089-exec-2] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==>  Preparing: SELECT datatype.typeCode,datatypedetail.typeDetailCode,datatypedetail.typeDetailName FROM m_datatype datatype,m_datatypedetail datatypedetail WHERE datatype.typeCode = datatypedetail.typeCode AND datatype.delflag = 0 AND datatypedetail.delflag = 0 AND datatype.typeCode = ? ORDER BY datatype.typeCode,datatypedetail.typeDetailCode 
+2019-01-25 09:57:29.129 logback [http-nio-8089-exec-2] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==> Parameters: pxlb(String)
+2019-01-25 09:57:29.130 logback [http-nio-8089-exec-4] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - <==      Total: 3
+2019-01-25 09:57:29.130 logback [http-nio-8089-exec-2] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - <==      Total: 2
+2019-01-25 09:57:29.144 logback [http-nio-8089-exec-10] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==>  Preparing: SELECT datatype.typeCode,datatypedetail.typeDetailCode,datatypedetail.typeDetailName FROM m_datatype datatype,m_datatypedetail datatypedetail WHERE datatype.typeCode = datatypedetail.typeCode AND datatype.delflag = 0 AND datatypedetail.delflag = 0 AND datatype.typeCode = ? ORDER BY datatype.typeCode,datatypedetail.typeDetailCode 
+2019-01-25 09:57:29.144 logback [http-nio-8089-exec-10] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==> Parameters: gz(String)
+2019-01-25 09:57:29.145 logback [http-nio-8089-exec-10] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - <==      Total: 4
+2019-01-25 09:57:30.867 logback [http-nio-8089-exec-5] DEBUG c.y.d.E.getQuestionsType - ==>  Preparing: SELECT tksd.tmzl,SUM(tksd.tmsl) AS tmsl FROM b_tkxx tkxx, b_tksd tksd WHERE tkxx.gz = ? AND tkxx.tkbh = tksd.tkbh AND tkxx.delFlag = 0 AND tksd.delFlag = 0 GROUP BY tksd.tmzl 
+2019-01-25 09:57:30.867 logback [http-nio-8089-exec-5] DEBUG c.y.d.E.getQuestionsType - ==> Parameters: 1(String)
+2019-01-25 09:57:30.870 logback [http-nio-8089-exec-5] DEBUG c.y.d.E.getQuestionsType - <==      Total: 2
+2019-01-25 09:57:30.871 logback [http-nio-8089-exec-5] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==>  Preparing: SELECT typeDetailName FROM m_datatypedetail WHERE typeCode = ? AND typeDetailCode = ? AND delflag = 0 
+2019-01-25 09:57:30.871 logback [http-nio-8089-exec-5] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==> Parameters: tmzl(String), 1(String)
+2019-01-25 09:57:30.874 logback [http-nio-8089-exec-5] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - <==      Total: 1
+2019-01-25 09:57:30.875 logback [http-nio-8089-exec-5] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==>  Preparing: SELECT typeDetailName FROM m_datatypedetail WHERE typeCode = ? AND typeDetailCode = ? AND delflag = 0 
+2019-01-25 09:57:30.875 logback [http-nio-8089-exec-5] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==> Parameters: tmzl(String), 2(String)
+2019-01-25 09:57:30.878 logback [http-nio-8089-exec-5] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - <==      Total: 1
+2019-01-25 09:57:31.863 logback [http-nio-8089-exec-9] DEBUG c.y.d.E.getExamListByStuNo - ==>  Preparing: SELECT tkls.xybh, tkls.tkbh, tkls.sdrq FROM b_tkls tkls, b_tkxx tkxx WHERE tkls.xybh = ? AND tkls.tkbh = tkxx.tkbh AND tkxx.gz = ? AND tkls.delFlag = 0 GROUP BY tkls.tkbh,tkls.sdrq ORDER BY tkls.sdrq 
+2019-01-25 09:57:31.863 logback [http-nio-8089-exec-9] DEBUG c.y.d.E.getExamListByStuNo - ==> Parameters: 402881e667bb958b0167bba3a9ae0002(String), 1(String)
+2019-01-25 09:57:31.865 logback [http-nio-8089-exec-9] DEBUG c.y.d.E.getExamListByStuNo - <==      Total: 12
+2019-01-25 09:57:33.588 logback [http-nio-8089-exec-6] DEBUG c.y.d.E.getQuestionsByDate - ==>  Preparing: SELECT tmxx.tmbh, tmxx.tmzl, tmxx.tmlx, tmxx.tmnr, tmxx.tmxx, tmxx.tmda, tmxx.tmfz FROM b_tkls tkls, b_tmxx tmxx WHERE tkls.xybh = ? AND tkls.tkbh = ? AND tkls.sdrq = ? AND tkls.tmbh = tmxx.tmbh AND tkls.delflag = 0 AND tmxx.delflag = 0 ORDER BY tmxx.tmlx,tmxx.tmzl,tmxx.createtime 
+2019-01-25 09:57:33.589 logback [http-nio-8089-exec-6] DEBUG c.y.d.E.getQuestionsByDate - ==> Parameters: 402881e667bb958b0167bba3a9ae0002(String), 001(String), 2019-01-18 13:28:41(String)
+2019-01-25 09:57:33.592 logback [http-nio-8089-exec-6] DEBUG c.y.d.E.getQuestionsByDate - <==      Total: 6
+2019-01-25 10:06:57.470 logback [http-nio-8089-exec-3] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==>  Preparing: SELECT datatype.typeCode,datatypedetail.typeDetailCode,datatypedetail.typeDetailName FROM m_datatype datatype,m_datatypedetail datatypedetail WHERE datatype.typeCode = datatypedetail.typeCode AND datatype.delflag = 0 AND datatypedetail.delflag = 0 AND datatype.typeCode = ? ORDER BY datatype.typeCode,datatypedetail.typeDetailCode 
+2019-01-25 10:06:57.471 logback [http-nio-8089-exec-3] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==> Parameters: pxcc(String)
+2019-01-25 10:06:57.472 logback [http-nio-8089-exec-3] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - <==      Total: 3
+2019-01-25 10:06:57.479 logback [http-nio-8089-exec-3] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==>  Preparing: SELECT datatype.typeCode,datatypedetail.typeDetailCode,datatypedetail.typeDetailName FROM m_datatype datatype,m_datatypedetail datatypedetail WHERE datatype.typeCode = datatypedetail.typeCode AND datatype.delflag = 0 AND datatypedetail.delflag = 0 AND datatype.typeCode = ? ORDER BY datatype.typeCode,datatypedetail.typeDetailCode 
+2019-01-25 10:06:57.479 logback [http-nio-8089-exec-3] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==> Parameters: gz(String)
+2019-01-25 10:06:57.480 logback [http-nio-8089-exec-3] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - <==      Total: 4
+2019-01-25 10:06:57.488 logback [http-nio-8089-exec-4] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==>  Preparing: SELECT datatype.typeCode,datatypedetail.typeDetailCode,datatypedetail.typeDetailName FROM m_datatype datatype,m_datatypedetail datatypedetail WHERE datatype.typeCode = datatypedetail.typeCode AND datatype.delflag = 0 AND datatypedetail.delflag = 0 AND datatype.typeCode = ? ORDER BY datatype.typeCode,datatypedetail.typeDetailCode 
+2019-01-25 10:06:57.488 logback [http-nio-8089-exec-4] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==> Parameters: pxlb(String)
+2019-01-25 10:06:57.489 logback [http-nio-8089-exec-4] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - <==      Total: 2
+2019-01-25 10:06:59.148 logback [http-nio-8089-exec-10] DEBUG c.y.d.E.getQuestionsType - ==>  Preparing: SELECT tksd.tmzl,SUM(tksd.tmsl) AS tmsl FROM b_tkxx tkxx, b_tksd tksd WHERE tkxx.gz = ? AND tkxx.tkbh = tksd.tkbh AND tkxx.delFlag = 0 AND tksd.delFlag = 0 GROUP BY tksd.tmzl 
+2019-01-25 10:06:59.148 logback [http-nio-8089-exec-10] DEBUG c.y.d.E.getQuestionsType - ==> Parameters: 1(String)
+2019-01-25 10:06:59.151 logback [http-nio-8089-exec-10] DEBUG c.y.d.E.getQuestionsType - <==      Total: 2
+2019-01-25 10:06:59.151 logback [http-nio-8089-exec-10] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==>  Preparing: SELECT typeDetailName FROM m_datatypedetail WHERE typeCode = ? AND typeDetailCode = ? AND delflag = 0 
+2019-01-25 10:06:59.151 logback [http-nio-8089-exec-10] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==> Parameters: tmzl(String), 1(String)
+2019-01-25 10:06:59.152 logback [http-nio-8089-exec-10] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - <==      Total: 1
+2019-01-25 10:06:59.153 logback [http-nio-8089-exec-10] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==>  Preparing: SELECT typeDetailName FROM m_datatypedetail WHERE typeCode = ? AND typeDetailCode = ? AND delflag = 0 
+2019-01-25 10:06:59.153 logback [http-nio-8089-exec-10] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==> Parameters: tmzl(String), 2(String)
+2019-01-25 10:06:59.155 logback [http-nio-8089-exec-10] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - <==      Total: 1
+2019-01-25 10:06:59.789 logback [http-nio-8089-exec-5] DEBUG c.y.d.E.getExamListByStuNo - ==>  Preparing: SELECT tkls.xybh, tkls.tkbh, tkls.sdrq FROM b_tkls tkls, b_tkxx tkxx WHERE tkls.xybh = ? AND tkls.tkbh = tkxx.tkbh AND tkxx.gz = ? AND tkls.delFlag = 0 GROUP BY tkls.tkbh,tkls.sdrq ORDER BY tkls.sdrq 
+2019-01-25 10:06:59.790 logback [http-nio-8089-exec-5] DEBUG c.y.d.E.getExamListByStuNo - ==> Parameters: 402881e667bb958b0167bba3a9ae0002(String), 1(String)
+2019-01-25 10:06:59.792 logback [http-nio-8089-exec-5] DEBUG c.y.d.E.getExamListByStuNo - <==      Total: 12
+2019-01-25 10:07:01.667 logback [http-nio-8089-exec-9] DEBUG c.y.d.E.getQuestionsByDate - ==>  Preparing: SELECT tmxx.tmbh, tmxx.tmzl, tmxx.tmlx, tmxx.tmnr, tmxx.tmxx, tmxx.tmda, tmxx.tmfz FROM b_tkls tkls, b_tmxx tmxx WHERE tkls.xybh = ? AND tkls.tkbh = ? AND tkls.sdrq = ? AND tkls.tmbh = tmxx.tmbh AND tkls.delflag = 0 AND tmxx.delflag = 0 ORDER BY tmxx.tmlx,tmxx.tmzl,tmxx.createtime 
+2019-01-25 10:07:01.668 logback [http-nio-8089-exec-9] DEBUG c.y.d.E.getQuestionsByDate - ==> Parameters: 402881e667bb958b0167bba3a9ae0002(String), 001(String), 2019-01-18 13:28:41(String)
+2019-01-25 10:07:01.671 logback [http-nio-8089-exec-9] DEBUG c.y.d.E.getQuestionsByDate - <==      Total: 6
+2019-01-25 10:10:04.969 logback [http-nio-8089-exec-3] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==>  Preparing: SELECT datatype.typeCode,datatypedetail.typeDetailCode,datatypedetail.typeDetailName FROM m_datatype datatype,m_datatypedetail datatypedetail WHERE datatype.typeCode = datatypedetail.typeCode AND datatype.delflag = 0 AND datatypedetail.delflag = 0 AND datatype.typeCode = ? ORDER BY datatype.typeCode,datatypedetail.typeDetailCode 
+2019-01-25 10:10:04.970 logback [http-nio-8089-exec-3] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==> Parameters: pxcc(String)
+2019-01-25 10:10:04.971 logback [http-nio-8089-exec-3] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - <==      Total: 3
+2019-01-25 10:10:04.974 logback [http-nio-8089-exec-4] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==>  Preparing: SELECT datatype.typeCode,datatypedetail.typeDetailCode,datatypedetail.typeDetailName FROM m_datatype datatype,m_datatypedetail datatypedetail WHERE datatype.typeCode = datatypedetail.typeCode AND datatype.delflag = 0 AND datatypedetail.delflag = 0 AND datatype.typeCode = ? ORDER BY datatype.typeCode,datatypedetail.typeDetailCode 
+2019-01-25 10:10:04.974 logback [http-nio-8089-exec-4] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==> Parameters: gz(String)
+2019-01-25 10:10:04.976 logback [http-nio-8089-exec-4] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - <==      Total: 4
+2019-01-25 10:10:04.981 logback [http-nio-8089-exec-1] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==>  Preparing: SELECT datatype.typeCode,datatypedetail.typeDetailCode,datatypedetail.typeDetailName FROM m_datatype datatype,m_datatypedetail datatypedetail WHERE datatype.typeCode = datatypedetail.typeCode AND datatype.delflag = 0 AND datatypedetail.delflag = 0 AND datatype.typeCode = ? ORDER BY datatype.typeCode,datatypedetail.typeDetailCode 
+2019-01-25 10:10:04.982 logback [http-nio-8089-exec-1] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==> Parameters: pxlb(String)
+2019-01-25 10:10:04.983 logback [http-nio-8089-exec-1] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - <==      Total: 2
+2019-01-25 10:10:06.596 logback [http-nio-8089-exec-2] DEBUG c.y.d.E.getQuestionsType - ==>  Preparing: SELECT tksd.tmzl,SUM(tksd.tmsl) AS tmsl FROM b_tkxx tkxx, b_tksd tksd WHERE tkxx.gz = ? AND tkxx.tkbh = tksd.tkbh AND tkxx.delFlag = 0 AND tksd.delFlag = 0 GROUP BY tksd.tmzl 
+2019-01-25 10:10:06.596 logback [http-nio-8089-exec-2] DEBUG c.y.d.E.getQuestionsType - ==> Parameters: 1(String)
+2019-01-25 10:10:06.598 logback [http-nio-8089-exec-2] DEBUG c.y.d.E.getQuestionsType - <==      Total: 2
+2019-01-25 10:10:06.599 logback [http-nio-8089-exec-2] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==>  Preparing: SELECT typeDetailName FROM m_datatypedetail WHERE typeCode = ? AND typeDetailCode = ? AND delflag = 0 
+2019-01-25 10:10:06.599 logback [http-nio-8089-exec-2] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==> Parameters: tmzl(String), 1(String)
+2019-01-25 10:10:06.600 logback [http-nio-8089-exec-2] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - <==      Total: 1
+2019-01-25 10:10:06.601 logback [http-nio-8089-exec-2] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==>  Preparing: SELECT typeDetailName FROM m_datatypedetail WHERE typeCode = ? AND typeDetailCode = ? AND delflag = 0 
+2019-01-25 10:10:06.603 logback [http-nio-8089-exec-2] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==> Parameters: tmzl(String), 2(String)
+2019-01-25 10:10:06.604 logback [http-nio-8089-exec-2] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - <==      Total: 1
+2019-01-25 10:10:07.270 logback [http-nio-8089-exec-10] DEBUG c.y.d.E.getExamListByStuNo - ==>  Preparing: SELECT tkls.xybh, tkls.tkbh, tkls.sdrq FROM b_tkls tkls, b_tkxx tkxx WHERE tkls.xybh = ? AND tkls.tkbh = tkxx.tkbh AND tkxx.gz = ? AND tkls.delFlag = 0 GROUP BY tkls.tkbh,tkls.sdrq ORDER BY tkls.sdrq 
+2019-01-25 10:10:07.270 logback [http-nio-8089-exec-10] DEBUG c.y.d.E.getExamListByStuNo - ==> Parameters: 402881e667bb958b0167bba3a9ae0002(String), 1(String)
+2019-01-25 10:10:07.272 logback [http-nio-8089-exec-10] DEBUG c.y.d.E.getExamListByStuNo - <==      Total: 12
+2019-01-25 10:10:09.326 logback [http-nio-8089-exec-5] DEBUG c.y.d.E.getQuestionsByDate - ==>  Preparing: SELECT tmxx.tmbh, tmxx.tmzl, tmxx.tmlx, tmxx.tmnr, tmxx.tmxx, tmxx.tmda, tmxx.tmfz FROM b_tkls tkls, b_tmxx tmxx WHERE tkls.xybh = ? AND tkls.tkbh = ? AND tkls.sdrq = ? AND tkls.tmbh = tmxx.tmbh AND tkls.delflag = 0 AND tmxx.delflag = 0 ORDER BY tmxx.tmlx,tmxx.tmzl,tmxx.createtime 
+2019-01-25 10:10:09.327 logback [http-nio-8089-exec-5] DEBUG c.y.d.E.getQuestionsByDate - ==> Parameters: 402881e667bb958b0167bba3a9ae0002(String), 001(String), 2019-01-18 13:28:41(String)
+2019-01-25 10:10:09.330 logback [http-nio-8089-exec-5] DEBUG c.y.d.E.getQuestionsByDate - <==      Total: 6
+2019-01-25 10:12:31.117 logback [http-nio-8089-exec-3] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==>  Preparing: SELECT datatype.typeCode,datatypedetail.typeDetailCode,datatypedetail.typeDetailName FROM m_datatype datatype,m_datatypedetail datatypedetail WHERE datatype.typeCode = datatypedetail.typeCode AND datatype.delflag = 0 AND datatypedetail.delflag = 0 AND datatype.typeCode = ? ORDER BY datatype.typeCode,datatypedetail.typeDetailCode 
+2019-01-25 10:12:31.118 logback [http-nio-8089-exec-3] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==> Parameters: pxcc(String)
+2019-01-25 10:12:31.120 logback [http-nio-8089-exec-3] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - <==      Total: 3
+2019-01-25 10:12:31.130 logback [http-nio-8089-exec-7] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==>  Preparing: SELECT datatype.typeCode,datatypedetail.typeDetailCode,datatypedetail.typeDetailName FROM m_datatype datatype,m_datatypedetail datatypedetail WHERE datatype.typeCode = datatypedetail.typeCode AND datatype.delflag = 0 AND datatypedetail.delflag = 0 AND datatype.typeCode = ? ORDER BY datatype.typeCode,datatypedetail.typeDetailCode 
+2019-01-25 10:12:31.130 logback [http-nio-8089-exec-7] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==> Parameters: pxlb(String)
+2019-01-25 10:12:31.131 logback [http-nio-8089-exec-7] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - <==      Total: 2
+2019-01-25 10:12:31.135 logback [http-nio-8089-exec-4] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==>  Preparing: SELECT datatype.typeCode,datatypedetail.typeDetailCode,datatypedetail.typeDetailName FROM m_datatype datatype,m_datatypedetail datatypedetail WHERE datatype.typeCode = datatypedetail.typeCode AND datatype.delflag = 0 AND datatypedetail.delflag = 0 AND datatype.typeCode = ? ORDER BY datatype.typeCode,datatypedetail.typeDetailCode 
+2019-01-25 10:12:31.136 logback [http-nio-8089-exec-4] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==> Parameters: gz(String)
+2019-01-25 10:12:31.137 logback [http-nio-8089-exec-4] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - <==      Total: 4
+2019-01-25 10:12:33.087 logback [http-nio-8089-exec-1] DEBUG c.y.d.E.getQuestionsType - ==>  Preparing: SELECT tksd.tmzl,SUM(tksd.tmsl) AS tmsl FROM b_tkxx tkxx, b_tksd tksd WHERE tkxx.gz = ? AND tkxx.tkbh = tksd.tkbh AND tkxx.delFlag = 0 AND tksd.delFlag = 0 GROUP BY tksd.tmzl 
+2019-01-25 10:12:33.087 logback [http-nio-8089-exec-1] DEBUG c.y.d.E.getQuestionsType - ==> Parameters: 1(String)
+2019-01-25 10:12:33.088 logback [http-nio-8089-exec-1] DEBUG c.y.d.E.getQuestionsType - <==      Total: 2
+2019-01-25 10:12:33.089 logback [http-nio-8089-exec-1] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==>  Preparing: SELECT typeDetailName FROM m_datatypedetail WHERE typeCode = ? AND typeDetailCode = ? AND delflag = 0 
+2019-01-25 10:12:33.090 logback [http-nio-8089-exec-1] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==> Parameters: tmzl(String), 1(String)
+2019-01-25 10:12:33.091 logback [http-nio-8089-exec-1] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - <==      Total: 1
+2019-01-25 10:12:33.091 logback [http-nio-8089-exec-1] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==>  Preparing: SELECT typeDetailName FROM m_datatypedetail WHERE typeCode = ? AND typeDetailCode = ? AND delflag = 0 
+2019-01-25 10:12:33.091 logback [http-nio-8089-exec-1] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==> Parameters: tmzl(String), 2(String)
+2019-01-25 10:12:33.094 logback [http-nio-8089-exec-1] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - <==      Total: 1
+2019-01-25 10:12:33.680 logback [http-nio-8089-exec-2] DEBUG c.y.d.E.getExamListByStuNo - ==>  Preparing: SELECT tkls.xybh, tkls.tkbh, tkls.sdrq FROM b_tkls tkls, b_tkxx tkxx WHERE tkls.xybh = ? AND tkls.tkbh = tkxx.tkbh AND tkxx.gz = ? AND tkls.delFlag = 0 GROUP BY tkls.tkbh,tkls.sdrq ORDER BY tkls.sdrq 
+2019-01-25 10:12:33.680 logback [http-nio-8089-exec-2] DEBUG c.y.d.E.getExamListByStuNo - ==> Parameters: 402881e667bb958b0167bba3a9ae0002(String), 1(String)
+2019-01-25 10:12:33.684 logback [http-nio-8089-exec-2] DEBUG c.y.d.E.getExamListByStuNo - <==      Total: 12
+2019-01-25 10:12:36.462 logback [http-nio-8089-exec-10] DEBUG c.y.d.E.getQuestionsByDate - ==>  Preparing: SELECT tmxx.tmbh, tmxx.tmzl, tmxx.tmlx, tmxx.tmnr, tmxx.tmxx, tmxx.tmda, tmxx.tmfz FROM b_tkls tkls, b_tmxx tmxx WHERE tkls.xybh = ? AND tkls.tkbh = ? AND tkls.sdrq = ? AND tkls.tmbh = tmxx.tmbh AND tkls.delflag = 0 AND tmxx.delflag = 0 ORDER BY tmxx.tmlx,tmxx.tmzl,tmxx.createtime 
+2019-01-25 10:12:36.466 logback [http-nio-8089-exec-10] DEBUG c.y.d.E.getQuestionsByDate - ==> Parameters: 402881e667bb958b0167bba3a9ae0002(String), 001(String), 2019-01-18 13:28:41(String)
+2019-01-25 10:12:36.469 logback [http-nio-8089-exec-10] DEBUG c.y.d.E.getQuestionsByDate - <==      Total: 6
+2019-01-25 10:29:24.469 logback [http-nio-8089-exec-8] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==>  Preparing: SELECT datatype.typeCode,datatypedetail.typeDetailCode,datatypedetail.typeDetailName FROM m_datatype datatype,m_datatypedetail datatypedetail WHERE datatype.typeCode = datatypedetail.typeCode AND datatype.delflag = 0 AND datatypedetail.delflag = 0 AND datatype.typeCode = ? ORDER BY datatype.typeCode,datatypedetail.typeDetailCode 
+2019-01-25 10:29:24.470 logback [http-nio-8089-exec-3] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==>  Preparing: SELECT datatype.typeCode,datatypedetail.typeDetailCode,datatypedetail.typeDetailName FROM m_datatype datatype,m_datatypedetail datatypedetail WHERE datatype.typeCode = datatypedetail.typeCode AND datatype.delflag = 0 AND datatypedetail.delflag = 0 AND datatype.typeCode = ? ORDER BY datatype.typeCode,datatypedetail.typeDetailCode 
+2019-01-25 10:29:24.470 logback [http-nio-8089-exec-3] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==> Parameters: pxcc(String)
+2019-01-25 10:29:24.470 logback [http-nio-8089-exec-8] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==> Parameters: pxlb(String)
+2019-01-25 10:29:24.470 logback [http-nio-8089-exec-7] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==>  Preparing: SELECT datatype.typeCode,datatypedetail.typeDetailCode,datatypedetail.typeDetailName FROM m_datatype datatype,m_datatypedetail datatypedetail WHERE datatype.typeCode = datatypedetail.typeCode AND datatype.delflag = 0 AND datatypedetail.delflag = 0 AND datatype.typeCode = ? ORDER BY datatype.typeCode,datatypedetail.typeDetailCode 
+2019-01-25 10:29:24.471 logback [http-nio-8089-exec-8] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - <==      Total: 2
+2019-01-25 10:29:24.473 logback [http-nio-8089-exec-7] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==> Parameters: gz(String)
+2019-01-25 10:29:24.477 logback [http-nio-8089-exec-3] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - <==      Total: 3
+2019-01-25 10:29:24.479 logback [http-nio-8089-exec-7] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - <==      Total: 4
+2019-01-25 10:29:32.700 logback [http-nio-8089-exec-4] DEBUG c.y.d.E.getQuestionsType - ==>  Preparing: SELECT tksd.tmzl,SUM(tksd.tmsl) AS tmsl FROM b_tkxx tkxx, b_tksd tksd WHERE tkxx.gz = ? AND tkxx.tkbh = tksd.tkbh AND tkxx.delFlag = 0 AND tksd.delFlag = 0 GROUP BY tksd.tmzl 
+2019-01-25 10:29:32.703 logback [http-nio-8089-exec-4] DEBUG c.y.d.E.getQuestionsType - ==> Parameters: 1(String)
+2019-01-25 10:29:32.707 logback [http-nio-8089-exec-4] DEBUG c.y.d.E.getQuestionsType - <==      Total: 2
+2019-01-25 10:29:32.708 logback [http-nio-8089-exec-4] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==>  Preparing: SELECT typeDetailName FROM m_datatypedetail WHERE typeCode = ? AND typeDetailCode = ? AND delflag = 0 
+2019-01-25 10:29:32.708 logback [http-nio-8089-exec-4] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==> Parameters: tmzl(String), 1(String)
+2019-01-25 10:29:32.709 logback [http-nio-8089-exec-4] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - <==      Total: 1
+2019-01-25 10:29:32.710 logback [http-nio-8089-exec-4] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==>  Preparing: SELECT typeDetailName FROM m_datatypedetail WHERE typeCode = ? AND typeDetailCode = ? AND delflag = 0 
+2019-01-25 10:29:32.710 logback [http-nio-8089-exec-4] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==> Parameters: tmzl(String), 2(String)
+2019-01-25 10:29:32.713 logback [http-nio-8089-exec-4] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - <==      Total: 1
+2019-01-25 10:29:33.400 logback [http-nio-8089-exec-1] DEBUG c.y.d.E.getExamListByStuNo - ==>  Preparing: SELECT tkls.xybh, tkls.tkbh, tkls.sdrq FROM b_tkls tkls, b_tkxx tkxx WHERE tkls.xybh = ? AND tkls.tkbh = tkxx.tkbh AND tkxx.gz = ? AND tkls.delFlag = 0 GROUP BY tkls.tkbh,tkls.sdrq ORDER BY tkls.sdrq 
+2019-01-25 10:29:33.401 logback [http-nio-8089-exec-1] DEBUG c.y.d.E.getExamListByStuNo - ==> Parameters: 402881e667bb958b0167bba3a9ae0002(String), 1(String)
+2019-01-25 10:29:33.402 logback [http-nio-8089-exec-1] DEBUG c.y.d.E.getExamListByStuNo - <==      Total: 12
+2019-01-25 10:29:35.199 logback [http-nio-8089-exec-2] DEBUG c.y.d.E.getQuestionsByDate - ==>  Preparing: SELECT tmxx.tmbh, tmxx.tmzl, tmxx.tmlx, tmxx.tmnr, tmxx.tmxx, tmxx.tmda, tmxx.tmfz FROM b_tkls tkls, b_tmxx tmxx WHERE tkls.xybh = ? AND tkls.tkbh = ? AND tkls.sdrq = ? AND tkls.tmbh = tmxx.tmbh AND tkls.delflag = 0 AND tmxx.delflag = 0 ORDER BY tmxx.tmlx,tmxx.tmzl,tmxx.createtime 
+2019-01-25 10:29:35.199 logback [http-nio-8089-exec-2] DEBUG c.y.d.E.getQuestionsByDate - ==> Parameters: 402881e667bb958b0167bba3a9ae0002(String), 001(String), 2019-01-18 14:29:09(String)
+2019-01-25 10:29:35.202 logback [http-nio-8089-exec-2] DEBUG c.y.d.E.getQuestionsByDate - <==      Total: 6
+2019-01-25 10:32:49.604 logback [http-nio-8089-exec-8] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==>  Preparing: SELECT datatype.typeCode,datatypedetail.typeDetailCode,datatypedetail.typeDetailName FROM m_datatype datatype,m_datatypedetail datatypedetail WHERE datatype.typeCode = datatypedetail.typeCode AND datatype.delflag = 0 AND datatypedetail.delflag = 0 AND datatype.typeCode = ? ORDER BY datatype.typeCode,datatypedetail.typeDetailCode 
+2019-01-25 10:32:49.604 logback [http-nio-8089-exec-8] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==> Parameters: pxcc(String)
+2019-01-25 10:32:49.605 logback [http-nio-8089-exec-8] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - <==      Total: 3
+2019-01-25 10:32:49.608 logback [http-nio-8089-exec-8] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==>  Preparing: SELECT datatype.typeCode,datatypedetail.typeDetailCode,datatypedetail.typeDetailName FROM m_datatype datatype,m_datatypedetail datatypedetail WHERE datatype.typeCode = datatypedetail.typeCode AND datatype.delflag = 0 AND datatypedetail.delflag = 0 AND datatype.typeCode = ? ORDER BY datatype.typeCode,datatypedetail.typeDetailCode 
+2019-01-25 10:32:49.608 logback [http-nio-8089-exec-8] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==> Parameters: gz(String)
+2019-01-25 10:32:49.610 logback [http-nio-8089-exec-8] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - <==      Total: 4
+2019-01-25 10:32:49.615 logback [http-nio-8089-exec-6] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==>  Preparing: SELECT datatype.typeCode,datatypedetail.typeDetailCode,datatypedetail.typeDetailName FROM m_datatype datatype,m_datatypedetail datatypedetail WHERE datatype.typeCode = datatypedetail.typeCode AND datatype.delflag = 0 AND datatypedetail.delflag = 0 AND datatype.typeCode = ? ORDER BY datatype.typeCode,datatypedetail.typeDetailCode 
+2019-01-25 10:32:49.615 logback [http-nio-8089-exec-6] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==> Parameters: pxlb(String)
+2019-01-25 10:32:49.616 logback [http-nio-8089-exec-6] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - <==      Total: 2
+2019-01-25 10:32:50.938 logback [http-nio-8089-exec-7] DEBUG c.y.d.E.getQuestionsType - ==>  Preparing: SELECT tksd.tmzl,SUM(tksd.tmsl) AS tmsl FROM b_tkxx tkxx, b_tksd tksd WHERE tkxx.gz = ? AND tkxx.tkbh = tksd.tkbh AND tkxx.delFlag = 0 AND tksd.delFlag = 0 GROUP BY tksd.tmzl 
+2019-01-25 10:32:50.939 logback [http-nio-8089-exec-7] DEBUG c.y.d.E.getQuestionsType - ==> Parameters: 1(String)
+2019-01-25 10:32:50.943 logback [http-nio-8089-exec-7] DEBUG c.y.d.E.getQuestionsType - <==      Total: 2
+2019-01-25 10:32:50.944 logback [http-nio-8089-exec-7] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==>  Preparing: SELECT typeDetailName FROM m_datatypedetail WHERE typeCode = ? AND typeDetailCode = ? AND delflag = 0 
+2019-01-25 10:32:50.944 logback [http-nio-8089-exec-7] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==> Parameters: tmzl(String), 1(String)
+2019-01-25 10:32:50.945 logback [http-nio-8089-exec-7] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - <==      Total: 1
+2019-01-25 10:32:50.946 logback [http-nio-8089-exec-7] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==>  Preparing: SELECT typeDetailName FROM m_datatypedetail WHERE typeCode = ? AND typeDetailCode = ? AND delflag = 0 
+2019-01-25 10:32:50.948 logback [http-nio-8089-exec-7] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==> Parameters: tmzl(String), 2(String)
+2019-01-25 10:32:50.949 logback [http-nio-8089-exec-7] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - <==      Total: 1
+2019-01-25 10:32:51.590 logback [http-nio-8089-exec-4] DEBUG c.y.d.E.getExamListByStuNo - ==>  Preparing: SELECT tkls.xybh, tkls.tkbh, tkls.sdrq FROM b_tkls tkls, b_tkxx tkxx WHERE tkls.xybh = ? AND tkls.tkbh = tkxx.tkbh AND tkxx.gz = ? AND tkls.delFlag = 0 GROUP BY tkls.tkbh,tkls.sdrq ORDER BY tkls.sdrq 
+2019-01-25 10:32:51.591 logback [http-nio-8089-exec-4] DEBUG c.y.d.E.getExamListByStuNo - ==> Parameters: 402881e667bb958b0167bba3a9ae0002(String), 1(String)
+2019-01-25 10:32:51.593 logback [http-nio-8089-exec-4] DEBUG c.y.d.E.getExamListByStuNo - <==      Total: 12
+2019-01-25 10:32:53.269 logback [http-nio-8089-exec-1] DEBUG c.y.d.E.getQuestionsByDate - ==>  Preparing: SELECT tmxx.tmbh, tmxx.tmzl, tmxx.tmlx, tmxx.tmnr, tmxx.tmxx, tmxx.tmda, tmxx.tmfz FROM b_tkls tkls, b_tmxx tmxx WHERE tkls.xybh = ? AND tkls.tkbh = ? AND tkls.sdrq = ? AND tkls.tmbh = tmxx.tmbh AND tkls.delflag = 0 AND tmxx.delflag = 0 ORDER BY tmxx.tmlx,tmxx.tmzl,tmxx.createtime 
+2019-01-25 10:32:53.270 logback [http-nio-8089-exec-1] DEBUG c.y.d.E.getQuestionsByDate - ==> Parameters: 402881e667bb958b0167bba3a9ae0002(String), 001(String), 2019-01-18 13:28:41(String)
+2019-01-25 10:32:53.272 logback [http-nio-8089-exec-1] DEBUG c.y.d.E.getQuestionsByDate - <==      Total: 6
+2019-01-25 10:33:40.849 logback [http-nio-8089-exec-2] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==>  Preparing: SELECT datatype.typeCode,datatypedetail.typeDetailCode,datatypedetail.typeDetailName FROM m_datatype datatype,m_datatypedetail datatypedetail WHERE datatype.typeCode = datatypedetail.typeCode AND datatype.delflag = 0 AND datatypedetail.delflag = 0 AND datatype.typeCode = ? ORDER BY datatype.typeCode,datatypedetail.typeDetailCode 
+2019-01-25 10:33:40.850 logback [http-nio-8089-exec-2] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==> Parameters: pxlb(String)
+2019-01-25 10:33:40.851 logback [http-nio-8089-exec-2] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - <==      Total: 2
+2019-01-25 10:33:40.853 logback [http-nio-8089-exec-2] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==>  Preparing: SELECT datatype.typeCode,datatypedetail.typeDetailCode,datatypedetail.typeDetailName FROM m_datatype datatype,m_datatypedetail datatypedetail WHERE datatype.typeCode = datatypedetail.typeCode AND datatype.delflag = 0 AND datatypedetail.delflag = 0 AND datatype.typeCode = ? ORDER BY datatype.typeCode,datatypedetail.typeDetailCode 
+2019-01-25 10:33:40.854 logback [http-nio-8089-exec-2] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==> Parameters: gz(String)
+2019-01-25 10:33:40.854 logback [http-nio-8089-exec-2] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - <==      Total: 4
+2019-01-25 10:33:40.862 logback [http-nio-8089-exec-10] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==>  Preparing: SELECT datatype.typeCode,datatypedetail.typeDetailCode,datatypedetail.typeDetailName FROM m_datatype datatype,m_datatypedetail datatypedetail WHERE datatype.typeCode = datatypedetail.typeCode AND datatype.delflag = 0 AND datatypedetail.delflag = 0 AND datatype.typeCode = ? ORDER BY datatype.typeCode,datatypedetail.typeDetailCode 
+2019-01-25 10:33:40.862 logback [http-nio-8089-exec-10] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==> Parameters: pxcc(String)
+2019-01-25 10:33:40.863 logback [http-nio-8089-exec-10] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - <==      Total: 3
+2019-01-25 10:33:42.559 logback [http-nio-8089-exec-5] DEBUG c.y.d.E.getQuestionsType - ==>  Preparing: SELECT tksd.tmzl,SUM(tksd.tmsl) AS tmsl FROM b_tkxx tkxx, b_tksd tksd WHERE tkxx.gz = ? AND tkxx.tkbh = tksd.tkbh AND tkxx.delFlag = 0 AND tksd.delFlag = 0 GROUP BY tksd.tmzl 
+2019-01-25 10:33:42.559 logback [http-nio-8089-exec-5] DEBUG c.y.d.E.getQuestionsType - ==> Parameters: 1(String)
+2019-01-25 10:33:42.560 logback [http-nio-8089-exec-5] DEBUG c.y.d.E.getQuestionsType - <==      Total: 2
+2019-01-25 10:33:42.561 logback [http-nio-8089-exec-5] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==>  Preparing: SELECT typeDetailName FROM m_datatypedetail WHERE typeCode = ? AND typeDetailCode = ? AND delflag = 0 
+2019-01-25 10:33:42.561 logback [http-nio-8089-exec-5] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==> Parameters: tmzl(String), 1(String)
+2019-01-25 10:33:42.563 logback [http-nio-8089-exec-5] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - <==      Total: 1
+2019-01-25 10:33:42.563 logback [http-nio-8089-exec-5] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==>  Preparing: SELECT typeDetailName FROM m_datatypedetail WHERE typeCode = ? AND typeDetailCode = ? AND delflag = 0 
+2019-01-25 10:33:42.563 logback [http-nio-8089-exec-5] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==> Parameters: tmzl(String), 2(String)
+2019-01-25 10:33:42.564 logback [http-nio-8089-exec-5] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - <==      Total: 1
+2019-01-25 10:33:43.308 logback [http-nio-8089-exec-8] DEBUG c.y.d.E.getExamListByStuNo - ==>  Preparing: SELECT tkls.xybh, tkls.tkbh, tkls.sdrq FROM b_tkls tkls, b_tkxx tkxx WHERE tkls.xybh = ? AND tkls.tkbh = tkxx.tkbh AND tkxx.gz = ? AND tkls.delFlag = 0 GROUP BY tkls.tkbh,tkls.sdrq ORDER BY tkls.sdrq 
+2019-01-25 10:33:43.308 logback [http-nio-8089-exec-8] DEBUG c.y.d.E.getExamListByStuNo - ==> Parameters: 402881e667bb958b0167bba3a9ae0002(String), 1(String)
+2019-01-25 10:33:43.309 logback [http-nio-8089-exec-8] DEBUG c.y.d.E.getExamListByStuNo - <==      Total: 12
+2019-01-25 10:33:46.468 logback [http-nio-8089-exec-3] DEBUG c.y.d.E.getQuestionsByDate - ==>  Preparing: SELECT tmxx.tmbh, tmxx.tmzl, tmxx.tmlx, tmxx.tmnr, tmxx.tmxx, tmxx.tmda, tmxx.tmfz FROM b_tkls tkls, b_tmxx tmxx WHERE tkls.xybh = ? AND tkls.tkbh = ? AND tkls.sdrq = ? AND tkls.tmbh = tmxx.tmbh AND tkls.delflag = 0 AND tmxx.delflag = 0 ORDER BY tmxx.tmlx,tmxx.tmzl,tmxx.createtime 
+2019-01-25 10:33:46.468 logback [http-nio-8089-exec-3] DEBUG c.y.d.E.getQuestionsByDate - ==> Parameters: 402881e667bb958b0167bba3a9ae0002(String), 001(String), 2019-01-18 13:28:41(String)
+2019-01-25 10:33:46.470 logback [http-nio-8089-exec-3] DEBUG c.y.d.E.getQuestionsByDate - <==      Total: 6
+2019-01-25 10:40:41.667 logback [http-nio-8089-exec-1] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==>  Preparing: SELECT datatype.typeCode,datatypedetail.typeDetailCode,datatypedetail.typeDetailName FROM m_datatype datatype,m_datatypedetail datatypedetail WHERE datatype.typeCode = datatypedetail.typeCode AND datatype.delflag = 0 AND datatypedetail.delflag = 0 AND datatype.typeCode = ? ORDER BY datatype.typeCode,datatypedetail.typeDetailCode 
+2019-01-25 10:40:41.667 logback [http-nio-8089-exec-1] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==> Parameters: pxlb(String)
+2019-01-25 10:40:41.669 logback [http-nio-8089-exec-1] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - <==      Total: 2
+2019-01-25 10:40:41.672 logback [http-nio-8089-exec-1] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==>  Preparing: SELECT datatype.typeCode,datatypedetail.typeDetailCode,datatypedetail.typeDetailName FROM m_datatype datatype,m_datatypedetail datatypedetail WHERE datatype.typeCode = datatypedetail.typeCode AND datatype.delflag = 0 AND datatypedetail.delflag = 0 AND datatype.typeCode = ? ORDER BY datatype.typeCode,datatypedetail.typeDetailCode 
+2019-01-25 10:40:41.673 logback [http-nio-8089-exec-1] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==> Parameters: gz(String)
+2019-01-25 10:40:41.675 logback [http-nio-8089-exec-1] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - <==      Total: 4
+2019-01-25 10:40:41.678 logback [http-nio-8089-exec-2] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==>  Preparing: SELECT datatype.typeCode,datatypedetail.typeDetailCode,datatypedetail.typeDetailName FROM m_datatype datatype,m_datatypedetail datatypedetail WHERE datatype.typeCode = datatypedetail.typeCode AND datatype.delflag = 0 AND datatypedetail.delflag = 0 AND datatype.typeCode = ? ORDER BY datatype.typeCode,datatypedetail.typeDetailCode 
+2019-01-25 10:40:41.679 logback [http-nio-8089-exec-2] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==> Parameters: pxcc(String)
+2019-01-25 10:40:41.680 logback [http-nio-8089-exec-2] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - <==      Total: 3
+2019-01-25 10:41:17.668 logback [http-nio-8089-exec-10] DEBUG c.y.d.E.getQuestionsType - ==>  Preparing: SELECT tksd.tmzl,SUM(tksd.tmsl) AS tmsl FROM b_tkxx tkxx, b_tksd tksd WHERE tkxx.gz = ? AND tkxx.tkbh = tksd.tkbh AND tkxx.delFlag = 0 AND tksd.delFlag = 0 GROUP BY tksd.tmzl 
+2019-01-25 10:41:17.668 logback [http-nio-8089-exec-10] DEBUG c.y.d.E.getQuestionsType - ==> Parameters: 1(String)
+2019-01-25 10:41:17.670 logback [http-nio-8089-exec-10] DEBUG c.y.d.E.getQuestionsType - <==      Total: 2
+2019-01-25 10:41:17.671 logback [http-nio-8089-exec-10] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==>  Preparing: SELECT typeDetailName FROM m_datatypedetail WHERE typeCode = ? AND typeDetailCode = ? AND delflag = 0 
+2019-01-25 10:41:17.672 logback [http-nio-8089-exec-10] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==> Parameters: tmzl(String), 1(String)
+2019-01-25 10:41:17.673 logback [http-nio-8089-exec-10] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - <==      Total: 1
+2019-01-25 10:41:17.673 logback [http-nio-8089-exec-10] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==>  Preparing: SELECT typeDetailName FROM m_datatypedetail WHERE typeCode = ? AND typeDetailCode = ? AND delflag = 0 
+2019-01-25 10:41:17.674 logback [http-nio-8089-exec-10] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==> Parameters: tmzl(String), 2(String)
+2019-01-25 10:41:17.675 logback [http-nio-8089-exec-10] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - <==      Total: 1
+2019-01-25 10:41:18.224 logback [http-nio-8089-exec-5] DEBUG c.y.d.E.getExamListByStuNo - ==>  Preparing: SELECT tkls.xybh, tkls.tkbh, tkls.sdrq FROM b_tkls tkls, b_tkxx tkxx WHERE tkls.xybh = ? AND tkls.tkbh = tkxx.tkbh AND tkxx.gz = ? AND tkls.delFlag = 0 GROUP BY tkls.tkbh,tkls.sdrq ORDER BY tkls.sdrq 
+2019-01-25 10:41:18.225 logback [http-nio-8089-exec-5] DEBUG c.y.d.E.getExamListByStuNo - ==> Parameters: 402881e667bb958b0167bba3a9ae0002(String), 1(String)
+2019-01-25 10:41:18.227 logback [http-nio-8089-exec-5] DEBUG c.y.d.E.getExamListByStuNo - <==      Total: 12
+2019-01-25 10:41:20.062 logback [http-nio-8089-exec-8] DEBUG c.y.d.E.getQuestionsByDate - ==>  Preparing: SELECT tmxx.tmbh, tmxx.tmzl, tmxx.tmlx, tmxx.tmnr, tmxx.tmxx, tmxx.tmda, tmxx.tmfz FROM b_tkls tkls, b_tmxx tmxx WHERE tkls.xybh = ? AND tkls.tkbh = ? AND tkls.sdrq = ? AND tkls.tmbh = tmxx.tmbh AND tkls.delflag = 0 AND tmxx.delflag = 0 ORDER BY tmxx.tmlx,tmxx.tmzl,tmxx.createtime 
+2019-01-25 10:41:20.062 logback [http-nio-8089-exec-8] DEBUG c.y.d.E.getQuestionsByDate - ==> Parameters: 402881e667bb958b0167bba3a9ae0002(String), 001(String), 2019-01-18 13:28:41(String)
+2019-01-25 10:41:20.065 logback [http-nio-8089-exec-8] DEBUG c.y.d.E.getQuestionsByDate - <==      Total: 6
+2019-01-25 10:50:15.260 logback [http-nio-8089-exec-4] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==>  Preparing: SELECT datatype.typeCode,datatypedetail.typeDetailCode,datatypedetail.typeDetailName FROM m_datatype datatype,m_datatypedetail datatypedetail WHERE datatype.typeCode = datatypedetail.typeCode AND datatype.delflag = 0 AND datatypedetail.delflag = 0 AND datatype.typeCode = ? ORDER BY datatype.typeCode,datatypedetail.typeDetailCode 
+2019-01-25 10:50:15.261 logback [http-nio-8089-exec-4] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==> Parameters: pxlb(String)
+2019-01-25 10:50:15.262 logback [http-nio-8089-exec-4] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - <==      Total: 2
+2019-01-25 10:50:15.267 logback [http-nio-8089-exec-4] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==>  Preparing: SELECT datatype.typeCode,datatypedetail.typeDetailCode,datatypedetail.typeDetailName FROM m_datatype datatype,m_datatypedetail datatypedetail WHERE datatype.typeCode = datatypedetail.typeCode AND datatype.delflag = 0 AND datatypedetail.delflag = 0 AND datatype.typeCode = ? ORDER BY datatype.typeCode,datatypedetail.typeDetailCode 
+2019-01-25 10:50:15.268 logback [http-nio-8089-exec-4] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==> Parameters: pxcc(String)
+2019-01-25 10:50:15.282 logback [http-nio-8089-exec-4] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - <==      Total: 3
+2019-01-25 10:50:15.266 logback [http-nio-8089-exec-1] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==>  Preparing: SELECT datatype.typeCode,datatypedetail.typeDetailCode,datatypedetail.typeDetailName FROM m_datatype datatype,m_datatypedetail datatypedetail WHERE datatype.typeCode = datatypedetail.typeCode AND datatype.delflag = 0 AND datatypedetail.delflag = 0 AND datatype.typeCode = ? ORDER BY datatype.typeCode,datatypedetail.typeDetailCode 
+2019-01-25 10:50:15.290 logback [http-nio-8089-exec-1] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==> Parameters: gz(String)
+2019-01-25 10:50:15.291 logback [http-nio-8089-exec-1] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - <==      Total: 4
+2019-01-25 10:50:16.913 logback [http-nio-8089-exec-9] DEBUG c.y.d.E.getQuestionsType - ==>  Preparing: SELECT tksd.tmzl,SUM(tksd.tmsl) AS tmsl FROM b_tkxx tkxx, b_tksd tksd WHERE tkxx.gz = ? AND tkxx.tkbh = tksd.tkbh AND tkxx.delFlag = 0 AND tksd.delFlag = 0 GROUP BY tksd.tmzl 
+2019-01-25 10:50:16.913 logback [http-nio-8089-exec-9] DEBUG c.y.d.E.getQuestionsType - ==> Parameters: 1(String)
+2019-01-25 10:50:16.915 logback [http-nio-8089-exec-9] DEBUG c.y.d.E.getQuestionsType - <==      Total: 2
+2019-01-25 10:50:16.916 logback [http-nio-8089-exec-9] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==>  Preparing: SELECT typeDetailName FROM m_datatypedetail WHERE typeCode = ? AND typeDetailCode = ? AND delflag = 0 
+2019-01-25 10:50:16.916 logback [http-nio-8089-exec-9] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==> Parameters: tmzl(String), 1(String)
+2019-01-25 10:50:16.916 logback [http-nio-8089-exec-9] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - <==      Total: 1
+2019-01-25 10:50:16.917 logback [http-nio-8089-exec-9] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==>  Preparing: SELECT typeDetailName FROM m_datatypedetail WHERE typeCode = ? AND typeDetailCode = ? AND delflag = 0 
+2019-01-25 10:50:16.917 logback [http-nio-8089-exec-9] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==> Parameters: tmzl(String), 2(String)
+2019-01-25 10:50:16.918 logback [http-nio-8089-exec-9] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - <==      Total: 1
+2019-01-25 10:50:17.344 logback [http-nio-8089-exec-10] DEBUG c.y.d.E.getExamListByStuNo - ==>  Preparing: SELECT tkls.xybh, tkls.tkbh, tkls.sdrq FROM b_tkls tkls, b_tkxx tkxx WHERE tkls.xybh = ? AND tkls.tkbh = tkxx.tkbh AND tkxx.gz = ? AND tkls.delFlag = 0 GROUP BY tkls.tkbh,tkls.sdrq ORDER BY tkls.sdrq 
+2019-01-25 10:50:17.346 logback [http-nio-8089-exec-10] DEBUG c.y.d.E.getExamListByStuNo - ==> Parameters: 402881e667bb958b0167bba3a9ae0002(String), 1(String)
+2019-01-25 10:50:17.348 logback [http-nio-8089-exec-10] DEBUG c.y.d.E.getExamListByStuNo - <==      Total: 12
+2019-01-25 10:50:19.982 logback [http-nio-8089-exec-5] DEBUG c.y.d.E.getQuestionsByDate - ==>  Preparing: SELECT tmxx.tmbh, tmxx.tmzl, tmxx.tmlx, tmxx.tmnr, tmxx.tmxx, tmxx.tmda, tmxx.tmfz FROM b_tkls tkls, b_tmxx tmxx WHERE tkls.xybh = ? AND tkls.tkbh = ? AND tkls.sdrq = ? AND tkls.tmbh = tmxx.tmbh AND tkls.delflag = 0 AND tmxx.delflag = 0 ORDER BY tmxx.tmlx,tmxx.tmzl,tmxx.createtime 
+2019-01-25 10:50:19.983 logback [http-nio-8089-exec-5] DEBUG c.y.d.E.getQuestionsByDate - ==> Parameters: 402881e667bb958b0167bba3a9ae0002(String), 001(String), 2019-01-21 18:06:20(String)
+2019-01-25 10:50:19.988 logback [http-nio-8089-exec-5] DEBUG c.y.d.E.getQuestionsByDate - <==      Total: 6
+2019-01-25 10:53:46.152 logback [http-nio-8089-exec-2] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==>  Preparing: SELECT datatype.typeCode,datatypedetail.typeDetailCode,datatypedetail.typeDetailName FROM m_datatype datatype,m_datatypedetail datatypedetail WHERE datatype.typeCode = datatypedetail.typeCode AND datatype.delflag = 0 AND datatypedetail.delflag = 0 AND datatype.typeCode = ? ORDER BY datatype.typeCode,datatypedetail.typeDetailCode 
+2019-01-25 10:53:46.152 logback [http-nio-8089-exec-2] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==> Parameters: pxcc(String)
+2019-01-25 10:53:46.153 logback [http-nio-8089-exec-7] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==>  Preparing: SELECT datatype.typeCode,datatypedetail.typeDetailCode,datatypedetail.typeDetailName FROM m_datatype datatype,m_datatypedetail datatypedetail WHERE datatype.typeCode = datatypedetail.typeCode AND datatype.delflag = 0 AND datatypedetail.delflag = 0 AND datatype.typeCode = ? ORDER BY datatype.typeCode,datatypedetail.typeDetailCode 
+2019-01-25 10:53:46.153 logback [http-nio-8089-exec-7] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==> Parameters: pxlb(String)
+2019-01-25 10:53:46.154 logback [http-nio-8089-exec-2] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - <==      Total: 3
+2019-01-25 10:53:46.154 logback [http-nio-8089-exec-4] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==>  Preparing: SELECT datatype.typeCode,datatypedetail.typeDetailCode,datatypedetail.typeDetailName FROM m_datatype datatype,m_datatypedetail datatypedetail WHERE datatype.typeCode = datatypedetail.typeCode AND datatype.delflag = 0 AND datatypedetail.delflag = 0 AND datatype.typeCode = ? ORDER BY datatype.typeCode,datatypedetail.typeDetailCode 
+2019-01-25 10:53:46.154 logback [http-nio-8089-exec-4] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==> Parameters: gz(String)
+2019-01-25 10:53:46.156 logback [http-nio-8089-exec-4] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - <==      Total: 4
+2019-01-25 10:53:46.156 logback [http-nio-8089-exec-7] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - <==      Total: 2
+2019-01-25 10:53:47.729 logback [http-nio-8089-exec-1] DEBUG c.y.d.E.getQuestionsType - ==>  Preparing: SELECT tksd.tmzl,SUM(tksd.tmsl) AS tmsl FROM b_tkxx tkxx, b_tksd tksd WHERE tkxx.gz = ? AND tkxx.tkbh = tksd.tkbh AND tkxx.delFlag = 0 AND tksd.delFlag = 0 GROUP BY tksd.tmzl 
+2019-01-25 10:53:47.735 logback [http-nio-8089-exec-1] DEBUG c.y.d.E.getQuestionsType - ==> Parameters: 1(String)
+2019-01-25 10:53:47.741 logback [http-nio-8089-exec-1] DEBUG c.y.d.E.getQuestionsType - <==      Total: 2
+2019-01-25 10:53:47.743 logback [http-nio-8089-exec-1] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==>  Preparing: SELECT typeDetailName FROM m_datatypedetail WHERE typeCode = ? AND typeDetailCode = ? AND delflag = 0 
+2019-01-25 10:53:47.744 logback [http-nio-8089-exec-1] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==> Parameters: tmzl(String), 1(String)
+2019-01-25 10:53:47.746 logback [http-nio-8089-exec-1] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - <==      Total: 1
+2019-01-25 10:53:47.746 logback [http-nio-8089-exec-1] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==>  Preparing: SELECT typeDetailName FROM m_datatypedetail WHERE typeCode = ? AND typeDetailCode = ? AND delflag = 0 
+2019-01-25 10:53:47.747 logback [http-nio-8089-exec-1] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==> Parameters: tmzl(String), 2(String)
+2019-01-25 10:53:47.748 logback [http-nio-8089-exec-1] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - <==      Total: 1
+2019-01-25 10:53:48.306 logback [http-nio-8089-exec-9] DEBUG c.y.d.E.getExamListByStuNo - ==>  Preparing: SELECT tkls.xybh, tkls.tkbh, tkls.sdrq FROM b_tkls tkls, b_tkxx tkxx WHERE tkls.xybh = ? AND tkls.tkbh = tkxx.tkbh AND tkxx.gz = ? AND tkls.delFlag = 0 GROUP BY tkls.tkbh,tkls.sdrq ORDER BY tkls.sdrq 
+2019-01-25 10:53:48.306 logback [http-nio-8089-exec-9] DEBUG c.y.d.E.getExamListByStuNo - ==> Parameters: 402881e667bb958b0167bba3a9ae0002(String), 1(String)
+2019-01-25 10:53:48.308 logback [http-nio-8089-exec-9] DEBUG c.y.d.E.getExamListByStuNo - <==      Total: 12
+2019-01-25 10:53:50.003 logback [http-nio-8089-exec-10] DEBUG c.y.d.E.getQuestionsByDate - ==>  Preparing: SELECT tmxx.tmbh, tmxx.tmzl, tmxx.tmlx, tmxx.tmnr, tmxx.tmxx, tmxx.tmda, tmxx.tmfz FROM b_tkls tkls, b_tmxx tmxx WHERE tkls.xybh = ? AND tkls.tkbh = ? AND tkls.sdrq = ? AND tkls.tmbh = tmxx.tmbh AND tkls.delflag = 0 AND tmxx.delflag = 0 ORDER BY tmxx.tmlx,tmxx.tmzl,tmxx.createtime 
+2019-01-25 10:53:50.004 logback [http-nio-8089-exec-10] DEBUG c.y.d.E.getQuestionsByDate - ==> Parameters: 402881e667bb958b0167bba3a9ae0002(String), 001(String), 2019-01-18 13:41:16(String)
+2019-01-25 10:53:50.006 logback [http-nio-8089-exec-10] DEBUG c.y.d.E.getQuestionsByDate - <==      Total: 6
+2019-01-25 10:55:16.559 logback [http-nio-8089-exec-2] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==>  Preparing: SELECT datatype.typeCode,datatypedetail.typeDetailCode,datatypedetail.typeDetailName FROM m_datatype datatype,m_datatypedetail datatypedetail WHERE datatype.typeCode = datatypedetail.typeCode AND datatype.delflag = 0 AND datatypedetail.delflag = 0 AND datatype.typeCode = ? ORDER BY datatype.typeCode,datatypedetail.typeDetailCode 
+2019-01-25 10:55:16.563 logback [http-nio-8089-exec-6] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==>  Preparing: SELECT datatype.typeCode,datatypedetail.typeDetailCode,datatypedetail.typeDetailName FROM m_datatype datatype,m_datatypedetail datatypedetail WHERE datatype.typeCode = datatypedetail.typeCode AND datatype.delflag = 0 AND datatypedetail.delflag = 0 AND datatype.typeCode = ? ORDER BY datatype.typeCode,datatypedetail.typeDetailCode 
+2019-01-25 10:55:16.564 logback [http-nio-8089-exec-6] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==> Parameters: pxlb(String)
+2019-01-25 10:55:16.570 logback [http-nio-8089-exec-4] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==>  Preparing: SELECT datatype.typeCode,datatypedetail.typeDetailCode,datatypedetail.typeDetailName FROM m_datatype datatype,m_datatypedetail datatypedetail WHERE datatype.typeCode = datatypedetail.typeCode AND datatype.delflag = 0 AND datatypedetail.delflag = 0 AND datatype.typeCode = ? ORDER BY datatype.typeCode,datatypedetail.typeDetailCode 
+2019-01-25 10:55:16.570 logback [http-nio-8089-exec-4] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==> Parameters: gz(String)
+2019-01-25 10:55:16.572 logback [http-nio-8089-exec-4] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - <==      Total: 4
+2019-01-25 10:55:16.559 logback [http-nio-8089-exec-2] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==> Parameters: pxcc(String)
+2019-01-25 10:55:16.573 logback [http-nio-8089-exec-6] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - <==      Total: 2
+2019-01-25 10:55:16.573 logback [http-nio-8089-exec-2] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - <==      Total: 3
+2019-01-25 10:55:17.861 logback [http-nio-8089-exec-7] DEBUG c.y.d.E.getQuestionsType - ==>  Preparing: SELECT tksd.tmzl,SUM(tksd.tmsl) AS tmsl FROM b_tkxx tkxx, b_tksd tksd WHERE tkxx.gz = ? AND tkxx.tkbh = tksd.tkbh AND tkxx.delFlag = 0 AND tksd.delFlag = 0 GROUP BY tksd.tmzl 
+2019-01-25 10:55:17.861 logback [http-nio-8089-exec-7] DEBUG c.y.d.E.getQuestionsType - ==> Parameters: 1(String)
+2019-01-25 10:55:17.863 logback [http-nio-8089-exec-7] DEBUG c.y.d.E.getQuestionsType - <==      Total: 2
+2019-01-25 10:55:17.863 logback [http-nio-8089-exec-7] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==>  Preparing: SELECT typeDetailName FROM m_datatypedetail WHERE typeCode = ? AND typeDetailCode = ? AND delflag = 0 
+2019-01-25 10:55:17.863 logback [http-nio-8089-exec-7] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==> Parameters: tmzl(String), 1(String)
+2019-01-25 10:55:17.864 logback [http-nio-8089-exec-7] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - <==      Total: 1
+2019-01-25 10:55:17.865 logback [http-nio-8089-exec-7] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==>  Preparing: SELECT typeDetailName FROM m_datatypedetail WHERE typeCode = ? AND typeDetailCode = ? AND delflag = 0 
+2019-01-25 10:55:17.865 logback [http-nio-8089-exec-7] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==> Parameters: tmzl(String), 2(String)
+2019-01-25 10:55:17.866 logback [http-nio-8089-exec-7] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - <==      Total: 1
+2019-01-25 10:55:18.683 logback [http-nio-8089-exec-1] DEBUG c.y.d.E.getExamListByStuNo - ==>  Preparing: SELECT tkls.xybh, tkls.tkbh, tkls.sdrq FROM b_tkls tkls, b_tkxx tkxx WHERE tkls.xybh = ? AND tkls.tkbh = tkxx.tkbh AND tkxx.gz = ? AND tkls.delFlag = 0 GROUP BY tkls.tkbh,tkls.sdrq ORDER BY tkls.sdrq 
+2019-01-25 10:55:18.683 logback [http-nio-8089-exec-1] DEBUG c.y.d.E.getExamListByStuNo - ==> Parameters: 402881e667bb958b0167bba3a9ae0002(String), 1(String)
+2019-01-25 10:55:18.685 logback [http-nio-8089-exec-1] DEBUG c.y.d.E.getExamListByStuNo - <==      Total: 12
+2019-01-25 10:55:21.843 logback [http-nio-8089-exec-9] DEBUG c.y.d.E.getQuestionsByDate - ==>  Preparing: SELECT tmxx.tmbh, tmxx.tmzl, tmxx.tmlx, tmxx.tmnr, tmxx.tmxx, tmxx.tmda, tmxx.tmfz FROM b_tkls tkls, b_tmxx tmxx WHERE tkls.xybh = ? AND tkls.tkbh = ? AND tkls.sdrq = ? AND tkls.tmbh = tmxx.tmbh AND tkls.delflag = 0 AND tmxx.delflag = 0 ORDER BY tmxx.tmlx,tmxx.tmzl,tmxx.createtime 
+2019-01-25 10:55:21.843 logback [http-nio-8089-exec-9] DEBUG c.y.d.E.getQuestionsByDate - ==> Parameters: 402881e667bb958b0167bba3a9ae0002(String), 001(String), 2019-01-18 13:28:41(String)
+2019-01-25 10:55:21.845 logback [http-nio-8089-exec-9] DEBUG c.y.d.E.getQuestionsByDate - <==      Total: 6
+2019-01-25 10:58:18.070 logback [http-nio-8089-exec-3] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==>  Preparing: SELECT datatype.typeCode,datatypedetail.typeDetailCode,datatypedetail.typeDetailName FROM m_datatype datatype,m_datatypedetail datatypedetail WHERE datatype.typeCode = datatypedetail.typeCode AND datatype.delflag = 0 AND datatypedetail.delflag = 0 AND datatype.typeCode = ? ORDER BY datatype.typeCode,datatypedetail.typeDetailCode 
+2019-01-25 10:58:18.070 logback [http-nio-8089-exec-3] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==> Parameters: pxlb(String)
+2019-01-25 10:58:18.071 logback [http-nio-8089-exec-3] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - <==      Total: 2
+2019-01-25 10:58:18.074 logback [http-nio-8089-exec-3] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==>  Preparing: SELECT datatype.typeCode,datatypedetail.typeDetailCode,datatypedetail.typeDetailName FROM m_datatype datatype,m_datatypedetail datatypedetail WHERE datatype.typeCode = datatypedetail.typeCode AND datatype.delflag = 0 AND datatypedetail.delflag = 0 AND datatype.typeCode = ? ORDER BY datatype.typeCode,datatypedetail.typeDetailCode 
+2019-01-25 10:58:18.074 logback [http-nio-8089-exec-3] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==> Parameters: gz(String)
+2019-01-25 10:58:18.076 logback [http-nio-8089-exec-3] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - <==      Total: 4
+2019-01-25 10:58:18.080 logback [http-nio-8089-exec-6] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==>  Preparing: SELECT datatype.typeCode,datatypedetail.typeDetailCode,datatypedetail.typeDetailName FROM m_datatype datatype,m_datatypedetail datatypedetail WHERE datatype.typeCode = datatypedetail.typeCode AND datatype.delflag = 0 AND datatypedetail.delflag = 0 AND datatype.typeCode = ? ORDER BY datatype.typeCode,datatypedetail.typeDetailCode 
+2019-01-25 10:58:18.081 logback [http-nio-8089-exec-6] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==> Parameters: pxcc(String)
+2019-01-25 10:58:18.082 logback [http-nio-8089-exec-6] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - <==      Total: 3
+2019-01-25 10:58:19.584 logback [http-nio-8089-exec-4] DEBUG c.y.d.E.getQuestionsType - ==>  Preparing: SELECT tksd.tmzl,SUM(tksd.tmsl) AS tmsl FROM b_tkxx tkxx, b_tksd tksd WHERE tkxx.gz = ? AND tkxx.tkbh = tksd.tkbh AND tkxx.delFlag = 0 AND tksd.delFlag = 0 GROUP BY tksd.tmzl 
+2019-01-25 10:58:19.584 logback [http-nio-8089-exec-4] DEBUG c.y.d.E.getQuestionsType - ==> Parameters: 1(String)
+2019-01-25 10:58:19.586 logback [http-nio-8089-exec-4] DEBUG c.y.d.E.getQuestionsType - <==      Total: 2
+2019-01-25 10:58:19.586 logback [http-nio-8089-exec-4] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==>  Preparing: SELECT typeDetailName FROM m_datatypedetail WHERE typeCode = ? AND typeDetailCode = ? AND delflag = 0 
+2019-01-25 10:58:19.586 logback [http-nio-8089-exec-4] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==> Parameters: tmzl(String), 1(String)
+2019-01-25 10:58:19.587 logback [http-nio-8089-exec-4] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - <==      Total: 1
+2019-01-25 10:58:19.588 logback [http-nio-8089-exec-4] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==>  Preparing: SELECT typeDetailName FROM m_datatypedetail WHERE typeCode = ? AND typeDetailCode = ? AND delflag = 0 
+2019-01-25 10:58:19.588 logback [http-nio-8089-exec-4] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==> Parameters: tmzl(String), 2(String)
+2019-01-25 10:58:19.589 logback [http-nio-8089-exec-4] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - <==      Total: 1
+2019-01-25 10:58:20.190 logback [http-nio-8089-exec-7] DEBUG c.y.d.E.getExamListByStuNo - ==>  Preparing: SELECT tkls.xybh, tkls.tkbh, tkls.sdrq FROM b_tkls tkls, b_tkxx tkxx WHERE tkls.xybh = ? AND tkls.tkbh = tkxx.tkbh AND tkxx.gz = ? AND tkls.delFlag = 0 GROUP BY tkls.tkbh,tkls.sdrq ORDER BY tkls.sdrq 
+2019-01-25 10:58:20.190 logback [http-nio-8089-exec-7] DEBUG c.y.d.E.getExamListByStuNo - ==> Parameters: 402881e667bb958b0167bba3a9ae0002(String), 1(String)
+2019-01-25 10:58:20.191 logback [http-nio-8089-exec-7] DEBUG c.y.d.E.getExamListByStuNo - <==      Total: 12
+2019-01-25 10:58:21.888 logback [http-nio-8089-exec-1] DEBUG c.y.d.E.getQuestionsByDate - ==>  Preparing: SELECT tmxx.tmbh, tmxx.tmzl, tmxx.tmlx, tmxx.tmnr, tmxx.tmxx, tmxx.tmda, tmxx.tmfz FROM b_tkls tkls, b_tmxx tmxx WHERE tkls.xybh = ? AND tkls.tkbh = ? AND tkls.sdrq = ? AND tkls.tmbh = tmxx.tmbh AND tkls.delflag = 0 AND tmxx.delflag = 0 ORDER BY tmxx.tmlx,tmxx.tmzl,tmxx.createtime 
+2019-01-25 10:58:21.890 logback [http-nio-8089-exec-1] DEBUG c.y.d.E.getQuestionsByDate - ==> Parameters: 402881e667bb958b0167bba3a9ae0002(String), 001(String), 2019-01-18 14:24:43(String)
+2019-01-25 10:58:21.892 logback [http-nio-8089-exec-1] DEBUG c.y.d.E.getQuestionsByDate - <==      Total: 6
+2019-01-25 11:01:16.696 logback [http-nio-8089-exec-8] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==>  Preparing: SELECT datatype.typeCode,datatypedetail.typeDetailCode,datatypedetail.typeDetailName FROM m_datatype datatype,m_datatypedetail datatypedetail WHERE datatype.typeCode = datatypedetail.typeCode AND datatype.delflag = 0 AND datatypedetail.delflag = 0 AND datatype.typeCode = ? ORDER BY datatype.typeCode,datatypedetail.typeDetailCode 
+2019-01-25 11:01:16.697 logback [http-nio-8089-exec-8] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==> Parameters: pxlb(String)
+2019-01-25 11:01:16.698 logback [http-nio-8089-exec-8] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - <==      Total: 2
+2019-01-25 11:01:16.711 logback [http-nio-8089-exec-6] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==>  Preparing: SELECT datatype.typeCode,datatypedetail.typeDetailCode,datatypedetail.typeDetailName FROM m_datatype datatype,m_datatypedetail datatypedetail WHERE datatype.typeCode = datatypedetail.typeCode AND datatype.delflag = 0 AND datatypedetail.delflag = 0 AND datatype.typeCode = ? ORDER BY datatype.typeCode,datatypedetail.typeDetailCode 
+2019-01-25 11:01:16.712 logback [http-nio-8089-exec-6] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==> Parameters: gz(String)
+2019-01-25 11:01:16.712 logback [http-nio-8089-exec-6] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - <==      Total: 4
+2019-01-25 11:01:16.728 logback [http-nio-8089-exec-8] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==>  Preparing: SELECT datatype.typeCode,datatypedetail.typeDetailCode,datatypedetail.typeDetailName FROM m_datatype datatype,m_datatypedetail datatypedetail WHERE datatype.typeCode = datatypedetail.typeCode AND datatype.delflag = 0 AND datatypedetail.delflag = 0 AND datatype.typeCode = ? ORDER BY datatype.typeCode,datatypedetail.typeDetailCode 
+2019-01-25 11:01:16.728 logback [http-nio-8089-exec-8] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==> Parameters: pxcc(String)
+2019-01-25 11:01:16.729 logback [http-nio-8089-exec-8] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - <==      Total: 3
+2019-01-25 11:01:18.089 logback [http-nio-8089-exec-2] DEBUG c.y.d.E.getQuestionsType - ==>  Preparing: SELECT tksd.tmzl,SUM(tksd.tmsl) AS tmsl FROM b_tkxx tkxx, b_tksd tksd WHERE tkxx.gz = ? AND tkxx.tkbh = tksd.tkbh AND tkxx.delFlag = 0 AND tksd.delFlag = 0 GROUP BY tksd.tmzl 
+2019-01-25 11:01:18.089 logback [http-nio-8089-exec-2] DEBUG c.y.d.E.getQuestionsType - ==> Parameters: 1(String)
+2019-01-25 11:01:18.092 logback [http-nio-8089-exec-2] DEBUG c.y.d.E.getQuestionsType - <==      Total: 2
+2019-01-25 11:01:18.093 logback [http-nio-8089-exec-2] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==>  Preparing: SELECT typeDetailName FROM m_datatypedetail WHERE typeCode = ? AND typeDetailCode = ? AND delflag = 0 
+2019-01-25 11:01:18.093 logback [http-nio-8089-exec-2] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==> Parameters: tmzl(String), 1(String)
+2019-01-25 11:01:18.094 logback [http-nio-8089-exec-2] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - <==      Total: 1
+2019-01-25 11:01:18.094 logback [http-nio-8089-exec-2] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==>  Preparing: SELECT typeDetailName FROM m_datatypedetail WHERE typeCode = ? AND typeDetailCode = ? AND delflag = 0 
+2019-01-25 11:01:18.095 logback [http-nio-8089-exec-2] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==> Parameters: tmzl(String), 2(String)
+2019-01-25 11:01:18.095 logback [http-nio-8089-exec-2] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - <==      Total: 1
+2019-01-25 11:01:18.731 logback [http-nio-8089-exec-4] DEBUG c.y.d.E.getExamListByStuNo - ==>  Preparing: SELECT tkls.xybh, tkls.tkbh, tkls.sdrq FROM b_tkls tkls, b_tkxx tkxx WHERE tkls.xybh = ? AND tkls.tkbh = tkxx.tkbh AND tkxx.gz = ? AND tkls.delFlag = 0 GROUP BY tkls.tkbh,tkls.sdrq ORDER BY tkls.sdrq 
+2019-01-25 11:01:18.731 logback [http-nio-8089-exec-4] DEBUG c.y.d.E.getExamListByStuNo - ==> Parameters: 402881e667bb958b0167bba3a9ae0002(String), 1(String)
+2019-01-25 11:01:18.733 logback [http-nio-8089-exec-4] DEBUG c.y.d.E.getExamListByStuNo - <==      Total: 12
+2019-01-25 11:01:20.685 logback [http-nio-8089-exec-7] DEBUG c.y.d.E.getQuestionsByDate - ==>  Preparing: SELECT tmxx.tmbh, tmxx.tmzl, tmxx.tmlx, tmxx.tmnr, tmxx.tmxx, tmxx.tmda, tmxx.tmfz FROM b_tkls tkls, b_tmxx tmxx WHERE tkls.xybh = ? AND tkls.tkbh = ? AND tkls.sdrq = ? AND tkls.tmbh = tmxx.tmbh AND tkls.delflag = 0 AND tmxx.delflag = 0 ORDER BY tmxx.tmlx,tmxx.tmzl,tmxx.createtime 
+2019-01-25 11:01:20.686 logback [http-nio-8089-exec-7] DEBUG c.y.d.E.getQuestionsByDate - ==> Parameters: 402881e667bb958b0167bba3a9ae0002(String), 001(String), 2019-01-18 13:30:43(String)
+2019-01-25 11:01:20.687 logback [http-nio-8089-exec-7] DEBUG c.y.d.E.getQuestionsByDate - <==      Total: 6
+2019-01-25 11:01:49.808 logback [http-nio-8089-exec-1] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==>  Preparing: SELECT datatype.typeCode,datatypedetail.typeDetailCode,datatypedetail.typeDetailName FROM m_datatype datatype,m_datatypedetail datatypedetail WHERE datatype.typeCode = datatypedetail.typeCode AND datatype.delflag = 0 AND datatypedetail.delflag = 0 AND datatype.typeCode = ? ORDER BY datatype.typeCode,datatypedetail.typeDetailCode 
+2019-01-25 11:01:49.808 logback [http-nio-8089-exec-1] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==> Parameters: pxlb(String)
+2019-01-25 11:01:49.809 logback [http-nio-8089-exec-1] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - <==      Total: 2
+2019-01-25 11:01:49.811 logback [http-nio-8089-exec-10] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==>  Preparing: SELECT datatype.typeCode,datatypedetail.typeDetailCode,datatypedetail.typeDetailName FROM m_datatype datatype,m_datatypedetail datatypedetail WHERE datatype.typeCode = datatypedetail.typeCode AND datatype.delflag = 0 AND datatypedetail.delflag = 0 AND datatype.typeCode = ? ORDER BY datatype.typeCode,datatypedetail.typeDetailCode 
+2019-01-25 11:01:49.811 logback [http-nio-8089-exec-10] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==> Parameters: pxcc(String)
+2019-01-25 11:01:49.812 logback [http-nio-8089-exec-10] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - <==      Total: 3
+2019-01-25 11:01:49.817 logback [http-nio-8089-exec-9] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==>  Preparing: SELECT datatype.typeCode,datatypedetail.typeDetailCode,datatypedetail.typeDetailName FROM m_datatype datatype,m_datatypedetail datatypedetail WHERE datatype.typeCode = datatypedetail.typeCode AND datatype.delflag = 0 AND datatypedetail.delflag = 0 AND datatype.typeCode = ? ORDER BY datatype.typeCode,datatypedetail.typeDetailCode 
+2019-01-25 11:01:49.817 logback [http-nio-8089-exec-9] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==> Parameters: gz(String)
+2019-01-25 11:01:49.818 logback [http-nio-8089-exec-9] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - <==      Total: 4
+2019-01-25 11:01:51.442 logback [http-nio-8089-exec-5] DEBUG c.y.d.E.getQuestionsType - ==>  Preparing: SELECT tksd.tmzl,SUM(tksd.tmsl) AS tmsl FROM b_tkxx tkxx, b_tksd tksd WHERE tkxx.gz = ? AND tkxx.tkbh = tksd.tkbh AND tkxx.delFlag = 0 AND tksd.delFlag = 0 GROUP BY tksd.tmzl 
+2019-01-25 11:01:51.443 logback [http-nio-8089-exec-5] DEBUG c.y.d.E.getQuestionsType - ==> Parameters: 1(String)
+2019-01-25 11:01:51.444 logback [http-nio-8089-exec-5] DEBUG c.y.d.E.getQuestionsType - <==      Total: 2
+2019-01-25 11:01:51.445 logback [http-nio-8089-exec-5] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==>  Preparing: SELECT typeDetailName FROM m_datatypedetail WHERE typeCode = ? AND typeDetailCode = ? AND delflag = 0 
+2019-01-25 11:01:51.445 logback [http-nio-8089-exec-5] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==> Parameters: tmzl(String), 1(String)
+2019-01-25 11:01:51.447 logback [http-nio-8089-exec-5] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - <==      Total: 1
+2019-01-25 11:01:51.447 logback [http-nio-8089-exec-5] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==>  Preparing: SELECT typeDetailName FROM m_datatypedetail WHERE typeCode = ? AND typeDetailCode = ? AND delflag = 0 
+2019-01-25 11:01:51.448 logback [http-nio-8089-exec-5] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==> Parameters: tmzl(String), 2(String)
+2019-01-25 11:01:51.448 logback [http-nio-8089-exec-5] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - <==      Total: 1
+2019-01-25 11:01:52.017 logback [http-nio-8089-exec-3] DEBUG c.y.d.E.getExamListByStuNo - ==>  Preparing: SELECT tkls.xybh, tkls.tkbh, tkls.sdrq FROM b_tkls tkls, b_tkxx tkxx WHERE tkls.xybh = ? AND tkls.tkbh = tkxx.tkbh AND tkxx.gz = ? AND tkls.delFlag = 0 GROUP BY tkls.tkbh,tkls.sdrq ORDER BY tkls.sdrq 
+2019-01-25 11:01:52.017 logback [http-nio-8089-exec-3] DEBUG c.y.d.E.getExamListByStuNo - ==> Parameters: 402881e667bb958b0167bba3a9ae0002(String), 1(String)
+2019-01-25 11:01:52.022 logback [http-nio-8089-exec-3] DEBUG c.y.d.E.getExamListByStuNo - <==      Total: 12
+2019-01-25 11:01:54.077 logback [http-nio-8089-exec-6] DEBUG c.y.d.E.getQuestionsByDate - ==>  Preparing: SELECT tmxx.tmbh, tmxx.tmzl, tmxx.tmlx, tmxx.tmnr, tmxx.tmxx, tmxx.tmda, tmxx.tmfz FROM b_tkls tkls, b_tmxx tmxx WHERE tkls.xybh = ? AND tkls.tkbh = ? AND tkls.sdrq = ? AND tkls.tmbh = tmxx.tmbh AND tkls.delflag = 0 AND tmxx.delflag = 0 ORDER BY tmxx.tmlx,tmxx.tmzl,tmxx.createtime 
+2019-01-25 11:01:54.078 logback [http-nio-8089-exec-6] DEBUG c.y.d.E.getQuestionsByDate - ==> Parameters: 402881e667bb958b0167bba3a9ae0002(String), 001(String), 2019-01-18 13:41:16(String)
+2019-01-25 11:01:54.081 logback [http-nio-8089-exec-6] DEBUG c.y.d.E.getQuestionsByDate - <==      Total: 6
+2019-01-25 11:04:45.329 logback [http-nio-8089-exec-7] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==>  Preparing: SELECT datatype.typeCode,datatypedetail.typeDetailCode,datatypedetail.typeDetailName FROM m_datatype datatype,m_datatypedetail datatypedetail WHERE datatype.typeCode = datatypedetail.typeCode AND datatype.delflag = 0 AND datatypedetail.delflag = 0 AND datatype.typeCode = ? ORDER BY datatype.typeCode,datatypedetail.typeDetailCode 
+2019-01-25 11:04:45.330 logback [http-nio-8089-exec-7] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==> Parameters: pxlb(String)
+2019-01-25 11:04:45.330 logback [http-nio-8089-exec-7] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - <==      Total: 2
+2019-01-25 11:04:45.333 logback [http-nio-8089-exec-10] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==>  Preparing: SELECT datatype.typeCode,datatypedetail.typeDetailCode,datatypedetail.typeDetailName FROM m_datatype datatype,m_datatypedetail datatypedetail WHERE datatype.typeCode = datatypedetail.typeCode AND datatype.delflag = 0 AND datatypedetail.delflag = 0 AND datatype.typeCode = ? ORDER BY datatype.typeCode,datatypedetail.typeDetailCode 
+2019-01-25 11:04:45.333 logback [http-nio-8089-exec-10] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==> Parameters: gz(String)
+2019-01-25 11:04:45.335 logback [http-nio-8089-exec-7] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==>  Preparing: SELECT datatype.typeCode,datatypedetail.typeDetailCode,datatypedetail.typeDetailName FROM m_datatype datatype,m_datatypedetail datatypedetail WHERE datatype.typeCode = datatypedetail.typeCode AND datatype.delflag = 0 AND datatypedetail.delflag = 0 AND datatype.typeCode = ? ORDER BY datatype.typeCode,datatypedetail.typeDetailCode 
+2019-01-25 11:04:45.335 logback [http-nio-8089-exec-7] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==> Parameters: pxcc(String)
+2019-01-25 11:04:45.337 logback [http-nio-8089-exec-10] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - <==      Total: 4
+2019-01-25 11:04:45.349 logback [http-nio-8089-exec-7] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - <==      Total: 3
+2019-01-25 11:04:50.731 logback [http-nio-8089-exec-9] DEBUG c.y.d.E.getQuestionsType - ==>  Preparing: SELECT tksd.tmzl,SUM(tksd.tmsl) AS tmsl FROM b_tkxx tkxx, b_tksd tksd WHERE tkxx.gz = ? AND tkxx.tkbh = tksd.tkbh AND tkxx.delFlag = 0 AND tksd.delFlag = 0 GROUP BY tksd.tmzl 
+2019-01-25 11:04:50.732 logback [http-nio-8089-exec-9] DEBUG c.y.d.E.getQuestionsType - ==> Parameters: 1(String)
+2019-01-25 11:04:50.734 logback [http-nio-8089-exec-9] DEBUG c.y.d.E.getQuestionsType - <==      Total: 2
+2019-01-25 11:04:50.735 logback [http-nio-8089-exec-9] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==>  Preparing: SELECT typeDetailName FROM m_datatypedetail WHERE typeCode = ? AND typeDetailCode = ? AND delflag = 0 
+2019-01-25 11:04:50.735 logback [http-nio-8089-exec-9] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==> Parameters: tmzl(String), 1(String)
+2019-01-25 11:04:50.736 logback [http-nio-8089-exec-9] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - <==      Total: 1
+2019-01-25 11:04:50.736 logback [http-nio-8089-exec-9] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==>  Preparing: SELECT typeDetailName FROM m_datatypedetail WHERE typeCode = ? AND typeDetailCode = ? AND delflag = 0 
+2019-01-25 11:04:50.737 logback [http-nio-8089-exec-9] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==> Parameters: tmzl(String), 2(String)
+2019-01-25 11:04:50.737 logback [http-nio-8089-exec-9] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - <==      Total: 1
+2019-01-25 11:04:51.585 logback [http-nio-8089-exec-5] DEBUG c.y.d.E.getExamListByStuNo - ==>  Preparing: SELECT tkls.xybh, tkls.tkbh, tkls.sdrq FROM b_tkls tkls, b_tkxx tkxx WHERE tkls.xybh = ? AND tkls.tkbh = tkxx.tkbh AND tkxx.gz = ? AND tkls.delFlag = 0 GROUP BY tkls.tkbh,tkls.sdrq ORDER BY tkls.sdrq 
+2019-01-25 11:04:51.586 logback [http-nio-8089-exec-5] DEBUG c.y.d.E.getExamListByStuNo - ==> Parameters: 402881e667bb958b0167bba3a9ae0002(String), 1(String)
+2019-01-25 11:04:51.587 logback [http-nio-8089-exec-5] DEBUG c.y.d.E.getExamListByStuNo - <==      Total: 12
+2019-01-25 11:04:53.214 logback [http-nio-8089-exec-3] DEBUG c.y.d.E.getQuestionsByDate - ==>  Preparing: SELECT tmxx.tmbh, tmxx.tmzl, tmxx.tmlx, tmxx.tmnr, tmxx.tmxx, tmxx.tmda, tmxx.tmfz FROM b_tkls tkls, b_tmxx tmxx WHERE tkls.xybh = ? AND tkls.tkbh = ? AND tkls.sdrq = ? AND tkls.tmbh = tmxx.tmbh AND tkls.delflag = 0 AND tmxx.delflag = 0 ORDER BY tmxx.tmlx,tmxx.tmzl,tmxx.createtime 
+2019-01-25 11:04:53.215 logback [http-nio-8089-exec-3] DEBUG c.y.d.E.getQuestionsByDate - ==> Parameters: 402881e667bb958b0167bba3a9ae0002(String), 001(String), 2019-01-18 13:28:41(String)
+2019-01-25 11:04:53.218 logback [http-nio-8089-exec-3] DEBUG c.y.d.E.getQuestionsByDate - <==      Total: 6
+2019-01-25 11:05:08.959 logback [http-nio-8089-exec-8] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==>  Preparing: SELECT datatype.typeCode,datatypedetail.typeDetailCode,datatypedetail.typeDetailName FROM m_datatype datatype,m_datatypedetail datatypedetail WHERE datatype.typeCode = datatypedetail.typeCode AND datatype.delflag = 0 AND datatypedetail.delflag = 0 AND datatype.typeCode = ? ORDER BY datatype.typeCode,datatypedetail.typeDetailCode 
+2019-01-25 11:05:08.960 logback [http-nio-8089-exec-8] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==> Parameters: pxcc(String)
+2019-01-25 11:05:08.960 logback [http-nio-8089-exec-6] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==>  Preparing: SELECT datatype.typeCode,datatypedetail.typeDetailCode,datatypedetail.typeDetailName FROM m_datatype datatype,m_datatypedetail datatypedetail WHERE datatype.typeCode = datatypedetail.typeCode AND datatype.delflag = 0 AND datatypedetail.delflag = 0 AND datatype.typeCode = ? ORDER BY datatype.typeCode,datatypedetail.typeDetailCode 
+2019-01-25 11:05:08.961 logback [http-nio-8089-exec-8] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - <==      Total: 3
+2019-01-25 11:05:08.961 logback [http-nio-8089-exec-6] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==> Parameters: pxlb(String)
+2019-01-25 11:05:08.961 logback [http-nio-8089-exec-6] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - <==      Total: 2
+2019-01-25 11:05:08.966 logback [http-nio-8089-exec-6] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==>  Preparing: SELECT datatype.typeCode,datatypedetail.typeDetailCode,datatypedetail.typeDetailName FROM m_datatype datatype,m_datatypedetail datatypedetail WHERE datatype.typeCode = datatypedetail.typeCode AND datatype.delflag = 0 AND datatypedetail.delflag = 0 AND datatype.typeCode = ? ORDER BY datatype.typeCode,datatypedetail.typeDetailCode 
+2019-01-25 11:05:08.966 logback [http-nio-8089-exec-6] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==> Parameters: gz(String)
+2019-01-25 11:05:08.967 logback [http-nio-8089-exec-6] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - <==      Total: 4
+2019-01-25 11:05:26.644 logback [http-nio-8089-exec-4] DEBUG c.y.d.E.getQuestionsType - ==>  Preparing: SELECT tksd.tmzl,SUM(tksd.tmsl) AS tmsl FROM b_tkxx tkxx, b_tksd tksd WHERE tkxx.gz = ? AND tkxx.tkbh = tksd.tkbh AND tkxx.delFlag = 0 AND tksd.delFlag = 0 GROUP BY tksd.tmzl 
+2019-01-25 11:05:26.644 logback [http-nio-8089-exec-4] DEBUG c.y.d.E.getQuestionsType - ==> Parameters: 1(String)
+2019-01-25 11:05:26.646 logback [http-nio-8089-exec-4] DEBUG c.y.d.E.getQuestionsType - <==      Total: 2
+2019-01-25 11:05:26.661 logback [http-nio-8089-exec-4] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==>  Preparing: SELECT typeDetailName FROM m_datatypedetail WHERE typeCode = ? AND typeDetailCode = ? AND delflag = 0 
+2019-01-25 11:05:26.661 logback [http-nio-8089-exec-4] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==> Parameters: tmzl(String), 1(String)
+2019-01-25 11:05:26.662 logback [http-nio-8089-exec-4] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - <==      Total: 1
+2019-01-25 11:05:26.662 logback [http-nio-8089-exec-4] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==>  Preparing: SELECT typeDetailName FROM m_datatypedetail WHERE typeCode = ? AND typeDetailCode = ? AND delflag = 0 
+2019-01-25 11:05:26.662 logback [http-nio-8089-exec-4] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==> Parameters: tmzl(String), 2(String)
+2019-01-25 11:05:26.663 logback [http-nio-8089-exec-4] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - <==      Total: 1
+2019-01-25 11:05:27.340 logback [http-nio-8089-exec-10] DEBUG c.y.d.E.getExamListByStuNo - ==>  Preparing: SELECT tkls.xybh, tkls.tkbh, tkls.sdrq FROM b_tkls tkls, b_tkxx tkxx WHERE tkls.xybh = ? AND tkls.tkbh = tkxx.tkbh AND tkxx.gz = ? AND tkls.delFlag = 0 GROUP BY tkls.tkbh,tkls.sdrq ORDER BY tkls.sdrq 
+2019-01-25 11:05:27.341 logback [http-nio-8089-exec-10] DEBUG c.y.d.E.getExamListByStuNo - ==> Parameters: 402881e667bb958b0167bba3a9ae0002(String), 1(String)
+2019-01-25 11:05:27.342 logback [http-nio-8089-exec-10] DEBUG c.y.d.E.getExamListByStuNo - <==      Total: 12
+2019-01-25 11:05:29.064 logback [http-nio-8089-exec-7] DEBUG c.y.d.E.getQuestionsByDate - ==>  Preparing: SELECT tmxx.tmbh, tmxx.tmzl, tmxx.tmlx, tmxx.tmnr, tmxx.tmxx, tmxx.tmda, tmxx.tmfz FROM b_tkls tkls, b_tmxx tmxx WHERE tkls.xybh = ? AND tkls.tkbh = ? AND tkls.sdrq = ? AND tkls.tmbh = tmxx.tmbh AND tkls.delflag = 0 AND tmxx.delflag = 0 ORDER BY tmxx.tmlx,tmxx.tmzl,tmxx.createtime 
+2019-01-25 11:05:29.065 logback [http-nio-8089-exec-7] DEBUG c.y.d.E.getQuestionsByDate - ==> Parameters: 402881e667bb958b0167bba3a9ae0002(String), 001(String), 2019-01-18 13:28:41(String)
+2019-01-25 11:05:29.069 logback [http-nio-8089-exec-7] DEBUG c.y.d.E.getQuestionsByDate - <==      Total: 6
+2019-01-25 11:06:39.633 logback [http-nio-8089-exec-3] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==>  Preparing: SELECT datatype.typeCode,datatypedetail.typeDetailCode,datatypedetail.typeDetailName FROM m_datatype datatype,m_datatypedetail datatypedetail WHERE datatype.typeCode = datatypedetail.typeCode AND datatype.delflag = 0 AND datatypedetail.delflag = 0 AND datatype.typeCode = ? ORDER BY datatype.typeCode,datatypedetail.typeDetailCode 
+2019-01-25 11:06:39.633 logback [http-nio-8089-exec-3] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==> Parameters: pxlb(String)
+2019-01-25 11:06:39.634 logback [http-nio-8089-exec-3] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - <==      Total: 2
+2019-01-25 11:06:39.637 logback [http-nio-8089-exec-3] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==>  Preparing: SELECT datatype.typeCode,datatypedetail.typeDetailCode,datatypedetail.typeDetailName FROM m_datatype datatype,m_datatypedetail datatypedetail WHERE datatype.typeCode = datatypedetail.typeCode AND datatype.delflag = 0 AND datatypedetail.delflag = 0 AND datatype.typeCode = ? ORDER BY datatype.typeCode,datatypedetail.typeDetailCode 
+2019-01-25 11:06:39.637 logback [http-nio-8089-exec-3] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==> Parameters: pxcc(String)
+2019-01-25 11:06:39.638 logback [http-nio-8089-exec-3] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - <==      Total: 3
+2019-01-25 11:06:39.645 logback [http-nio-8089-exec-2] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==>  Preparing: SELECT datatype.typeCode,datatypedetail.typeDetailCode,datatypedetail.typeDetailName FROM m_datatype datatype,m_datatypedetail datatypedetail WHERE datatype.typeCode = datatypedetail.typeCode AND datatype.delflag = 0 AND datatypedetail.delflag = 0 AND datatype.typeCode = ? ORDER BY datatype.typeCode,datatypedetail.typeDetailCode 
+2019-01-25 11:06:39.645 logback [http-nio-8089-exec-2] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==> Parameters: gz(String)
+2019-01-25 11:06:39.648 logback [http-nio-8089-exec-2] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - <==      Total: 4
+2019-01-25 11:06:41.032 logback [http-nio-8089-exec-6] DEBUG c.y.d.E.getQuestionsType - ==>  Preparing: SELECT tksd.tmzl,SUM(tksd.tmsl) AS tmsl FROM b_tkxx tkxx, b_tksd tksd WHERE tkxx.gz = ? AND tkxx.tkbh = tksd.tkbh AND tkxx.delFlag = 0 AND tksd.delFlag = 0 GROUP BY tksd.tmzl 
+2019-01-25 11:06:41.032 logback [http-nio-8089-exec-6] DEBUG c.y.d.E.getQuestionsType - ==> Parameters: 1(String)
+2019-01-25 11:06:41.034 logback [http-nio-8089-exec-6] DEBUG c.y.d.E.getQuestionsType - <==      Total: 2
+2019-01-25 11:06:41.034 logback [http-nio-8089-exec-6] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==>  Preparing: SELECT typeDetailName FROM m_datatypedetail WHERE typeCode = ? AND typeDetailCode = ? AND delflag = 0 
+2019-01-25 11:06:41.034 logback [http-nio-8089-exec-6] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==> Parameters: tmzl(String), 1(String)
+2019-01-25 11:06:41.035 logback [http-nio-8089-exec-6] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - <==      Total: 1
+2019-01-25 11:06:41.036 logback [http-nio-8089-exec-6] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==>  Preparing: SELECT typeDetailName FROM m_datatypedetail WHERE typeCode = ? AND typeDetailCode = ? AND delflag = 0 
+2019-01-25 11:06:41.036 logback [http-nio-8089-exec-6] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==> Parameters: tmzl(String), 2(String)
+2019-01-25 11:06:41.038 logback [http-nio-8089-exec-6] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - <==      Total: 1
+2019-01-25 11:06:41.802 logback [http-nio-8089-exec-4] DEBUG c.y.d.E.getExamListByStuNo - ==>  Preparing: SELECT tkls.xybh, tkls.tkbh, tkls.sdrq FROM b_tkls tkls, b_tkxx tkxx WHERE tkls.xybh = ? AND tkls.tkbh = tkxx.tkbh AND tkxx.gz = ? AND tkls.delFlag = 0 GROUP BY tkls.tkbh,tkls.sdrq ORDER BY tkls.sdrq 
+2019-01-25 11:06:41.802 logback [http-nio-8089-exec-4] DEBUG c.y.d.E.getExamListByStuNo - ==> Parameters: 402881e667bb958b0167bba3a9ae0002(String), 1(String)
+2019-01-25 11:06:41.803 logback [http-nio-8089-exec-4] DEBUG c.y.d.E.getExamListByStuNo - <==      Total: 12
+2019-01-25 11:06:43.496 logback [http-nio-8089-exec-10] DEBUG c.y.d.E.getQuestionsByDate - ==>  Preparing: SELECT tmxx.tmbh, tmxx.tmzl, tmxx.tmlx, tmxx.tmnr, tmxx.tmxx, tmxx.tmda, tmxx.tmfz FROM b_tkls tkls, b_tmxx tmxx WHERE tkls.xybh = ? AND tkls.tkbh = ? AND tkls.sdrq = ? AND tkls.tmbh = tmxx.tmbh AND tkls.delflag = 0 AND tmxx.delflag = 0 ORDER BY tmxx.tmlx,tmxx.tmzl,tmxx.createtime 
+2019-01-25 11:06:43.501 logback [http-nio-8089-exec-10] DEBUG c.y.d.E.getQuestionsByDate - ==> Parameters: 402881e667bb958b0167bba3a9ae0002(String), 001(String), 2019-01-18 15:44:09(String)
+2019-01-25 11:06:43.505 logback [http-nio-8089-exec-10] DEBUG c.y.d.E.getQuestionsByDate - <==      Total: 6
+2019-01-25 11:08:36.502 logback [http-nio-8089-exec-8] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==>  Preparing: SELECT datatype.typeCode,datatypedetail.typeDetailCode,datatypedetail.typeDetailName FROM m_datatype datatype,m_datatypedetail datatypedetail WHERE datatype.typeCode = datatypedetail.typeCode AND datatype.delflag = 0 AND datatypedetail.delflag = 0 AND datatype.typeCode = ? ORDER BY datatype.typeCode,datatypedetail.typeDetailCode 
+2019-01-25 11:08:36.502 logback [http-nio-8089-exec-8] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==> Parameters: gz(String)
+2019-01-25 11:08:36.504 logback [http-nio-8089-exec-8] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - <==      Total: 4
+2019-01-25 11:08:36.504 logback [http-nio-8089-exec-9] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==>  Preparing: SELECT datatype.typeCode,datatypedetail.typeDetailCode,datatypedetail.typeDetailName FROM m_datatype datatype,m_datatypedetail datatypedetail WHERE datatype.typeCode = datatypedetail.typeCode AND datatype.delflag = 0 AND datatypedetail.delflag = 0 AND datatype.typeCode = ? ORDER BY datatype.typeCode,datatypedetail.typeDetailCode 
+2019-01-25 11:08:36.504 logback [http-nio-8089-exec-9] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==> Parameters: pxlb(String)
+2019-01-25 11:08:36.505 logback [http-nio-8089-exec-5] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==>  Preparing: SELECT datatype.typeCode,datatypedetail.typeDetailCode,datatypedetail.typeDetailName FROM m_datatype datatype,m_datatypedetail datatypedetail WHERE datatype.typeCode = datatypedetail.typeCode AND datatype.delflag = 0 AND datatypedetail.delflag = 0 AND datatype.typeCode = ? ORDER BY datatype.typeCode,datatypedetail.typeDetailCode 
+2019-01-25 11:08:36.505 logback [http-nio-8089-exec-5] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==> Parameters: pxcc(String)
+2019-01-25 11:08:36.506 logback [http-nio-8089-exec-9] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - <==      Total: 2
+2019-01-25 11:08:36.506 logback [http-nio-8089-exec-5] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - <==      Total: 3
+2019-01-25 11:08:38.320 logback [http-nio-8089-exec-3] DEBUG c.y.d.E.getQuestionsType - ==>  Preparing: SELECT tksd.tmzl,SUM(tksd.tmsl) AS tmsl FROM b_tkxx tkxx, b_tksd tksd WHERE tkxx.gz = ? AND tkxx.tkbh = tksd.tkbh AND tkxx.delFlag = 0 AND tksd.delFlag = 0 GROUP BY tksd.tmzl 
+2019-01-25 11:08:38.320 logback [http-nio-8089-exec-3] DEBUG c.y.d.E.getQuestionsType - ==> Parameters: 1(String)
+2019-01-25 11:08:38.321 logback [http-nio-8089-exec-3] DEBUG c.y.d.E.getQuestionsType - <==      Total: 2
+2019-01-25 11:08:38.322 logback [http-nio-8089-exec-3] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==>  Preparing: SELECT typeDetailName FROM m_datatypedetail WHERE typeCode = ? AND typeDetailCode = ? AND delflag = 0 
+2019-01-25 11:08:38.322 logback [http-nio-8089-exec-3] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==> Parameters: tmzl(String), 1(String)
+2019-01-25 11:08:38.323 logback [http-nio-8089-exec-3] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - <==      Total: 1
+2019-01-25 11:08:38.323 logback [http-nio-8089-exec-3] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==>  Preparing: SELECT typeDetailName FROM m_datatypedetail WHERE typeCode = ? AND typeDetailCode = ? AND delflag = 0 
+2019-01-25 11:08:38.323 logback [http-nio-8089-exec-3] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==> Parameters: tmzl(String), 2(String)
+2019-01-25 11:08:38.324 logback [http-nio-8089-exec-3] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - <==      Total: 1
+2019-01-25 11:08:39.036 logback [http-nio-8089-exec-2] DEBUG c.y.d.E.getExamListByStuNo - ==>  Preparing: SELECT tkls.xybh, tkls.tkbh, tkls.sdrq FROM b_tkls tkls, b_tkxx tkxx WHERE tkls.xybh = ? AND tkls.tkbh = tkxx.tkbh AND tkxx.gz = ? AND tkls.delFlag = 0 GROUP BY tkls.tkbh,tkls.sdrq ORDER BY tkls.sdrq 
+2019-01-25 11:08:39.036 logback [http-nio-8089-exec-2] DEBUG c.y.d.E.getExamListByStuNo - ==> Parameters: 402881e667bb958b0167bba3a9ae0002(String), 1(String)
+2019-01-25 11:08:39.039 logback [http-nio-8089-exec-2] DEBUG c.y.d.E.getExamListByStuNo - <==      Total: 12
+2019-01-25 11:08:40.974 logback [http-nio-8089-exec-6] DEBUG c.y.d.E.getQuestionsByDate - ==>  Preparing: SELECT tmxx.tmbh, tmxx.tmzl, tmxx.tmlx, tmxx.tmnr, tmxx.tmxx, tmxx.tmda, tmxx.tmfz FROM b_tkls tkls, b_tmxx tmxx WHERE tkls.xybh = ? AND tkls.tkbh = ? AND tkls.sdrq = ? AND tkls.tmbh = tmxx.tmbh AND tkls.delflag = 0 AND tmxx.delflag = 0 ORDER BY tmxx.tmlx,tmxx.tmzl,tmxx.createtime 
+2019-01-25 11:08:40.975 logback [http-nio-8089-exec-6] DEBUG c.y.d.E.getQuestionsByDate - ==> Parameters: 402881e667bb958b0167bba3a9ae0002(String), 001(String), 2019-01-18 13:30:43(String)
+2019-01-25 11:08:40.981 logback [http-nio-8089-exec-6] DEBUG c.y.d.E.getQuestionsByDate - <==      Total: 6
+2019-01-25 11:10:14.020 logback [http-nio-8089-exec-8] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==>  Preparing: SELECT datatype.typeCode,datatypedetail.typeDetailCode,datatypedetail.typeDetailName FROM m_datatype datatype,m_datatypedetail datatypedetail WHERE datatype.typeCode = datatypedetail.typeCode AND datatype.delflag = 0 AND datatypedetail.delflag = 0 AND datatype.typeCode = ? ORDER BY datatype.typeCode,datatypedetail.typeDetailCode 
+2019-01-25 11:10:14.020 logback [http-nio-8089-exec-8] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==> Parameters: gz(String)
+2019-01-25 11:10:14.021 logback [http-nio-8089-exec-1] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==>  Preparing: SELECT datatype.typeCode,datatypedetail.typeDetailCode,datatypedetail.typeDetailName FROM m_datatype datatype,m_datatypedetail datatypedetail WHERE datatype.typeCode = datatypedetail.typeCode AND datatype.delflag = 0 AND datatypedetail.delflag = 0 AND datatype.typeCode = ? ORDER BY datatype.typeCode,datatypedetail.typeDetailCode 
+2019-01-25 11:10:14.021 logback [http-nio-8089-exec-1] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==> Parameters: pxlb(String)
+2019-01-25 11:10:14.021 logback [http-nio-8089-exec-8] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - <==      Total: 4
+2019-01-25 11:10:14.021 logback [http-nio-8089-exec-1] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - <==      Total: 2
+2019-01-25 11:10:14.025 logback [http-nio-8089-exec-1] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==>  Preparing: SELECT datatype.typeCode,datatypedetail.typeDetailCode,datatypedetail.typeDetailName FROM m_datatype datatype,m_datatypedetail datatypedetail WHERE datatype.typeCode = datatypedetail.typeCode AND datatype.delflag = 0 AND datatypedetail.delflag = 0 AND datatype.typeCode = ? ORDER BY datatype.typeCode,datatypedetail.typeDetailCode 
+2019-01-25 11:10:14.025 logback [http-nio-8089-exec-1] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==> Parameters: pxcc(String)
+2019-01-25 11:10:14.026 logback [http-nio-8089-exec-1] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - <==      Total: 3
+2019-01-25 11:10:15.553 logback [http-nio-8089-exec-5] DEBUG c.y.d.E.getQuestionsType - ==>  Preparing: SELECT tksd.tmzl,SUM(tksd.tmsl) AS tmsl FROM b_tkxx tkxx, b_tksd tksd WHERE tkxx.gz = ? AND tkxx.tkbh = tksd.tkbh AND tkxx.delFlag = 0 AND tksd.delFlag = 0 GROUP BY tksd.tmzl 
+2019-01-25 11:10:15.553 logback [http-nio-8089-exec-5] DEBUG c.y.d.E.getQuestionsType - ==> Parameters: 1(String)
+2019-01-25 11:10:15.554 logback [http-nio-8089-exec-5] DEBUG c.y.d.E.getQuestionsType - <==      Total: 2
+2019-01-25 11:10:15.555 logback [http-nio-8089-exec-5] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==>  Preparing: SELECT typeDetailName FROM m_datatypedetail WHERE typeCode = ? AND typeDetailCode = ? AND delflag = 0 
+2019-01-25 11:10:15.555 logback [http-nio-8089-exec-5] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==> Parameters: tmzl(String), 1(String)
+2019-01-25 11:10:15.556 logback [http-nio-8089-exec-5] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - <==      Total: 1
+2019-01-25 11:10:15.557 logback [http-nio-8089-exec-5] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==>  Preparing: SELECT typeDetailName FROM m_datatypedetail WHERE typeCode = ? AND typeDetailCode = ? AND delflag = 0 
+2019-01-25 11:10:15.557 logback [http-nio-8089-exec-5] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==> Parameters: tmzl(String), 2(String)
+2019-01-25 11:10:15.558 logback [http-nio-8089-exec-5] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - <==      Total: 1
+2019-01-25 11:10:16.287 logback [http-nio-8089-exec-3] DEBUG c.y.d.E.getExamListByStuNo - ==>  Preparing: SELECT tkls.xybh, tkls.tkbh, tkls.sdrq FROM b_tkls tkls, b_tkxx tkxx WHERE tkls.xybh = ? AND tkls.tkbh = tkxx.tkbh AND tkxx.gz = ? AND tkls.delFlag = 0 GROUP BY tkls.tkbh,tkls.sdrq ORDER BY tkls.sdrq 
+2019-01-25 11:10:16.288 logback [http-nio-8089-exec-3] DEBUG c.y.d.E.getExamListByStuNo - ==> Parameters: 402881e667bb958b0167bba3a9ae0002(String), 1(String)
+2019-01-25 11:10:16.289 logback [http-nio-8089-exec-3] DEBUG c.y.d.E.getExamListByStuNo - <==      Total: 12
+2019-01-25 11:10:19.624 logback [http-nio-8089-exec-2] DEBUG c.y.d.E.getQuestionsByDate - ==>  Preparing: SELECT tmxx.tmbh, tmxx.tmzl, tmxx.tmlx, tmxx.tmnr, tmxx.tmxx, tmxx.tmda, tmxx.tmfz FROM b_tkls tkls, b_tmxx tmxx WHERE tkls.xybh = ? AND tkls.tkbh = ? AND tkls.sdrq = ? AND tkls.tmbh = tmxx.tmbh AND tkls.delflag = 0 AND tmxx.delflag = 0 ORDER BY tmxx.tmlx,tmxx.tmzl,tmxx.createtime 
+2019-01-25 11:10:19.625 logback [http-nio-8089-exec-2] DEBUG c.y.d.E.getQuestionsByDate - ==> Parameters: 402881e667bb958b0167bba3a9ae0002(String), 001(String), 2019-01-18 13:41:16(String)
+2019-01-25 11:10:19.635 logback [http-nio-8089-exec-2] DEBUG c.y.d.E.getQuestionsByDate - <==      Total: 6
+2019-01-25 11:13:52.825 logback [http-nio-8089-exec-7] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==>  Preparing: SELECT datatype.typeCode,datatypedetail.typeDetailCode,datatypedetail.typeDetailName FROM m_datatype datatype,m_datatypedetail datatypedetail WHERE datatype.typeCode = datatypedetail.typeCode AND datatype.delflag = 0 AND datatypedetail.delflag = 0 AND datatype.typeCode = ? ORDER BY datatype.typeCode,datatypedetail.typeDetailCode 
+2019-01-25 11:13:52.825 logback [http-nio-8089-exec-7] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==> Parameters: pxlb(String)
+2019-01-25 11:13:52.826 logback [http-nio-8089-exec-7] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - <==      Total: 2
+2019-01-25 11:13:52.829 logback [http-nio-8089-exec-8] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==>  Preparing: SELECT datatype.typeCode,datatypedetail.typeDetailCode,datatypedetail.typeDetailName FROM m_datatype datatype,m_datatypedetail datatypedetail WHERE datatype.typeCode = datatypedetail.typeCode AND datatype.delflag = 0 AND datatypedetail.delflag = 0 AND datatype.typeCode = ? ORDER BY datatype.typeCode,datatypedetail.typeDetailCode 
+2019-01-25 11:13:52.830 logback [http-nio-8089-exec-8] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==> Parameters: pxcc(String)
+2019-01-25 11:13:52.830 logback [http-nio-8089-exec-1] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==>  Preparing: SELECT datatype.typeCode,datatypedetail.typeDetailCode,datatypedetail.typeDetailName FROM m_datatype datatype,m_datatypedetail datatypedetail WHERE datatype.typeCode = datatypedetail.typeCode AND datatype.delflag = 0 AND datatypedetail.delflag = 0 AND datatype.typeCode = ? ORDER BY datatype.typeCode,datatypedetail.typeDetailCode 
+2019-01-25 11:13:52.830 logback [http-nio-8089-exec-1] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==> Parameters: gz(String)
+2019-01-25 11:13:52.830 logback [http-nio-8089-exec-8] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - <==      Total: 3
+2019-01-25 11:13:52.831 logback [http-nio-8089-exec-1] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - <==      Total: 4
+2019-01-25 11:13:55.953 logback [http-nio-8089-exec-9] DEBUG c.y.d.E.getQuestionsType - ==>  Preparing: SELECT tksd.tmzl,SUM(tksd.tmsl) AS tmsl FROM b_tkxx tkxx, b_tksd tksd WHERE tkxx.gz = ? AND tkxx.tkbh = tksd.tkbh AND tkxx.delFlag = 0 AND tksd.delFlag = 0 GROUP BY tksd.tmzl 
+2019-01-25 11:13:55.953 logback [http-nio-8089-exec-9] DEBUG c.y.d.E.getQuestionsType - ==> Parameters: 1(String)
+2019-01-25 11:13:55.955 logback [http-nio-8089-exec-9] DEBUG c.y.d.E.getQuestionsType - <==      Total: 2
+2019-01-25 11:13:55.956 logback [http-nio-8089-exec-9] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==>  Preparing: SELECT typeDetailName FROM m_datatypedetail WHERE typeCode = ? AND typeDetailCode = ? AND delflag = 0 
+2019-01-25 11:13:55.956 logback [http-nio-8089-exec-9] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==> Parameters: tmzl(String), 1(String)
+2019-01-25 11:13:55.957 logback [http-nio-8089-exec-9] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - <==      Total: 1
+2019-01-25 11:13:55.957 logback [http-nio-8089-exec-9] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==>  Preparing: SELECT typeDetailName FROM m_datatypedetail WHERE typeCode = ? AND typeDetailCode = ? AND delflag = 0 
+2019-01-25 11:13:55.958 logback [http-nio-8089-exec-9] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==> Parameters: tmzl(String), 2(String)
+2019-01-25 11:13:55.958 logback [http-nio-8089-exec-9] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - <==      Total: 1
+2019-01-25 11:13:56.609 logback [http-nio-8089-exec-5] DEBUG c.y.d.E.getExamListByStuNo - ==>  Preparing: SELECT tkls.xybh, tkls.tkbh, tkls.sdrq FROM b_tkls tkls, b_tkxx tkxx WHERE tkls.xybh = ? AND tkls.tkbh = tkxx.tkbh AND tkxx.gz = ? AND tkls.delFlag = 0 GROUP BY tkls.tkbh,tkls.sdrq ORDER BY tkls.sdrq 
+2019-01-25 11:13:56.609 logback [http-nio-8089-exec-5] DEBUG c.y.d.E.getExamListByStuNo - ==> Parameters: 402881e667bb958b0167bba3a9ae0002(String), 1(String)
+2019-01-25 11:13:56.611 logback [http-nio-8089-exec-5] DEBUG c.y.d.E.getExamListByStuNo - <==      Total: 12
+2019-01-25 11:13:58.776 logback [http-nio-8089-exec-3] DEBUG c.y.d.E.getQuestionsByDate - ==>  Preparing: SELECT tmxx.tmbh, tmxx.tmzl, tmxx.tmlx, tmxx.tmnr, tmxx.tmxx, tmxx.tmda, tmxx.tmfz FROM b_tkls tkls, b_tmxx tmxx WHERE tkls.xybh = ? AND tkls.tkbh = ? AND tkls.sdrq = ? AND tkls.tmbh = tmxx.tmbh AND tkls.delflag = 0 AND tmxx.delflag = 0 ORDER BY tmxx.tmlx,tmxx.tmzl,tmxx.createtime 
+2019-01-25 11:13:58.776 logback [http-nio-8089-exec-3] DEBUG c.y.d.E.getQuestionsByDate - ==> Parameters: 402881e667bb958b0167bba3a9ae0002(String), 001(String), 2019-01-18 14:24:43(String)
+2019-01-25 11:13:58.782 logback [http-nio-8089-exec-3] DEBUG c.y.d.E.getQuestionsByDate - <==      Total: 6
+2019-01-25 11:16:38.515 logback [http-nio-8089-exec-4] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==>  Preparing: SELECT datatype.typeCode,datatypedetail.typeDetailCode,datatypedetail.typeDetailName FROM m_datatype datatype,m_datatypedetail datatypedetail WHERE datatype.typeCode = datatypedetail.typeCode AND datatype.delflag = 0 AND datatypedetail.delflag = 0 AND datatype.typeCode = ? ORDER BY datatype.typeCode,datatypedetail.typeDetailCode 
+2019-01-25 11:16:38.515 logback [http-nio-8089-exec-4] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==> Parameters: pxlb(String)
+2019-01-25 11:16:38.517 logback [http-nio-8089-exec-4] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - <==      Total: 2
+2019-01-25 11:16:38.525 logback [http-nio-8089-exec-7] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==>  Preparing: SELECT datatype.typeCode,datatypedetail.typeDetailCode,datatypedetail.typeDetailName FROM m_datatype datatype,m_datatypedetail datatypedetail WHERE datatype.typeCode = datatypedetail.typeCode AND datatype.delflag = 0 AND datatypedetail.delflag = 0 AND datatype.typeCode = ? ORDER BY datatype.typeCode,datatypedetail.typeDetailCode 
+2019-01-25 11:16:38.525 logback [http-nio-8089-exec-7] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==> Parameters: pxcc(String)
+2019-01-25 11:16:38.527 logback [http-nio-8089-exec-7] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - <==      Total: 3
+2019-01-25 11:16:38.529 logback [http-nio-8089-exec-8] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==>  Preparing: SELECT datatype.typeCode,datatypedetail.typeDetailCode,datatypedetail.typeDetailName FROM m_datatype datatype,m_datatypedetail datatypedetail WHERE datatype.typeCode = datatypedetail.typeCode AND datatype.delflag = 0 AND datatypedetail.delflag = 0 AND datatype.typeCode = ? ORDER BY datatype.typeCode,datatypedetail.typeDetailCode 
+2019-01-25 11:16:38.530 logback [http-nio-8089-exec-8] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - ==> Parameters: gz(String)
+2019-01-25 11:16:38.531 logback [http-nio-8089-exec-8] DEBUG c.y.dao.CommonMapper.getDataTypeInfo - <==      Total: 4
+2019-01-25 11:16:41.039 logback [http-nio-8089-exec-1] DEBUG c.y.d.E.getQuestionsType - ==>  Preparing: SELECT tksd.tmzl,SUM(tksd.tmsl) AS tmsl FROM b_tkxx tkxx, b_tksd tksd WHERE tkxx.gz = ? AND tkxx.tkbh = tksd.tkbh AND tkxx.delFlag = 0 AND tksd.delFlag = 0 GROUP BY tksd.tmzl 
+2019-01-25 11:16:41.040 logback [http-nio-8089-exec-1] DEBUG c.y.d.E.getQuestionsType - ==> Parameters: 1(String)
+2019-01-25 11:16:41.045 logback [http-nio-8089-exec-1] DEBUG c.y.d.E.getQuestionsType - <==      Total: 2
+2019-01-25 11:16:41.046 logback [http-nio-8089-exec-1] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==>  Preparing: SELECT typeDetailName FROM m_datatypedetail WHERE typeCode = ? AND typeDetailCode = ? AND delflag = 0 
+2019-01-25 11:16:41.046 logback [http-nio-8089-exec-1] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==> Parameters: tmzl(String), 1(String)
+2019-01-25 11:16:41.050 logback [http-nio-8089-exec-1] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - <==      Total: 1
+2019-01-25 11:16:41.051 logback [http-nio-8089-exec-1] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==>  Preparing: SELECT typeDetailName FROM m_datatypedetail WHERE typeCode = ? AND typeDetailCode = ? AND delflag = 0 
+2019-01-25 11:16:41.052 logback [http-nio-8089-exec-1] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - ==> Parameters: tmzl(String), 2(String)
+2019-01-25 11:16:41.058 logback [http-nio-8089-exec-1] DEBUG c.y.d.C.getDataTypeInfoByDetailCode - <==      Total: 1
+2019-01-25 11:16:41.627 logback [http-nio-8089-exec-9] DEBUG c.y.d.E.getExamListByStuNo - ==>  Preparing: SELECT tkls.xybh, tkls.tkbh, tkls.sdrq FROM b_tkls tkls, b_tkxx tkxx WHERE tkls.xybh = ? AND tkls.tkbh = tkxx.tkbh AND tkxx.gz = ? AND tkls.delFlag = 0 GROUP BY tkls.tkbh,tkls.sdrq ORDER BY tkls.sdrq 
+2019-01-25 11:16:41.627 logback [http-nio-8089-exec-9] DEBUG c.y.d.E.getExamListByStuNo - ==> Parameters: 402881e667bb958b0167bba3a9ae0002(String), 1(String)
+2019-01-25 11:16:41.629 logback [http-nio-8089-exec-9] DEBUG c.y.d.E.getExamListByStuNo - <==      Total: 12
+2019-01-25 11:16:43.340 logback [http-nio-8089-exec-5] DEBUG c.y.d.E.getQuestionsByDate - ==>  Preparing: SELECT tmxx.tmbh, tmxx.tmzl, tmxx.tmlx, tmxx.tmnr, tmxx.tmxx, tmxx.tmda, tmxx.tmfz FROM b_tkls tkls, b_tmxx tmxx WHERE tkls.xybh = ? AND tkls.tkbh = ? AND tkls.sdrq = ? AND tkls.tmbh = tmxx.tmbh AND tkls.delflag = 0 AND tmxx.delflag = 0 ORDER BY tmxx.tmlx,tmxx.tmzl,tmxx.createtime 
+2019-01-25 11:16:43.341 logback [http-nio-8089-exec-5] DEBUG c.y.d.E.getQuestionsByDate - ==> Parameters: 402881e667bb958b0167bba3a9ae0002(String), 001(String), 2019-01-18 13:28:41(String)
+2019-01-25 11:16:43.344 logback [http-nio-8089-exec-5] DEBUG c.y.d.E.getQuestionsByDate - <==      Total: 6
+2019-01-25 11:53:51.188 logback [Thread-5] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2019-01-25 11:53:51.189 logback [Thread-5] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-01-25 11:53:51.192 logback [Thread-5] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2019-01-25 11:53:51.222 logback [Thread-5] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2019-01-25 11:53:52.249 logback [restartedMain] INFO  com.yx.SpringbootApplication - Starting SpringbootApplication on yx-PC with PID 4388 (E:\Workspaces_springboot\architecture_springboot\springboot\target\classes started by CJ in E:\Workspaces_springboot\architecture_springboot\springboot)
+2019-01-25 11:53:52.250 logback [restartedMain] INFO  com.yx.SpringbootApplication - No active profile set, falling back to default profiles: default
+2019-01-25 11:53:53.042 logback [restartedMain] WARN  o.m.s.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.yx.mapper.*]' package. Please check your configuration.
+2019-01-25 11:53:53.150 logback [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-01-25 11:53:53.163 logback [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 13ms. Found 0 repository interfaces.
+2019-01-25 11:53:53.282 logback [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$262dd6de] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-01-25 11:53:53.377 logback [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8089 (http)
+2019-01-25 11:53:53.378 logback [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8089"]
+2019-01-25 11:53:53.379 logback [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2019-01-25 11:53:53.379 logback [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-01-25 11:53:53.438 logback [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-01-25 11:53:53.438 logback [restartedMain] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1181 ms
+2019-01-25 11:53:53.525 logback [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
+2019-01-25 11:53:53.531 logback [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
+2019-01-25 11:53:53.548 logback [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-01-25 11:53:53.581 logback [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-01-25 11:53:53.616 logback [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-01-25 11:53:53.871 logback [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019-01-25 11:53:53.901 logback [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration$JpaWebMvcConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-01-25 11:53:54.083 logback [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2019-01-25 11:53:54.118 logback [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8089"]
+2019-01-25 11:53:54.120 logback [restartedMain] INFO  o.a.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2019-01-25 11:53:54.127 logback [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8089 (http) with context path ''
+2019-01-25 11:53:54.129 logback [restartedMain] INFO  com.yx.SpringbootApplication - Started SpringbootApplication in 2.323 seconds (JVM running for 57460.421)
+2019-01-25 11:53:54.131 logback [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2019-01-25 11:53:56.557 logback [Thread-9] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2019-01-25 11:53:56.558 logback [Thread-9] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-01-25 11:53:56.559 logback [Thread-9] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
+2019-01-25 11:53:56.597 logback [Thread-9] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.
+2019-01-25 11:53:56.786 logback [restartedMain] INFO  com.yx.SpringbootApplication - Starting SpringbootApplication on yx-PC with PID 4388 (E:\Workspaces_springboot\architecture_springboot\springboot\target\classes started by CJ in E:\Workspaces_springboot\architecture_springboot\springboot)
+2019-01-25 11:53:56.786 logback [restartedMain] INFO  com.yx.SpringbootApplication - No active profile set, falling back to default profiles: default
+2019-01-25 11:53:57.136 logback [restartedMain] WARN  o.m.s.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.yx.mapper.*]' package. Please check your configuration.
+2019-01-25 11:53:57.217 logback [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-01-25 11:53:57.228 logback [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 11ms. Found 0 repository interfaces.
+2019-01-25 11:53:57.345 logback [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$262dd6de] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-01-25 11:53:57.442 logback [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8089 (http)
+2019-01-25 11:53:57.443 logback [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8089"]
+2019-01-25 11:53:57.443 logback [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2019-01-25 11:53:57.443 logback [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-01-25 11:53:57.558 logback [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-01-25 11:53:57.558 logback [restartedMain] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 768 ms
+2019-01-25 11:53:57.665 logback [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Starting...
+2019-01-25 11:53:57.781 logback [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Start completed.
+2019-01-25 11:53:57.796 logback [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-01-25 11:53:57.818 logback [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-01-25 11:53:57.831 logback [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-01-25 11:53:58.128 logback [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019-01-25 11:53:58.133 logback [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration$JpaWebMvcConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-01-25 11:53:58.400 logback [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2019-01-25 11:53:58.413 logback [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8089"]
+2019-01-25 11:53:58.414 logback [restartedMain] INFO  o.a.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2019-01-25 11:53:58.422 logback [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8089 (http) with context path ''
+2019-01-25 11:53:58.422 logback [restartedMain] INFO  com.yx.SpringbootApplication - Started SpringbootApplication in 1.693 seconds (JVM running for 57464.715)
+2019-01-25 11:53:58.425 logback [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2019-01-25 12:31:10.831 logback [Thread-15] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2019-01-25 12:31:10.832 logback [Thread-15] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-01-25 12:31:10.833 logback [Thread-15] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown initiated...
+2019-01-25 12:31:10.838 logback [Thread-15] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown completed.

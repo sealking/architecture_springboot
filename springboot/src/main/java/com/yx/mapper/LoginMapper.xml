@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yx.dao.LoginMapper" >
+	<sql id="Xyxx_Column_List" >
+		id, xyxm, xyxb, zjhm,mz,xynl,lxdh,pxbh,sftzzy,jtdz,xyzp,xylb,ssdw,stzk
+	</sql>
+
+	<select id="getXyxxByIdcard" resultType="com.yx.entity.GetXyxxByIdCardEntity" parameterType="com.yx.entity.GetXyxxByIdCardParm" >
+	    SELECT
+	    	<include refid="Xyxx_Column_List" />
+	    FROM 
+	    	b_xyxx
+		WHERE
+			zjhm = #{zjhm}
+			AND delFlag = '0'
+	</select>
+	
+</mapper>

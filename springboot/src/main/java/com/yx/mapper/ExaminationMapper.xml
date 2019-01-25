@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yx.dao.ExaminationMapper" >
+
+	<select id="getTmxxForZxksByStudentNo" resultType="com.yx.entity.GetTmxxEntity" parameterType="com.yx.entity.GetTmxxParm" >
+		SELECT 
+			tmxx.tmbh,
+			tmxx.tmzl,
+			tmxx.tmlx,
+			tmxx.tmnr,
+			tmxx.tmxx,
+			tmxx.tmda,
+			tmxx.tmfz
+		FROM
+			b_xyxx xyxx 
+			INNER JOIN b_xycj xycj ON xyxx.id = xycj.xybh AND xycj.delflag = 0
+			INNER JOIN b_ksxx ksxx ON xycj.ksbh = ksxx.id AND ksxx.delflag = 0
+			INNER JOIN b_tkls tkls ON ksxx.id = tkls.ksbh AND tkls.delflag = 0
+			INNER JOIN b_tmxx tmxx ON tkls.tmbh = tmxx.tmbh AND tmxx.delflag = 0
+		WHERE
+			xyxx.id = #{studentNo}
+			AND ksxx.ksrq = 
+				(
+					SELECT MAX(ksxx1.ksrq) FROM b_xyxx xyxx1 
+					INNER JOIN b_xycj xycj1 ON xyxx1.id = xycj1.xybh AND xycj1.delflag = 0 
+					INNER JOIN b_ksxx ksxx1 ON xycj1.ksbh = ksxx1.id AND ksxx1.delflag = 0 WHERE
+					xyxx1.id = #{studentNo}
+					AND xyxx1.delflag = 0)
+			AND xyxx.delflag = 0
+		ORDER BY
+			tmxx.tmlx,tmxx.tmzl,tmxx.createtime
+	</select>
+
+
+	<select id="getTmxxForMnksByStudentNo" resultType="com.yx.entity.GetTmxxEntity" parameterType="com.yx.entity.GetTmxxParm" >
+		SELECT 
+			tmxx.tmbh,
+			tmxx.tmzl,
+			tmxx.tmlx,
+			tmxx.tmnr,
+			tmxx.tmxx,
+			tmxx.tmda,
+			tmxx.tmfz
+		FROM
+			b_xyxx xyxx 
+			INNER JOIN b_tkls tkls ON xyxx.id = tkls.xybh AND tkls.delflag = 0
+			INNER JOIN b_tmxx tmxx ON tkls.tmbh = tmxx.tmbh AND tmxx.delflag = 0
+		WHERE
+			xyxx.id = #{studentNo}
+			AND xyxx.delflag = 0
+		ORDER BY
+			tmxx.tmlx,tmxx.tmzl,tmxx.createtime
+	</select>
+
+	<select id="getExaminationTimeByStudentNo" resultType="hashmap" parameterType="com.yx.entity.GetTmxxParm" >
+		SELECT 
+			ksxx.kssj,ksxx.jssj,ksxx.pxbh,ksxx.id,xycj.isExamFlag
+		FROM
+			b_xyxx xyxx 
+			INNER JOIN b_xycj xycj ON xyxx.id = xycj.xybh AND xycj.delflag = 0
+			INNER JOIN b_ksxx ksxx ON xycj.ksbh = ksxx.id AND ksxx.delflag = 0
+		WHERE
+			xyxx.id = #{studentNo}
+			AND ksxx.ksrq = 
+				(
+					SELECT MAX(ksxx1.ksrq) FROM b_xyxx xyxx1 
+					INNER JOIN b_xycj xycj1 ON xyxx1.id = xycj1.xybh AND xycj1.delflag = 0 
+					INNER JOIN b_ksxx ksxx1 ON xycj1.ksbh = ksxx1.id AND ksxx1.delflag = 0 WHERE
+					xyxx1.id = #{studentNo}
+					AND xyxx1.delflag = 0)
+			AND xyxx.delflag = 0
+	</select>
+	
+	<select id="getQuestionsType" resultType="com.yx.entity.GetQuestionsTypeEntity" parameterType="com.yx.entity.GetQuestionsTypeParm">
+		SELECT
+			tksd.tmzl,SUM(tksd.tmsl) AS tmsl
+		FROM
+			b_tkxx tkxx,
+			b_tksd tksd
+		WHERE
+			tkxx.gz = #{workTypeCode}
+			AND tkxx.tkbh = tksd.tkbh
+			AND tkxx.delFlag = 0
+			AND tksd.delFlag = 0
+		GROUP BY
+			tksd.tmzl
+	</select>
+	
+	<select id="getQuestionsSetting" resultType="com.yx.entity.GetQuestionsSettingEntity" parameterType="com.yx.entity.GetQuestionsSettingParm">
+		SELECT
+			tksd.tkbh,
+			tksd.tmzl,
+			tksd.tmlx,
+			tksd.tmnyd,
+			tksd.tmsl
+		FROM
+			b_tkxx tkxx,
+			b_tksd tksd
+		WHERE
+			tkxx.gz = #{workTypeCode}
+			AND tkxx.tkbh = tksd.tkbh
+			AND tkxx.delFlag = 0
+			AND tksd.delFlag = 0
+		ORDER BY
+			tksd.tmlx,
+			tksd.tmzl,
+			tksd.tmnyd
+	</select>
+	
+	<select id="getRandomQuestion" resultType="com.yx.entity.GetTmxxEntity" parameterType="com.yx.entity.GetRandomQuestionParm">
+		SELECT
+			id,tmbh,tmzl,tmlx,tmnr,tmxx,tmda,tmfz,tmnyd
+		FROM
+			b_tmxx
+		WHERE
+			tmzl = #{tmzl}
+			AND tmlx = #{tmlx}
+			AND tmnyd = #{tmnyd}
+			AND delFlag = 0
+			ORDER BY RAND() LIMIT #{tmsl}
+	</select>
+	
+	<insert id="insertQuestionsHistory" parameterType="java.util.List">
+		insert into b_tkls(id,tkbh,tmbh,xybh,ksbh,sdrq,delFlag)
+		values
+		<foreach collection="list" item="item" index="index" separator=",">
+			(
+				(select replace(uuid(), '-', '') as id from dual),
+        		#{item.tkbh},
+        		#{item.tmbh},
+        		#{item.xybh},
+        		#{item.ksbh},
+        		#{item.sdrq},
+        		0
+			)
+		</foreach>
+	</insert>
+
+	<select id="getExamListByStuNo" resultType="com.yx.entity.GetExamListByStuNoEntity" parameterType="com.yx.entity.GetExamListByStuNoParm">
+		SELECT
+			tkls.xybh,
+			tkls.tkbh,
+			tkls.sdrq
+		FROM
+			b_tkls tkls,
+			b_tkxx tkxx
+		WHERE
+			tkls.xybh = #{xybh}
+			AND tkls.tkbh = tkxx.tkbh
+			AND tkxx.gz = #{gz}
+			AND tkls.delFlag = 0
+		GROUP BY
+			tkls.tkbh,tkls.sdrq
+		ORDER BY
+			tkls.sdrq
+	</select>
+	
+	<select id="getQuestionsByDate" resultType="com.yx.entity.GetTmxxEntity" parameterType="com.yx.entity.GetTmxxParm" >
+		SELECT 
+			tmxx.tmbh,
+			tmxx.tmzl,
+			tmxx.tmlx,
+			tmxx.tmnr,
+			tmxx.tmxx,
+			tmxx.tmda,
+			tmxx.tmfz
+		FROM
+			b_tkls tkls,
+			b_tmxx tmxx
+		WHERE
+			tkls.xybh = #{studentNo}
+			AND tkls.tkbh = #{questionsNo}
+			AND tkls.sdrq = #{settingDate}
+			AND tkls.tmbh = tmxx.tmbh
+			AND tkls.delflag = 0
+			AND tmxx.delflag = 0
+		ORDER BY
+			tmxx.tmlx,tmxx.tmzl,tmxx.createtime
+	</select>
+	
+	<select id="getQuestionsByType" resultType="com.yx.entity.GetTmxxEntity" parameterType="com.yx.entity.GetTmxxParm" >
+		SELECT 
+			tmbh,
+			tmzl,
+			tmlx,
+			tmnr,
+			tmxx,
+			tmda,
+			tmfz
+		FROM
+			b_tmxx
+		WHERE
+			tmzl = #{questionType}
+			AND delflag = 0
+		ORDER BY
+			tmlx,createtime
+	</select>
+	
+	<select id="getTrainByNo" resultType="com.yx.entity.GetTrainByNoEntity" parameterType="string" >
+		SELECT 
+			id,pxbh,pxmc,pxlb,pxcc
+		FROM
+			b_pxxx
+		WHERE
+			pxbh= #{pxbh}
+			AND delFlag = 0
+	</select>
+	
+	<update id="updateScore" parameterType="com.yx.entity.UpdateScoreParm">
+		UPDATE
+			b_xycj
+		SET kscj = #{kscj}
+		WHERE
+			xybh = #{xybh}
+			AND ksbh = #{ksbh}
+	</update>
+	
+	<update id="updateIsExamFlag" parameterType="com.yx.entity.UpdateIsExamFlagParm">
+		UPDATE
+			b_xycj
+		SET isExamFlag = '1'
+		WHERE
+			xybh = #{xybh}
+			AND ksbh = #{ksbh}
+	</update>
+	
+	<select id="getWorkTypeByExamNo" resultType="string" parameterType="string" >
+		SELECT
+			DISTINCT tkxx.gz
+		FROM
+			b_tkls tkls,b_tkxx tkxx
+		WHERE
+			tkls.tkbh = tkxx.tkbh
+			AND tkls.ksbh = #{examNo}
+	</select>
+
+</mapper>
