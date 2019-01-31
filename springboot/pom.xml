@@ -9,8 +9,11 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.yx</groupId>
-	<artifactId>springboot</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<artifactId>examation</artifactId>
+	<version>1.0</version>
+	<!-- war部署需要 start -->
+	 <packaging>war</packaging>
+	<!-- war部署需要 end -->
 	<name>springboot</name>
 	<description>yx</description>
 

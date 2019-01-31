@@ -41,8 +41,8 @@ public class CommonServiceImpl implements CommonService {
 		List<GetDataTypeDetailEntity> getDataTypeDetailList = commonMapper.getDataTypeInfo(getDataTypeDetailParm);
 		for(GetDataTypeDetailEntity getDataTypeDetailEntity : getDataTypeDetailList) {
 			DataTypeInfoDto dataTypeInfoDto = new DataTypeInfoDto();
-			dataTypeInfoDto.setTypeDetailCode(getDataTypeDetailEntity.getTypeDetailCode());
-			dataTypeInfoDto.setTypeDetailName(getDataTypeDetailEntity.getTypeDetailName());
+			dataTypeInfoDto.setKey(getDataTypeDetailEntity.getTypeDetailCode());
+			dataTypeInfoDto.setValue(getDataTypeDetailEntity.getTypeDetailName());
 			dataTypeList.add(dataTypeInfoDto);
 		}
 		outDto.setDataTypeList(dataTypeList);

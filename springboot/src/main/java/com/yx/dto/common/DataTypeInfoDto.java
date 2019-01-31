@@ -6,8 +6,8 @@ import lombok.Data;
 public class DataTypeInfoDto {
 	
 	// 数据类型明细编码
-	private String typeDetailCode;
+	private String key;
 	
 	// 数据类型明细名称
-	private String typeDetailName;
+	private String value;
 }

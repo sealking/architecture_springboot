@@ -1,6 +1,7 @@
 package com.yx.dto.examination;
 
 import java.util.List;
+import java.util.Map;
 
 import com.yx.dto.BaseOutDto;
 
@@ -22,10 +23,7 @@ public class QuestionInfoDto extends BaseOutDto{
 	private String questionContent;
 	
 	// 选项内容List
-	private List<String> itemInfoList;
-	
-	// 选项List
-	private List<String> itemList;
+	private List<Map<String,Object>> itemInfoList;
 	
 	// 正确答案
 	private String answer;

@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -288,14 +289,14 @@ public class ExaminationServiceImpl implements ExaminationService {
 			for (DataTypeInfoDto dataTypeInfoDto : dataTypeInfoOutDto.getDataTypeList()) {
 				List<QuestionInfoDto> list = new ArrayList<QuestionInfoDto>();
 				GetQuestionByTypeOutDto getQuestionByTypeOutDto = new GetQuestionByTypeOutDto();
-				getQuestionByTypeOutDto.setQuestionType(dataTypeInfoDto.getTypeDetailCode());
+				getQuestionByTypeOutDto.setQuestionTypeKey(dataTypeInfoDto.getKey());
+				getQuestionByTypeOutDto.setQuestionTypeValue(dataTypeInfoDto.getValue());
 
 				GetTmxxParm getTmxxParm = new GetTmxxParm();
 				List<GetTmxxEntity> tmxxEntityList = new ArrayList<GetTmxxEntity>();
-				getTmxxParm.setQuestionType(dataTypeInfoDto.getTypeDetailCode());
+				getTmxxParm.setQuestionType(dataTypeInfoDto.getKey());
 				tmxxEntityList = examinationMapper.getQuestionsByType(getTmxxParm);
 				list = this.getQuestionsInfo(tmxxEntityList);
-				getQuestionByTypeOutDto.setQuestionType(dataTypeInfoDto.getTypeDetailCode());
 				getQuestionByTypeOutDto.setQuestionInfoList(list);
 				outDtoList.add(getQuestionByTypeOutDto);
 			}
@@ -388,17 +389,24 @@ public class ExaminationServiceImpl implements ExaminationService {
 			if ("1".equals(tmxxEntity.getTmlx()) || "2".equals(tmxxEntity.getTmlx())) {
 				// 选项内容List
 				String itemInfo = tmxxEntity.getTmxx();
-				List<String> itemInfoList = this.getItemInfo(itemInfo);
+				List<Map<String, Object>> itemInfoList = this.getItemInfo(itemInfo);
 				questionInfoDto.setItemInfoList(itemInfoList);
-
-				// 选项List
-				char ch = 'A';
-				int charInt = ch;
-				List<String> itemList = new ArrayList<String>();
-				for (int i = 0; i < itemInfoList.size(); i++) {
-					itemList.add(String.valueOf((char) charInt++));
-				}
-				questionInfoDto.setItemList(itemList);
+			}
+			
+			if ("3". equals(tmxxEntity.getTmlx())) {
+				List<Map<String, Object>> itemInfoList = new ArrayList<Map<String, Object>>();
+				Map<String, Object> okMap = new HashMap<String, Object>();
+				okMap.put("value", "A");
+				okMap.put("label", "正确");
+				okMap.put("disabled", false);
+				Map<String, Object> errorMap = new HashMap<String, Object>();
+				errorMap.put("value", "B");
+				errorMap.put("label", "错误");
+				errorMap.put("disabled", false);
+				itemInfoList.add(okMap);
+				itemInfoList.add(errorMap);
+				
+				questionInfoDto.setItemInfoList(itemInfoList);
 			}
 
 			// 正确答案
@@ -419,21 +427,32 @@ public class ExaminationServiceImpl implements ExaminationService {
 	 * @param itemInfo
 	 * @return
 	 */
-	private List<String> getItemInfo(String itemInfo) {
-		List<String> resultList = new ArrayList<String>();
+	private List<Map<String,Object>> getItemInfo(String itemInfo) {
+		List<Map<String,Object>> resultList = new ArrayList<Map<String,Object>>();
 
 		char ch = 'A';
 		int charInt = ch;
 
 		for (int i = charInt + 1; i < charInt + 26; i++) {
+			Map<String, Object> option = new HashMap<String, Object>();
 			char temp = (char) i;
 			String strTemp = "|" + temp + "、";
 			int itemaEndIndex = itemInfo.indexOf(strTemp);
 			if (itemaEndIndex == -1) {
-				resultList.add(itemInfo);
+				String optionValue = String.valueOf((char) (i-1));
+				String optionLabel = itemInfo;
+				option.put("value", optionValue);
+				option.put("label", optionLabel);
+				option.put("disabled", false);
+				resultList.add(option);
 				return resultList;
 			} else {
-				resultList.add(itemInfo.substring(0, itemaEndIndex));
+				String optionValue = String.valueOf((char) (i-1));
+				String optionLabel = itemInfo.substring(0, itemaEndIndex);
+				option.put("value", optionValue);
+				option.put("label", optionLabel);
+				option.put("disabled", false);
+				resultList.add(option);
 				itemInfo = itemInfo.substring(itemaEndIndex + 1);
 			}
 		}
