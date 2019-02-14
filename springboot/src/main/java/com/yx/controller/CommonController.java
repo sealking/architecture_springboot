@@ -1,5 +1,16 @@
 package com.yx.controller;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URLEncoder;
+
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,10 +21,8 @@ import com.yx.dto.common.DataTypeInfoByDetailCodeInDto;
 import com.yx.dto.common.DataTypeInfoByDetailCodeOutDto;
 import com.yx.dto.common.DataTypeInfoInDto;
 import com.yx.dto.common.DataTypeInfoOutDto;
-import com.yx.dto.login.UserLoginInDto;
-import com.yx.dto.login.UserLoginOutDto;
+import com.yx.dto.common.FileDownLoadInDto;
 import com.yx.service.CommonService;
-import com.yx.service.LoginService;
 
 @RestController
 @RequestMapping("/common")
@@ -49,4 +58,30 @@ public class CommonController {
 		return outDto;
 	}
 	
+	/**
+	 * 文件下载
+	 * 
+	 * @param inDto
+	 * @return
+	 */
+	@RequestMapping("/fileDownload")
+	public void fileDownload(FileDownLoadInDto inDto, HttpServletResponse response) {
+        String fullPath = "E:/testDownload/test1.docx";
+        File downloadFile = new File(fullPath);
+
+        response.setContentLength((int) downloadFile.length());
+
+        // Copy the stream to the response's output stream.
+        try {
+            // set headers for the response
+            String headerKey = "Content-Disposition";
+            String headerValue = "attachment;filename="+ URLEncoder.encode(fullPath, "UTF-8");
+            response.setHeader(headerKey, headerValue);
+            InputStream myStream = new FileInputStream(fullPath);
+            IOUtils.copy(myStream, response.getOutputStream());
+            response.flushBuffer();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+	}
 }
