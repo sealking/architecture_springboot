@@ -1,9 +1,6 @@
 package com.yx.dto.examination;
 
-import java.util.Date;
-
 import com.yx.dto.BaseOutDto;
-
 import lombok.Data;
 
 @Data

@@ -1,11 +1,8 @@
 package com.yx.service.impl;
 
-import java.util.ArrayList;
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.yx.dao.LoginMapper;
 import com.yx.dto.login.UserLoginInDto;
 import com.yx.dto.login.UserLoginOutDto;
@@ -43,6 +40,8 @@ public class LoginServiceImpl implements LoginService {
 			userLoginOutDto.setIdCard(XyxxEntity.getZjhm());
 			// 姓名
 			userLoginOutDto.setName(XyxxEntity.getXyxm());
+			// 性别
+			userLoginOutDto.setSex(XyxxEntity.getXyxb());
 			// 所属单位
 			userLoginOutDto.setUnits(XyxxEntity.getSsdw());
 			

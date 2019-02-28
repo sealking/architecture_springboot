@@ -1,10 +1,6 @@
 package com.yx.dto.login;
 
-import java.util.List;
-
 import com.yx.dto.BaseOutDto;
-import com.yx.dto.examination.QuestionInfoDto;
-
 import lombok.Data;
 
 @Data
@@ -18,6 +14,9 @@ public class UserLoginOutDto extends BaseOutDto {
 	
 	// 姓名
 	private String name;
+	
+	// 性别
+	private String sex;
 	
 	// 所属单位
 	private String units;

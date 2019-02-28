@@ -24,4 +24,13 @@ public class GetQuestionOutDto extends BaseOutDto{
 	
 	// 工种岗位
 	private String workType;
+	
+	// 培训类别
+	private String trainType;
+	
+	// 培训层次
+	private String trainLevel;
+	
+	// 模拟考试设定日期
+	private String settingDate;
 }

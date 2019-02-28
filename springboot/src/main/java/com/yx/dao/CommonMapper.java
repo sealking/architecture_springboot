@@ -1,6 +1,7 @@
 package com.yx.dao;
 
 import com.yx.entity.GetDataTypeInfoByDetailCodeParm;
+import com.yx.entity.FileEntity;
 import com.yx.entity.GetDataTypeDetailEntity;
 import com.yx.entity.GetDataTypeDetailParm;
 import java.util.List;
@@ -13,4 +14,7 @@ public interface CommonMapper {
 	
 	// 根据数据类型编码及数据类型明细编码获取数据字典名称
 	public String getDataTypeInfoByDetailCode(GetDataTypeInfoByDetailCodeParm parm);
+	
+	// 获取文件信息
+	public List<FileEntity> getFileInfo();
 }

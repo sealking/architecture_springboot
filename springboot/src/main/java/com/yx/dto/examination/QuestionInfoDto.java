@@ -29,5 +29,5 @@ public class QuestionInfoDto extends BaseOutDto{
 	private String answer;
 	
 	// 题目分值
-	private int score;
+	private float score;
 }

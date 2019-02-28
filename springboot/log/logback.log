@@ -1,46 +1,56 @@
-2019-01-31 10:19:18.220 logback [main] INFO  com.yx.SpringbootApplicationTests - Starting SpringbootApplicationTests on yx-PC with PID 11476 (started by CJ in E:\Workspaces_springboot\architecture_springboot\springboot)
-2019-01-31 10:19:18.223 logback [main] INFO  com.yx.SpringbootApplicationTests - No active profile set, falling back to default profiles: default
-2019-01-31 10:19:19.027 logback [main] WARN  o.m.s.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.yx.mapper.*]' package. Please check your configuration.
-2019-01-31 10:19:19.288 logback [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
-2019-01-31 10:19:19.325 logback [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 25ms. Found 0 repository interfaces.
-2019-01-31 10:19:19.838 logback [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$aa1e674e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2019-01-31 10:19:20.092 logback [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2019-01-31 10:19:20.289 logback [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2019-01-31 10:19:20.398 logback [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+2019-02-28 09:21:16.340 logback [restartedMain] INFO  com.yx.SpringbootApplication - Starting SpringbootApplication on yx-PC with PID 5624 (E:\Workspaces_springboot\architecture_springboot\springboot\target\classes started by CJ in E:\Workspaces_springboot\architecture_springboot\springboot)
+2019-02-28 09:21:16.349 logback [restartedMain] INFO  com.yx.SpringbootApplication - No active profile set, falling back to default profiles: default
+2019-02-28 09:21:16.596 logback [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2019-02-28 09:21:16.597 logback [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2019-02-28 09:21:17.745 logback [restartedMain] WARN  o.m.s.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.yx.mapper.*]' package. Please check your configuration.
+2019-02-28 09:21:18.095 logback [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-02-28 09:21:18.123 logback [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 16ms. Found 0 repository interfaces.
+2019-02-28 09:21:18.823 logback [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$83526af1] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-02-28 09:21:19.743 logback [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 2500 (http)
+2019-02-28 09:21:19.770 logback [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-2500"]
+2019-02-28 09:21:19.783 logback [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2019-02-28 09:21:19.784 logback [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-02-28 09:21:19.806 logback [restartedMain] INFO  o.a.c.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_191\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\app\CJ\product\11.2.0\client_1;E:\app\CJ\product\11.2.0\client_1\bin;C:\Program Files\Java\jdk1.8.0_191\bin;C:\Program Files\Java\jdk1.8.0_191\jre\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Skype\Phone\;C:\Program Files\TortoiseSVN\bin;C:\Program Files\Git\cmd;E:\mysql-5.6.21-win32\bin;F:\apache-maven-3.3.3\bin;C:\Program Files\nodejs\;E:\android-sdk-windows\platform-tools;E:\android-sdk-windows\tools;D:\gradle-4.1\bin;;C:\Program Files\Microsoft VS Code\bin;C:\Users\CJ\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\CJ\AppData\Roaming\npm;.]
+2019-02-28 09:21:19.953 logback [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-02-28 09:21:19.959 logback [restartedMain] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 3362 ms
+2019-02-28 09:21:20.343 logback [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2019-02-28 09:21:20.666 logback [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2019-02-28 09:21:20.869 logback [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
 	name: default
 	...]
-2019-01-31 10:19:20.492 logback [main] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.3.7.Final}
-2019-01-31 10:19:20.494 logback [main] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
-2019-01-31 10:19:20.699 logback [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
-2019-01-31 10:19:20.951 logback [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
-2019-01-31 10:19:21.262 logback [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2019-01-31 10:19:22.386 logback [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
-2019-01-31 10:19:22.450 logback [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration$JpaWebMvcConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2019-01-31 10:19:22.899 logback [main] INFO  com.yx.SpringbootApplicationTests - Started SpringbootApplicationTests in 5.316 seconds (JVM running for 7.811)
-2019-01-31 10:19:23.324 logback [Thread-2] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
-2019-01-31 10:19:23.327 logback [Thread-2] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2019-01-31 10:19:23.331 logback [Thread-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2019-01-31 10:19:23.342 logback [Thread-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
-2019-01-31 13:33:04.835 logback [main] INFO  com.yx.SpringbootApplicationTests - Starting SpringbootApplicationTests on yx-PC with PID 11080 (started by CJ in E:\Workspaces_springboot\architecture_springboot\springboot)
-2019-01-31 13:33:04.838 logback [main] INFO  com.yx.SpringbootApplicationTests - No active profile set, falling back to default profiles: default
-2019-01-31 13:33:05.582 logback [main] WARN  o.m.s.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.yx.mapper.*]' package. Please check your configuration.
-2019-01-31 13:33:05.822 logback [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
-2019-01-31 13:33:05.851 logback [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 19ms. Found 0 repository interfaces.
-2019-01-31 13:33:06.347 logback [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$aa1e674e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2019-01-31 13:33:06.617 logback [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2019-01-31 13:33:06.849 logback [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2019-01-31 13:33:06.981 logback [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
-	name: default
-	...]
-2019-01-31 13:33:07.073 logback [main] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.3.7.Final}
-2019-01-31 13:33:07.075 logback [main] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
-2019-01-31 13:33:07.259 logback [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
-2019-01-31 13:33:07.519 logback [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
-2019-01-31 13:33:07.802 logback [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2019-01-31 13:33:08.985 logback [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
-2019-01-31 13:33:09.054 logback [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration$JpaWebMvcConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2019-01-31 13:33:09.454 logback [main] INFO  com.yx.SpringbootApplicationTests - Started SpringbootApplicationTests in 5.179 seconds (JVM running for 7.733)
-2019-01-31 13:33:09.772 logback [Thread-2] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
-2019-01-31 13:33:09.773 logback [Thread-2] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2019-01-31 13:33:09.776 logback [Thread-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2019-01-31 13:33:09.781 logback [Thread-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2019-02-28 09:21:21.057 logback [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.3.7.Final}
+2019-02-28 09:21:21.061 logback [restartedMain] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+2019-02-28 09:21:21.536 logback [restartedMain] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-02-28 09:21:22.062 logback [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-02-28 09:21:22.551 logback [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-02-28 09:21:23.224 logback [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019-02-28 09:21:23.306 logback [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration$JpaWebMvcConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-02-28 09:21:23.615 logback [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2019-02-28 09:21:23.653 logback [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-2500"]
+2019-02-28 09:21:23.661 logback [restartedMain] INFO  o.a.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2019-02-28 09:21:23.690 logback [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 2500 (http) with context path ''
+2019-02-28 09:21:23.695 logback [restartedMain] INFO  com.yx.SpringbootApplication - Started SpringbootApplication in 8.582 seconds (JVM running for 10.325)
+2019-02-28 09:22:28.948 logback [http-nio-2500-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-02-28 09:22:28.948 logback [http-nio-2500-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2019-02-28 09:22:28.957 logback [http-nio-2500-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 9 ms
+2019-02-28 09:22:29.174 logback [http-nio-2500-exec-2] DEBUG c.yx.dao.LoginMapper.getXyxxByIdcard - ==>  Preparing: SELECT id, xyxm, xyxb, zjhm,mz,xynl,lxdh,pxbh,sftzzy,jtdz,xyzp,xylb,ssdw,stzk FROM b_xyxx WHERE zjhm = ? AND delFlag = '0' 
+2019-02-28 09:22:29.198 logback [http-nio-2500-exec-2] DEBUG c.yx.dao.LoginMapper.getXyxxByIdcard - ==> Parameters: 1(String)
+2019-02-28 09:22:29.482 logback [http-nio-2500-exec-2] DEBUG c.yx.dao.LoginMapper.getXyxxByIdcard - <==      Total: 1
+2019-02-28 09:22:31.105 logback [http-nio-2500-exec-6] DEBUG c.y.d.E.getTrainByStuNo - ==>  Preparing: SELECT pxxx.id,pxxx.pxbh,pxxx.pxmc FROM b_xycj xycj,b_pxxx pxxx,b_ksxx ksxx WHERE xycj.pxbh = pxxx.pxbh AND xycj.ksbh = ksxx.id AND xycj.xybh = ? AND xycj.delFlag = 0 AND pxxx.delFlag = 0 ORDER BY ksxx.ksrq desc 
+2019-02-28 09:22:31.106 logback [http-nio-2500-exec-6] DEBUG c.y.d.E.getTrainByStuNo - ==> Parameters: 40288183689e0a1b01689e0a1b380000(String)
+2019-02-28 09:22:31.188 logback [http-nio-2500-exec-6] DEBUG c.y.d.E.getTrainByStuNo - <==      Total: 2
+2019-02-28 09:22:31.277 logback [http-nio-2500-exec-10] DEBUG c.y.d.E.getRankingForMock - ==>  Preparing: SELECT xycj.xybh, xyxx.xyxm, xycj.pxbh, IFNULL(xypm3.kscs,0) kscs, IFNULL(xypm3.kscj,0) kscj, IFNULL(xypm3.ksts,0) ksts FROM b_xycj xycj INNER JOIN b_xyxx xyxx ON xycj.xybh = xyxx.id LEFT JOIN ( SELECT xypm1.xybh xybh, xypm1.pxbh pxbh, xypm1.kscs kscs, xypm1.kscj kscj, xypm2.ksts ksts FROM ( SELECT mnkscj.xybh, mnkscj.pxbh, count(*) kscs, SUM(mnkscj.kscj) kscj FROM b_mnkscj mnkscj WHERE mnkscj.pxbh = ? GROUP BY mnkscj.xybh ORDER BY mnkscj.xybh,mnkscj.sdrq,mnkscj.sjbh ) xypm1 LEFT JOIN ( SELECT count(*) ksts, temp.xybh xybh FROM ( SELECT xybh, sdrq FROM b_mnkscj WHERE pxbh = ? GROUP BY xybh,sdrq ) temp GROUP BY xybh )xypm2 ON xypm2.xybh = xypm1.xybh )xypm3 ON xycj.xybh = xypm3.xybh WHERE xycj.pxbh = ? AND xycj.delFlag = 0 AND xyxx.delFlag = 0 ORDER BY xypm3.kscj DESC, xypm3.kscs ASC, xypm3.ksts ASC 
+2019-02-28 09:22:31.279 logback [http-nio-2500-exec-10] DEBUG c.y.d.E.getRankingForMock - ==> Parameters: 20190213132256050(String), 20190213132256050(String), 20190213132256050(String)
+2019-02-28 09:22:31.302 logback [http-nio-2500-exec-4] DEBUG c.y.d.E.getRankingForOnline - ==>  Preparing: SELECT xycj.xybh, xyxx.xyxm, xycj.pxbh, xycj.kscj FROM b_xycj xycj INNER JOIN b_xyxx xyxx ON xycj.xybh = xyxx.id WHERE xycj.pxbh = ? AND xycj.delFlag = 0 AND xyxx.delFlag = 0 ORDER BY xycj.kscj DESC 
+2019-02-28 09:22:31.302 logback [http-nio-2500-exec-4] DEBUG c.y.d.E.getRankingForOnline - ==> Parameters: 20190213132256050(String)
+2019-02-28 09:22:31.311 logback [http-nio-2500-exec-4] DEBUG c.y.d.E.getRankingForOnline - <==      Total: 10
+2019-02-28 09:22:31.311 logback [http-nio-2500-exec-10] DEBUG c.y.d.E.getRankingForMock - <==      Total: 10
+2019-02-28 11:54:37.095 logback [http-nio-2500-exec-5] DEBUG c.y.d.E.getTrainByStuNo - ==>  Preparing: SELECT pxxx.id,pxxx.pxbh,pxxx.pxmc FROM b_xycj xycj,b_pxxx pxxx,b_ksxx ksxx WHERE xycj.pxbh = pxxx.pxbh AND xycj.ksbh = ksxx.id AND xycj.xybh = ? AND xycj.delFlag = 0 AND pxxx.delFlag = 0 ORDER BY ksxx.ksrq desc 
+2019-02-28 11:54:37.097 logback [http-nio-2500-exec-5] DEBUG c.y.d.E.getTrainByStuNo - ==> Parameters: 40288183689e0a1b01689e0a1b380000(String)
+2019-02-28 11:54:37.104 logback [http-nio-2500-exec-5] DEBUG c.y.d.E.getTrainByStuNo - <==      Total: 2
+2019-02-28 11:54:37.169 logback [http-nio-2500-exec-9] DEBUG c.y.d.E.getRankingForMock - ==>  Preparing: SELECT xycj.xybh, xyxx.xyxm, xycj.pxbh, IFNULL(xypm3.kscs,0) kscs, IFNULL(xypm3.kscj,0) kscj, IFNULL(xypm3.ksts,0) ksts FROM b_xycj xycj INNER JOIN b_xyxx xyxx ON xycj.xybh = xyxx.id LEFT JOIN ( SELECT xypm1.xybh xybh, xypm1.pxbh pxbh, xypm1.kscs kscs, xypm1.kscj kscj, xypm2.ksts ksts FROM ( SELECT mnkscj.xybh, mnkscj.pxbh, count(*) kscs, SUM(mnkscj.kscj) kscj FROM b_mnkscj mnkscj WHERE mnkscj.pxbh = ? GROUP BY mnkscj.xybh ORDER BY mnkscj.xybh,mnkscj.sdrq,mnkscj.sjbh ) xypm1 LEFT JOIN ( SELECT count(*) ksts, temp.xybh xybh FROM ( SELECT xybh, sdrq FROM b_mnkscj WHERE pxbh = ? GROUP BY xybh,sdrq ) temp GROUP BY xybh )xypm2 ON xypm2.xybh = xypm1.xybh )xypm3 ON xycj.xybh = xypm3.xybh WHERE xycj.pxbh = ? AND xycj.delFlag = 0 AND xyxx.delFlag = 0 ORDER BY xypm3.kscj DESC, xypm3.kscs ASC, xypm3.ksts ASC 
+2019-02-28 11:54:37.169 logback [http-nio-2500-exec-9] DEBUG c.y.d.E.getRankingForMock - ==> Parameters: 20190213132256050(String), 20190213132256050(String), 20190213132256050(String)
+2019-02-28 11:54:37.174 logback [http-nio-2500-exec-9] DEBUG c.y.d.E.getRankingForMock - <==      Total: 10
+2019-02-28 11:54:37.187 logback [http-nio-2500-exec-3] DEBUG c.y.d.E.getRankingForOnline - ==>  Preparing: SELECT xycj.xybh, xyxx.xyxm, xycj.pxbh, xycj.kscj FROM b_xycj xycj INNER JOIN b_xyxx xyxx ON xycj.xybh = xyxx.id WHERE xycj.pxbh = ? AND xycj.delFlag = 0 AND xyxx.delFlag = 0 ORDER BY xycj.kscj DESC 
+2019-02-28 11:54:37.188 logback [http-nio-2500-exec-3] DEBUG c.y.d.E.getRankingForOnline - ==> Parameters: 20190213132256050(String)
+2019-02-28 11:54:37.191 logback [http-nio-2500-exec-3] DEBUG c.y.d.E.getRankingForOnline - <==      Total: 10

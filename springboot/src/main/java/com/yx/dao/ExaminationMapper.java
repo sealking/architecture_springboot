@@ -7,16 +7,18 @@ import com.yx.entity.GetQuestionsSettingParm;
 import com.yx.entity.GetQuestionsTypeEntity;
 import com.yx.entity.GetQuestionsTypeParm;
 import com.yx.entity.GetRandomQuestionParm;
+import com.yx.entity.GetRankingEntity;
+import com.yx.entity.GetRankingParm;
 import com.yx.entity.GetTmxxEntity;
 import com.yx.entity.GetTmxxParm;
 import com.yx.entity.GetTrainByNoEntity;
+import com.yx.entity.GetTrainByStuNoEntity;
 import com.yx.entity.InsertQuestionsHistoryParm;
 import com.yx.entity.UpdateIsExamFlagParm;
+import com.yx.entity.InsertMockScoreParm;
 import com.yx.entity.UpdateScoreParm;
-
 import java.util.HashMap;
 import java.util.List;
-
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
@@ -63,6 +65,17 @@ public interface ExaminationMapper {
 	// 根据考试编号获取工种岗位
 	public String getWorkTypeByExamNo(String examNo);
 	
+	// 插入模拟考试成绩表
+	public int insertMockScore(InsertMockScoreParm parm);
+	
+	// 根据用户编号获取所有的培训信息
+	public List<GetTrainByStuNoEntity> getTrainByStuNo(String xybh);
+	
+	// 获取培训学员在线考试成绩排名
+	public List<GetRankingEntity> getRankingForOnline(GetRankingParm parm);
+	
+	// 获取培训学员模拟考试成绩排名
+	public List<GetRankingEntity> getRankingForMock(GetRankingParm parm);
 	
 	
 }

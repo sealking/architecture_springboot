@@ -11,13 +11,13 @@ import com.yx.dto.examination.GetQuestionOutDto;
 import com.yx.dto.examination.GetQuestionsByDateInDto;
 import com.yx.dto.examination.GetQuestionsTypeInDto;
 import com.yx.dto.examination.GetQuestionsTypeOutDto;
+import com.yx.dto.examination.GetRankingInDto;
+import com.yx.dto.examination.GetRankingOutDto;
 import com.yx.dto.examination.GetTrainByNoInDto;
 import com.yx.dto.examination.GetTrainByNoOutDto;
+import com.yx.dto.examination.GetTrainByStuNoOutDto;
 import com.yx.dto.examination.UpdateIsExamFlagInDto;
 import com.yx.dto.examination.UpdateScoreInDto;
-import com.yx.entity.GetTrainByNoEntity;
-import com.yx.entity.UpdateIsExamFlagParm;
-import com.yx.entity.UpdateScoreParm;
 
 public interface ExaminationService {
 	
@@ -44,5 +44,11 @@ public interface ExaminationService {
 	
 	// 更新是否考试标识符
 	public void updateIsExamFlag(UpdateIsExamFlagInDto inDto);
+	
+	// 获取培训学员成绩排名
+	public List<GetRankingOutDto> getRanking(GetRankingInDto inDto);
+	
+	// 根据用户编号获取所有的培训信息
+	public List<GetTrainByStuNoOutDto> getTrainByStuNo(String stuNo);
 	
 }

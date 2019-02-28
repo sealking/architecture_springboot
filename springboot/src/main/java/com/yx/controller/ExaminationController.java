@@ -1,16 +1,11 @@
 package com.yx.controller;
 
-import java.util.ArrayList;
 import java.util.List;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.yx.dto.common.DataTypeInfoInDto;
-import com.yx.dto.common.DataTypeInfoOutDto;
 import com.yx.dto.examination.GetExamListByStuNoInDto;
 import com.yx.dto.examination.GetExamListByStuNoOutDto;
 import com.yx.dto.examination.GetQuestionByTypeInDto;
@@ -18,13 +13,15 @@ import com.yx.dto.examination.GetQuestionByTypeOutDto;
 import com.yx.dto.examination.GetQuestionInDto;
 import com.yx.dto.examination.GetQuestionOutDto;
 import com.yx.dto.examination.GetQuestionsByDateInDto;
-import com.yx.dto.examination.QuestionInfoDto;
 import com.yx.dto.examination.UpdateIsExamFlagInDto;
 import com.yx.dto.examination.UpdateScoreInDto;
 import com.yx.dto.examination.GetQuestionsTypeInDto;
 import com.yx.dto.examination.GetQuestionsTypeOutDto;
+import com.yx.dto.examination.GetRankingInDto;
+import com.yx.dto.examination.GetRankingOutDto;
 import com.yx.dto.examination.GetTrainByNoInDto;
 import com.yx.dto.examination.GetTrainByNoOutDto;
+import com.yx.dto.examination.GetTrainByStuNoOutDto;
 import com.yx.service.ExaminationService;
 
 @RestController
@@ -126,6 +123,30 @@ public class ExaminationController {
 	@RequestMapping("/updateIsExamFlag")
 	public void updateIsExamFlag(UpdateIsExamFlagInDto inDto) {
 		examinationService.updateIsExamFlag(inDto);
+	}
+	
+	/**
+	 * 根据用户编号获取所有的培训信息
+	 * 
+	 * @param inDto
+	 * @return
+	 */
+	@RequestMapping("/getTrainByStuNo")
+	public List<GetTrainByStuNoOutDto> getTrainByStuNo(String stuNo) {
+		List<GetTrainByStuNoOutDto> outDtoList = examinationService.getTrainByStuNo(stuNo);
+		return outDtoList;
+	}
+	
+	/**
+	 * 获取培训学员成绩排名
+	 * 
+	 * @param inDto
+	 * @return
+	 */
+	@RequestMapping("/getRanking")
+	public List<GetRankingOutDto> getRanking(GetRankingInDto inDto) {
+		List<GetRankingOutDto> outDtoList = examinationService.getRanking(inDto);
+		return outDtoList;
 	}
 	
 }

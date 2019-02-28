@@ -25,4 +25,16 @@
 			AND typeDetailCode = #{typeDetailCode}
 			AND delflag = 0
 	</select>
+	
+	<select id="getFileInfo" resultType="com.yx.entity.FileEntity">
+		SELECT
+			id,filePath,fileName,uploadTime
+		FROM
+			b_file
+		ORDER BY
+			uploadTime desc
+	</select>
+	
+	
+	
 </mapper>

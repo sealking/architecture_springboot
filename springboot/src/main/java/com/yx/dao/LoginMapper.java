@@ -2,9 +2,7 @@ package com.yx.dao;
 
 import com.yx.entity.GetXyxxByIdCardEntity;
 import com.yx.entity.GetXyxxByIdCardParm;
-
 import java.util.List;
-
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper

@@ -80,6 +80,7 @@
 		WHERE
 			tkxx.gz = #{workTypeCode}
 			AND tkxx.tkbh = tksd.tkbh
+			AND tkxx.tklb = '2'
 			AND tkxx.delFlag = 0
 			AND tksd.delFlag = 0
 		GROUP BY
@@ -99,6 +100,7 @@
 		WHERE
 			tkxx.gz = #{workTypeCode}
 			AND tkxx.tkbh = tksd.tkbh
+			AND tkxx.tklb = '2'
 			AND tkxx.delFlag = 0
 			AND tksd.delFlag = 0
 		ORDER BY
@@ -108,16 +110,20 @@
 	</select>
 	
 	<select id="getRandomQuestion" resultType="com.yx.entity.GetTmxxEntity" parameterType="com.yx.entity.GetRandomQuestionParm">
-		SELECT
-			id,tmbh,tmzl,tmlx,tmnr,tmxx,tmda,tmfz,tmnyd
-		FROM
-			b_tmxx
-		WHERE
-			tmzl = #{tmzl}
-			AND tmlx = #{tmlx}
-			AND tmnyd = #{tmnyd}
-			AND delFlag = 0
-			ORDER BY RAND() LIMIT #{tmsl}
+		SELECT * from 
+		(
+			SELECT
+				id,tmbh,tmzl,tmlx,tmnr,tmxx,tmda,tmfz,tmnyd,createtime
+			FROM
+				b_tmxx
+			WHERE
+				tmzl = #{tmzl}
+				AND tmlx = #{tmlx}
+				AND tmnyd = #{tmnyd}
+				AND delFlag = 0
+				ORDER BY RAND() LIMIT #{tmsl}
+		) tmxx
+		ORDER BY tmxx.tmlx,tmxx.tmzl,tmxx.createtime
 	</select>
 	
 	<insert id="insertQuestionsHistory" parameterType="java.util.List">
@@ -147,6 +153,7 @@
 		WHERE
 			tkls.xybh = #{xybh}
 			AND tkls.tkbh = tkxx.tkbh
+			AND tkxx.tklb = '2'
 			AND tkxx.gz = #{gz}
 			AND tkls.delFlag = 0
 		GROUP BY
@@ -233,5 +240,126 @@
 			tkls.tkbh = tkxx.tkbh
 			AND tkls.ksbh = #{examNo}
 	</select>
+	
+	<insert id="insertMockScore" parameterType="com.yx.entity.InsertMockScoreParm">
+		insert into b_mnkscj(id,sjbh,xybh,sdrq,kscj,pxbh)
+		values
+		(
+			(select replace(uuid(), '-', '') as id from dual),
+        	(select replace(uuid(), '-', '') as id from dual),
+        	#{xybh},
+        	#{sdrq},
+        	#{kscj},
+        	#{pxbh}
+		)
+	</insert>
+	
+	<select id="getTrainByStuNo" resultType="com.yx.entity.GetTrainByStuNoEntity" parameterType="string">
+		SELECT
+			pxxx.id,pxxx.pxbh,pxxx.pxmc
+		FROM
+			b_xycj xycj,b_pxxx pxxx,b_ksxx ksxx
+		WHERE
+			xycj.pxbh = pxxx.pxbh
+			AND xycj.ksbh = ksxx.id
+			AND xycj.xybh = #{xybh}
+			AND xycj.delFlag = 0
+			AND pxxx.delFlag = 0
+		ORDER BY
+			ksxx.ksrq desc
+	</select>
+	
+	<select id="getRankingForMock" resultType="com.yx.entity.GetRankingEntity" parameterType="com.yx.entity.GetRankingParm">
+		SELECT	
+			xycj.xybh,
+			xyxx.xyxm,
+			xycj.pxbh,
+			IFNULL(xypm3.kscs,0) kscs,
+			IFNULL(xypm3.kscj,0) kscj,
+			IFNULL(xypm3.ksts,0) ksts
+		FROM
+			b_xycj xycj
+		INNER JOIN
+			b_xyxx xyxx
+		ON
+			xycj.xybh = xyxx.id
+		LEFT JOIN
+			(	
+				SELECT
+					xypm1.xybh xybh,
+					xypm1.pxbh pxbh,
+					xypm1.kscs kscs,
+					xypm1.kscj kscj,
+					xypm2.ksts ksts
+				FROM
+					(
+						SELECT
+							mnkscj.xybh,
+							mnkscj.pxbh,
+							count(*) kscs,
+							SUM(mnkscj.kscj) kscj
+						FROM
+							b_mnkscj mnkscj
+						
+						WHERE
+							mnkscj.pxbh = #{trainNo}
+						GROUP BY
+							mnkscj.xybh
+						ORDER BY
+							mnkscj.xybh,mnkscj.sdrq,mnkscj.sjbh
+					) xypm1
+				LEFT JOIN
+					(
+						SELECT
+							count(*) ksts, 
+							temp.xybh xybh
+						FROM
+						(
+							SELECT
+								xybh,
+								sdrq
+							FROM
+								b_mnkscj
+							WHERE
+								pxbh = #{trainNo}
+							GROUP BY
+								xybh,sdrq
+						) temp
+						GROUP BY
+							xybh
+					)xypm2
+				ON
+					xypm2.xybh = xypm1.xybh
+			)xypm3
+		ON			
+			xycj.xybh = xypm3.xybh
+		WHERE
+			xycj.pxbh = #{trainNo}
+			AND xycj.delFlag = 0
+			AND xyxx.delFlag = 0
+		ORDER BY
+			xypm3.kscj DESC,
+			xypm3.kscs ASC,
+			xypm3.ksts ASC
+	</select>
 
+	<select id="getRankingForOnline" resultType="com.yx.entity.GetRankingEntity" parameterType="com.yx.entity.GetRankingParm">
+		SELECT	
+			xycj.xybh,
+			xyxx.xyxm,
+			xycj.pxbh,
+			xycj.kscj
+		FROM
+			b_xycj xycj
+		INNER JOIN
+			b_xyxx xyxx
+		ON
+			xycj.xybh = xyxx.id
+		WHERE
+			xycj.pxbh = #{trainNo}
+			AND xycj.delFlag = 0
+			AND xyxx.delFlag = 0
+		ORDER BY
+			xycj.kscj DESC
+	</select>
 </mapper>

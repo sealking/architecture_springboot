@@ -29,12 +29,14 @@ import com.yx.dto.examination.GetQuestionOutDto;
 import com.yx.dto.examination.GetQuestionsByDateInDto;
 import com.yx.dto.examination.GetQuestionsTypeInDto;
 import com.yx.dto.examination.GetQuestionsTypeOutDto;
+import com.yx.dto.examination.GetRankingInDto;
+import com.yx.dto.examination.GetRankingOutDto;
 import com.yx.dto.examination.GetTrainByNoInDto;
 import com.yx.dto.examination.GetTrainByNoOutDto;
+import com.yx.dto.examination.GetTrainByStuNoOutDto;
 import com.yx.dto.examination.QuestionInfoDto;
 import com.yx.dto.examination.UpdateIsExamFlagInDto;
 import com.yx.dto.examination.UpdateScoreInDto;
-import com.yx.entity.GetDataTypeInfoByDetailCodeParm;
 import com.yx.entity.GetExamListByStuNoEntity;
 import com.yx.entity.GetExamListByStuNoParm;
 import com.yx.entity.GetQuestionsSettingEntity;
@@ -42,11 +44,15 @@ import com.yx.entity.GetQuestionsSettingParm;
 import com.yx.entity.GetQuestionsTypeEntity;
 import com.yx.entity.GetQuestionsTypeParm;
 import com.yx.entity.GetRandomQuestionParm;
+import com.yx.entity.GetRankingEntity;
+import com.yx.entity.GetRankingParm;
 import com.yx.entity.GetTmxxEntity;
 import com.yx.entity.GetTmxxParm;
 import com.yx.entity.GetTrainByNoEntity;
+import com.yx.entity.GetTrainByStuNoEntity;
 import com.yx.entity.InsertQuestionsHistoryParm;
 import com.yx.entity.UpdateIsExamFlagParm;
+import com.yx.entity.InsertMockScoreParm;
 import com.yx.entity.UpdateScoreParm;
 import com.yx.service.CommonService;
 import com.yx.service.ExaminationService;
@@ -86,9 +92,9 @@ public class ExaminationServiceImpl implements ExaminationService {
 				return outDto;
 			} else {
 				// 考试时长
-				HashMap<String, String> ExaminationTime = examinationMapper.getExaminationTimeByStudentNo(getTmxxParm);
-				String beginTime = ExaminationTime.get("kssj");
-				String endTime = ExaminationTime.get("jssj");
+				HashMap<String, String> examinationTime = examinationMapper.getExaminationTimeByStudentNo(getTmxxParm);
+				String beginTime = examinationTime.get("kssj");
+				String endTime = examinationTime.get("jssj");
 
 				if (StringUtils.isEmpty(beginTime) || StringUtils.isEmpty(endTime)) {
 					outDto.setReturnCode("1");
@@ -108,15 +114,23 @@ public class ExaminationServiceImpl implements ExaminationService {
 						// 考试时长
 						outDto.setExaminationMinute(examinationMinute);
 						// 考试编号
-						outDto.setExaminationNo(ExaminationTime.get("id"));
+						outDto.setExaminationNo(examinationTime.get("id"));
 						// 培训编号
-						outDto.setTrainNo(ExaminationTime.get("pxbh"));
+						outDto.setTrainNo(examinationTime.get("pxbh"));
 						// 学员是否考过Flag
-						outDto.setIsExamFlag(ExaminationTime.get("isExamFlag"));
+						outDto.setIsExamFlag(examinationTime.get("isExamFlag"));
 						
 						// 获取该考试对应的工种
-						String workType = examinationMapper.getWorkTypeByExamNo(ExaminationTime.get("id"));
+						String workType = examinationMapper.getWorkTypeByExamNo(examinationTime.get("id"));
 						outDto.setWorkType(workType);
+						
+						// 获取培训类别，培训层次
+						GetTrainByNoInDto getTrainByNoInDto = new GetTrainByNoInDto();
+						getTrainByNoInDto.setTrainNo(examinationTime.get("pxbh"));
+						GetTrainByNoOutDto getTrainByNoOutDto = this.getTrainByNo(getTrainByNoInDto);
+						outDto.setTrainType(getTrainByNoOutDto.getType());
+						outDto.setTrainLevel(getTrainByNoOutDto.getLevel());
+						
 					} catch (ParseException e) {
 						e.printStackTrace();
 					}
@@ -153,7 +167,14 @@ public class ExaminationServiceImpl implements ExaminationService {
 					historyList.add(historyParm);
 				}
 				examinationMapper.insertQuestionsHistory(historyList);
+				
+				SimpleDateFormat simpleFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+				outDto.setSettingDate(simpleFormat.format(sdrq));
 			}
+			// 培训编号
+			HashMap<String, String> ExaminationTime = examinationMapper.getExaminationTimeByStudentNo(getTmxxParm);
+			outDto.setTrainNo(ExaminationTime.get("pxbh"));
+			// 考试时间
 			outDto.setExaminationMinute(90);
 		}
 
@@ -263,6 +284,11 @@ public class ExaminationServiceImpl implements ExaminationService {
 			outDto.setExaminationMinute(90);
 			list = this.getQuestionsInfo(tmxxEntityList);
 			outDto.setQuestionInfoList(list);
+			
+			// 培训编号
+			HashMap<String, String> ExaminationTime = examinationMapper.getExaminationTimeByStudentNo(getTmxxParm);
+			outDto.setTrainNo(ExaminationTime.get("pxbh"));
+			
 			outDto.setReturnCode("0");
 			outDto.setMsg("试题获取成功");
 		}
@@ -338,12 +364,28 @@ public class ExaminationServiceImpl implements ExaminationService {
 	@Override
 	@Transactional
 	public void updateScore(UpdateScoreInDto inDto) {
-		UpdateScoreParm parm = new UpdateScoreParm();
-		parm.setXybh(inDto.getStuNo());
-		parm.setKsbh(inDto.getExamNo());
-		parm.setKscj(inDto.getScore());
+		if("1".equals(inDto.getExaminationType())) {
+			UpdateScoreParm parm = new UpdateScoreParm();
+			parm.setXybh(inDto.getStuNo());
+			parm.setKsbh(inDto.getExamNo());
+			parm.setKscj(inDto.getScore());
+			
+			examinationMapper.updateScore(parm);
+		} else {
+			InsertMockScoreParm parm = new InsertMockScoreParm();
+			parm.setXybh(inDto.getStuNo());
+			SimpleDateFormat simpleFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			
+			try {
+				parm.setSdrq(simpleFormat.parse(inDto.getSettingDate()));
+				parm.setKscj(inDto.getScore());
+				parm.setPxbh(inDto.getTrainNo());
+				examinationMapper.insertMockScore(parm);
+			} catch (ParseException e) {
+				e.printStackTrace();
+			}
+		}
 		
-		examinationMapper.updateScore(parm);
 	}
 	
 	/**
@@ -360,6 +402,65 @@ public class ExaminationServiceImpl implements ExaminationService {
 		parm.setKsbh(inDto.getExamNo());
 		
 		examinationMapper.updateIsExamFlag(parm);
+	}
+	
+	/**
+	 *  获取培训学员成绩排名
+	 * 
+	 * @param inDto
+	 * @return
+	 */
+	@Override
+	public List<GetRankingOutDto> getRanking(GetRankingInDto inDto) {
+		String examinationType = inDto.getExaminationType();
+		GetRankingParm getRankingParm = new GetRankingParm();
+		getRankingParm.setStudentNo(inDto.getStudentNo());
+		getRankingParm.setTrainNo(inDto.getTrainNo());
+		List<GetRankingOutDto> outDtoList = new ArrayList<GetRankingOutDto>();
+		// 1：在线考试，2：模拟考试
+		if("1".equals(examinationType)) {
+			List<GetRankingEntity> entityList = examinationMapper.getRankingForOnline(getRankingParm);
+			for(GetRankingEntity entity : entityList) {
+				GetRankingOutDto outDto = new GetRankingOutDto();
+				outDto.setStudentNo(entity.getXybh());
+				outDto.setStudentName(entity.getXyxm());
+				outDto.setStudentScore(entity.getKscj());
+				outDtoList.add(outDto);
+			}
+		} else {
+			List<GetRankingEntity> entityList = examinationMapper.getRankingForMock(getRankingParm);
+			for(GetRankingEntity entity : entityList) {
+				GetRankingOutDto outDto = new GetRankingOutDto();
+				outDto.setStudentNo(entity.getXybh());
+				outDto.setStudentName(entity.getXyxm());
+				outDto.setStudentScore(entity.getKscj());
+				outDto.setExamCount(entity.getKscs());
+				outDto.setQuestionCount(entity.getKsts());
+				outDtoList.add(outDto);
+			}
+		}
+		
+		 return outDtoList;
+	}
+	
+	/**
+	 *  根据用户编号获取所有的培训信息
+	 * 
+	 * @param stuNo
+	 * @return
+	 */
+	@Override
+	public List<GetTrainByStuNoOutDto> getTrainByStuNo(String stuNo) {
+		List<GetTrainByStuNoOutDto> outDtoList = new ArrayList<GetTrainByStuNoOutDto>();
+		List<GetTrainByStuNoEntity> getTrainByStuNoEntityList = examinationMapper.getTrainByStuNo(stuNo);
+		for(GetTrainByStuNoEntity entity : getTrainByStuNoEntityList) {
+			GetTrainByStuNoOutDto outDto = new GetTrainByStuNoOutDto();
+			outDto.setId(entity.getId());
+			outDto.setNo(entity.getPxbh());
+			outDto.setName(entity.getPxmc());
+			outDtoList.add(outDto);
+		}
+		return outDtoList;
 	}
 
 	/**
@@ -413,7 +514,7 @@ public class ExaminationServiceImpl implements ExaminationService {
 			questionInfoDto.setAnswer(tmxxEntity.getTmda());
 
 			// 题目分值
-			questionInfoDto.setScore(Integer.parseInt(tmxxEntity.getTmfz()));
+			questionInfoDto.setScore(Float.parseFloat(tmxxEntity.getTmfz()));
 
 			questionInfoList.add(questionInfoDto);
 		}
