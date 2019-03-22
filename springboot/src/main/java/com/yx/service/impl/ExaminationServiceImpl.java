@@ -22,6 +22,8 @@ import com.yx.dto.common.DataTypeInfoInDto;
 import com.yx.dto.common.DataTypeInfoOutDto;
 import com.yx.dto.examination.GetExamListByStuNoInDto;
 import com.yx.dto.examination.GetExamListByStuNoOutDto;
+import com.yx.dto.examination.GetQuestionBankInDto;
+import com.yx.dto.examination.GetQuestionBankOutDto;
 import com.yx.dto.examination.GetQuestionByTypeInDto;
 import com.yx.dto.examination.GetQuestionByTypeOutDto;
 import com.yx.dto.examination.GetQuestionInDto;
@@ -39,6 +41,8 @@ import com.yx.dto.examination.UpdateIsExamFlagInDto;
 import com.yx.dto.examination.UpdateScoreInDto;
 import com.yx.entity.GetExamListByStuNoEntity;
 import com.yx.entity.GetExamListByStuNoParm;
+import com.yx.entity.GetQuestionBankEntity;
+import com.yx.entity.GetQuestionBankParm;
 import com.yx.entity.GetQuestionsSettingEntity;
 import com.yx.entity.GetQuestionsSettingParm;
 import com.yx.entity.GetQuestionsTypeEntity;
@@ -46,6 +50,8 @@ import com.yx.entity.GetQuestionsTypeParm;
 import com.yx.entity.GetRandomQuestionParm;
 import com.yx.entity.GetRankingEntity;
 import com.yx.entity.GetRankingParm;
+import com.yx.entity.GetTkxxByTkbhEntity;
+import com.yx.entity.GetTkxxByTkbhParm;
 import com.yx.entity.GetTmxxEntity;
 import com.yx.entity.GetTmxxParm;
 import com.yx.entity.GetTrainByNoEntity;
@@ -84,61 +90,105 @@ public class ExaminationServiceImpl implements ExaminationService {
 
 		// 1：在线考试，2：模拟考试
 		if ("1".equals(inDto.getExaminationType())) {
-			// 试题信息
-			tmxxEntityList = examinationMapper.getTmxxForZxksByStudentNo(getTmxxParm);
-			if (tmxxEntityList.size() == 0) {
+			
+			// 考试时长
+			HashMap<String, String> examinationTime = examinationMapper.getExaminationTimeByStudentNo(getTmxxParm);
+			if (ObjectUtils.isEmpty(examinationTime)) {
 				outDto.setReturnCode("1");
-				outDto.setMsg("试题不存在，请与管理员联系！");
+				outDto.setMsg("该学员考试信息不存在，请与管理员联系！");
+				return outDto;
+			}
+			String beginTime = examinationTime.get("kssj");
+			String endTime = examinationTime.get("jssj");
+
+			if (StringUtils.isEmpty(beginTime) || StringUtils.isEmpty(endTime)) {
+				outDto.setReturnCode("1");
+				outDto.setMsg("考试时间未设置，请与管理员联系！");
 				return outDto;
 			} else {
-				// 考试时长
-				HashMap<String, String> examinationTime = examinationMapper.getExaminationTimeByStudentNo(getTmxxParm);
-				String beginTime = examinationTime.get("kssj");
-				String endTime = examinationTime.get("jssj");
+				SimpleDateFormat simpleFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+				beginTime = "2019-01-01 " + beginTime;
+				endTime = "2019-01-01 " + endTime;
 
-				if (StringUtils.isEmpty(beginTime) || StringUtils.isEmpty(endTime)) {
-					outDto.setReturnCode("1");
-					outDto.setMsg("考试时间未设置，请与管理员联系！");
-					return outDto;
-				} else {
-					SimpleDateFormat simpleFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-					beginTime = "2019-01-01 " + beginTime;
-					endTime = "2019-01-01 " + endTime;
-
-					try {
-						Date fromDate1 = simpleFormat.parse(beginTime);
-						Date toDate1 = simpleFormat.parse(endTime);
-						long from = fromDate1.getTime();
-						long to = toDate1.getTime();
-						int examinationMinute = (int) ((to - from) / (1000 * 60));
-						// 考试时长
-						outDto.setExaminationMinute(examinationMinute);
-						// 考试编号
-						outDto.setExaminationNo(examinationTime.get("id"));
-						// 培训编号
-						outDto.setTrainNo(examinationTime.get("pxbh"));
-						// 学员是否考过Flag
-						outDto.setIsExamFlag(examinationTime.get("isExamFlag"));
+				try {
+					Date fromDate1 = simpleFormat.parse(beginTime);
+					Date toDate1 = simpleFormat.parse(endTime);
+					long from = fromDate1.getTime();
+					long to = toDate1.getTime();
+					int examinationMinute = (int) ((to - from) / (1000 * 60));
+					// 考试时长
+					outDto.setExaminationMinute(examinationMinute);
+					// 考试编号
+					outDto.setExaminationNo(examinationTime.get("id"));
+					// 培训编号
+					outDto.setTrainNo(examinationTime.get("pxbh"));
+					// 学员是否考过Flag
+					outDto.setIsExamFlag(examinationTime.get("isExamFlag"));
+					
+					// 交卷时不再生成试题
+					if(!ObjectUtils.isEmpty(inDto.getQuestionBankId())) {
+						if(!"1".equals(examinationTime.get("isExamFlag"))) {
+							// 获取题库信息
+							GetTkxxByTkbhParm tkxxParm = new GetTkxxByTkbhParm();
+							tkxxParm.setTkbh(inDto.getQuestionBankId());
+							GetTkxxByTkbhEntity tkxxEntity = examinationMapper.getTkxxByTkbh(tkxxParm);
+							
+							if("1".equals(tkxxEntity.getTklb())) {
+								// 在线固定考试
+								tmxxEntityList = examinationMapper.getTmxxForZxksByTkbh(inDto.getQuestionBankId());
+							} else {
+								// 在线随机考试
+								GetQuestionsSettingParm settingParm = new GetQuestionsSettingParm();
+								settingParm.setQuestionBankId(inDto.getQuestionBankId());
+								List<GetQuestionsSettingEntity> settingEntityList = examinationMapper.getQuestionsSetting(settingParm);
+	
+								for (GetQuestionsSettingEntity settingEntity : settingEntityList) {
+									GetRandomQuestionParm randomQuestionParm = new GetRandomQuestionParm();
+									List<GetTmxxEntity> randomQuestionList = new ArrayList<GetTmxxEntity>();
+									randomQuestionParm.setTmlx(settingEntity.getTmlx());
+									randomQuestionParm.setTmzl(settingEntity.getTmzl());
+									randomQuestionParm.setTmnyd(settingEntity.getTmnyd());
+									randomQuestionParm.setTmsl(settingEntity.getTmsl());
+	
+									randomQuestionList = examinationMapper.getRandomQuestion(randomQuestionParm);
+									tmxxEntityList.addAll(randomQuestionList);
+								}
+	
+								if (tmxxEntityList.size() > 0) {
+									List<InsertQuestionsHistoryParm> historyList = new ArrayList<InsertQuestionsHistoryParm>();
+	
+									Date sdrq = new Date();
+									for (GetTmxxEntity tmxxEntity : tmxxEntityList) {
+										InsertQuestionsHistoryParm historyParm = new InsertQuestionsHistoryParm();
+										historyParm.setTkbh(settingEntityList.get(0).getTkbh());
+										historyParm.setTmbh(tmxxEntity.getTmbh());
+										historyParm.setXybh(inDto.getStudentNo());
+										historyParm.setKsbh("");
+										historyParm.setSdrq(sdrq);
+										historyList.add(historyParm);
+									}
+									examinationMapper.insertQuestionsHistory(historyList);
+								}
+							}
+							if (tmxxEntityList.size() == 0) {
+								outDto.setReturnCode("1");
+								outDto.setMsg("试题不存在，请与管理员联系！");
+								return outDto;
+							}
+						} else {
+							outDto.setReturnCode("1");
+							outDto.setMsg("您已经参加过该考试！");
+							return outDto;
+						}
 						
-						// 获取该考试对应的工种
-						String workType = examinationMapper.getWorkTypeByExamNo(examinationTime.get("id"));
-						outDto.setWorkType(workType);
-						
-						// 获取培训类别，培训层次
-						GetTrainByNoInDto getTrainByNoInDto = new GetTrainByNoInDto();
-						getTrainByNoInDto.setTrainNo(examinationTime.get("pxbh"));
-						GetTrainByNoOutDto getTrainByNoOutDto = this.getTrainByNo(getTrainByNoInDto);
-						outDto.setTrainType(getTrainByNoOutDto.getType());
-						outDto.setTrainLevel(getTrainByNoOutDto.getLevel());
-						
-					} catch (ParseException e) {
-						e.printStackTrace();
 					}
+				} catch (ParseException e) {
+					e.printStackTrace();
 				}
 			}
 		} else {
 			GetQuestionsSettingParm settingParm = new GetQuestionsSettingParm();
-			settingParm.setWorkTypeCode(inDto.getWorkType());
+			settingParm.setQuestionBankId(inDto.getQuestionBankId());
 			List<GetQuestionsSettingEntity> settingEntityList = examinationMapper.getQuestionsSetting(settingParm);
 
 			for (GetQuestionsSettingEntity settingEntity : settingEntityList) {
@@ -172,22 +222,30 @@ public class ExaminationServiceImpl implements ExaminationService {
 				outDto.setSettingDate(simpleFormat.format(sdrq));
 			}
 			// 培训编号
-			HashMap<String, String> ExaminationTime = examinationMapper.getExaminationTimeByStudentNo(getTmxxParm);
-			outDto.setTrainNo(ExaminationTime.get("pxbh"));
+			HashMap<String, String> examinationTime = examinationMapper.getExaminationTimeByStudentNo(getTmxxParm);
+			if (ObjectUtils.isEmpty(examinationTime)) {
+				outDto.setReturnCode("1");
+				outDto.setMsg("该学员考试信息不存在，请与管理员联系！");
+				return outDto;
+			}
+			outDto.setTrainNo(examinationTime.get("pxbh"));
 			// 考试时间
 			outDto.setExaminationMinute(90);
 		}
 
-		// 获取试题失败
-		if (tmxxEntityList.size() == 0) {
-			outDto.setReturnCode("1");
-			outDto.setMsg("试题不存在，请与管理员联系！");
-			return outDto;
-		} else {
-			List<QuestionInfoDto> questionInfoList = this.getQuestionsInfo(tmxxEntityList);
-			outDto.setQuestionInfoList(questionInfoList);
-			outDto.setReturnCode("0");
-			outDto.setMsg("试题获取成功");
+		// 交卷时不再生成试题
+		if(!ObjectUtils.isEmpty(inDto.getQuestionBankId())) {
+			// 获取试题失败
+			if (tmxxEntityList.size() == 0) {
+				outDto.setReturnCode("1");
+				outDto.setMsg("试题不存在，请与管理员联系！");
+				return outDto;
+			} else {
+				List<QuestionInfoDto> questionInfoList = this.getQuestionsInfo(tmxxEntityList);
+				outDto.setQuestionInfoList(questionInfoList);
+				outDto.setReturnCode("0");
+				outDto.setMsg("试题获取成功");
+			}
 		}
 
 		return outDto;
@@ -244,7 +302,7 @@ public class ExaminationServiceImpl implements ExaminationService {
 		GetExamListByStuNoParm parm = new GetExamListByStuNoParm();
 		List<GetExamListByStuNoEntity> entityList = new ArrayList<GetExamListByStuNoEntity>();
 		parm.setXybh(inDto.getStudentNo());
-		parm.setGz(inDto.getWorkType());
+		parm.setTkbh(inDto.getQuestionBank());
 		entityList = examinationMapper.getExamListByStuNo(parm);
 
 		for (GetExamListByStuNoEntity entity : entityList) {
@@ -286,8 +344,13 @@ public class ExaminationServiceImpl implements ExaminationService {
 			outDto.setQuestionInfoList(list);
 			
 			// 培训编号
-			HashMap<String, String> ExaminationTime = examinationMapper.getExaminationTimeByStudentNo(getTmxxParm);
-			outDto.setTrainNo(ExaminationTime.get("pxbh"));
+			HashMap<String, String> examinationTime = examinationMapper.getExaminationTimeByStudentNo(getTmxxParm);
+			if (ObjectUtils.isEmpty(examinationTime)) {
+				outDto.setReturnCode("1");
+				outDto.setMsg("该学员考试信息不存在，请与管理员联系！");
+				return outDto;
+			}
+			outDto.setTrainNo(examinationTime.get("pxbh"));
 			
 			outDto.setReturnCode("0");
 			outDto.setMsg("试题获取成功");
@@ -462,6 +525,38 @@ public class ExaminationServiceImpl implements ExaminationService {
 		}
 		return outDtoList;
 	}
+	
+	/**
+	 *  获取考试题库
+	 * 
+	 * @param inDto
+	 * @return
+	 */
+	@Override
+	public List<GetQuestionBankOutDto> getQuestionBank(GetQuestionBankInDto inDto) {
+		List<GetQuestionBankOutDto> outDtoList = new ArrayList<GetQuestionBankOutDto>();
+		
+		GetQuestionBankParm parm = new GetQuestionBankParm();
+		parm.setGz(inDto.getWorkType());
+		// 根据组织Id获取所对应的所有父组织
+		List<String> orgIdList = this.getParentIdById(inDto.getUserUnitsId());
+		
+		parm.setOrgIdList(orgIdList);
+		parm.setPxcc(inDto.getTrainingLevel());
+		parm.setPxlb(inDto.getTrainingType());
+		parm.setSylx(inDto.getStudentType());
+		parm.setTklb(inDto.getExaminationType());
+		
+		List<GetQuestionBankEntity> entityList = examinationMapper.getQuestionBank(parm);
+		
+		for(GetQuestionBankEntity entity : entityList) {
+			GetQuestionBankOutDto outDto = new GetQuestionBankOutDto();
+			outDto.setQuestionBankId(entity.getTkbh());
+			outDtoList.add(outDto);
+		}
+		
+		return outDtoList;
+	}
 
 	/**
 	 * 封装试题信息
@@ -560,4 +655,17 @@ public class ExaminationServiceImpl implements ExaminationService {
 		return resultList;
 	}
 
+	// 根据组织Id获取所对应的所有父组织
+	private List<String> getParentIdById(String childId) {
+		List<String> list = new ArrayList<String>();
+		list.add(childId);
+		
+		String parentId = examinationMapper.getParentIdById(childId);
+		
+		if(!StringUtils.isEmpty(parentId)) {
+			list.addAll(this.getParentIdById(parentId));
+		}
+		
+		return list;
+	}
 }

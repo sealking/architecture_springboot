@@ -44,6 +44,9 @@ public class GetXyxxByIdCardEntity {
 	// 所属单位
 	private String ssdw;
 	
+	// 所属单位Id
+	private String ssdwId;
+	
 	// 身体状况
 	private String stzk;
 }

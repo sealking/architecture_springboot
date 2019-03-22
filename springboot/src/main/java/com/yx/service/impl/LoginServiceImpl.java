@@ -44,6 +44,10 @@ public class LoginServiceImpl implements LoginService {
 			userLoginOutDto.setSex(XyxxEntity.getXyxb());
 			// 所属单位
 			userLoginOutDto.setUnits(XyxxEntity.getSsdw());
+			// 所属单位Id
+			userLoginOutDto.setUnitsId(XyxxEntity.getSsdwId());
+			// 学员类别
+			userLoginOutDto.setStudentType(XyxxEntity.getXylb());
 			
 			userLoginOutDto.setReturnCode("0");
 			userLoginOutDto.setMsg("登录成功");

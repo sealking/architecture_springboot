@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.yx.dto.examination.GetExamListByStuNoInDto;
 import com.yx.dto.examination.GetExamListByStuNoOutDto;
+import com.yx.dto.examination.GetQuestionBankInDto;
+import com.yx.dto.examination.GetQuestionBankOutDto;
 import com.yx.dto.examination.GetQuestionByTypeInDto;
 import com.yx.dto.examination.GetQuestionByTypeOutDto;
 import com.yx.dto.examination.GetQuestionInDto;
@@ -146,6 +148,18 @@ public class ExaminationController {
 	@RequestMapping("/getRanking")
 	public List<GetRankingOutDto> getRanking(GetRankingInDto inDto) {
 		List<GetRankingOutDto> outDtoList = examinationService.getRanking(inDto);
+		return outDtoList;
+	}
+	
+	/**
+	 * 获取考试题库
+	 * 
+	 * @param inDto
+	 * @return
+	 */
+	@RequestMapping("/getQuestionBank")
+	public List<GetQuestionBankOutDto> getQuestionBank(GetQuestionBankInDto inDto) {
+		List<GetQuestionBankOutDto> outDtoList = examinationService.getQuestionBank(inDto);
 		return outDtoList;
 	}
 	

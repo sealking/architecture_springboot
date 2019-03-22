@@ -16,5 +16,5 @@ public interface CommonService {
 	public DataTypeInfoByDetailCodeOutDto getDataTypeInfoByDetailCode(DataTypeInfoByDetailCodeInDto inDto);
 	
 	// 获取文件信息
-	public List<FileInfoOutDto> getFileInfo();
+	public List<FileInfoOutDto> getFileInfo(String fileTypeKey);
 }

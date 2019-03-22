@@ -4,6 +4,7 @@ import lombok.Data;
 
 @Data
 public class GetQuestionsSettingEntity {
+	
 	// 题库编号
 	private String tkbh;
 	

@@ -21,4 +21,10 @@ public class UserLoginOutDto extends BaseOutDto {
 	// 所属单位
 	private String units;
 	
+	// 所属单位
+	private String unitsId;
+	
+	// 学员类别
+	private String studentType;
+	
 }

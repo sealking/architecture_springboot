@@ -6,6 +6,7 @@ import com.yx.entity.GetDataTypeDetailEntity;
 import com.yx.entity.GetDataTypeDetailParm;
 import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 @Mapper
 public interface CommonMapper {	
@@ -16,5 +17,5 @@ public interface CommonMapper {
 	public String getDataTypeInfoByDetailCode(GetDataTypeInfoByDetailCodeParm parm);
 	
 	// 获取文件信息
-	public List<FileEntity> getFileInfo();
+	public List<FileEntity> getFileInfo(@Param(value="fileTypeKey") String fileTypeKey);
 }

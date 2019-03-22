@@ -9,4 +9,7 @@ public class GetExamListByStuNoParm {
 	
 	// 工种
 	private String gz;
+	
+	// 题库编号
+	private String tkbh;
 }

@@ -16,4 +16,7 @@ public class GetQuestionInDto {
 	
 	// 工种
 	private String workType;
+	
+	// 题库编号
+	private String questionBankId;
 }

@@ -26,11 +26,16 @@
 			AND delflag = 0
 	</select>
 	
-	<select id="getFileInfo" resultType="com.yx.entity.FileEntity">
+	<select id="getFileInfo" resultType="com.yx.entity.FileEntity" parameterType="string">
 		SELECT
 			id,filePath,fileName,uploadTime
 		FROM
 			b_file
+		WHERE
+			1 = 1
+			<if test="fileTypeKey != null and fileTypeKey != ''">
+				AND fileType = #{fileTypeKey,jdbcType=VARCHAR}
+			</if>
 		ORDER BY
 			uploadTime desc
 	</select>

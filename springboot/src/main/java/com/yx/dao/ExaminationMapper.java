@@ -1,7 +1,11 @@
 package com.yx.dao;
 
+import com.yx.dto.examination.GetQuestionBankInDto;
+import com.yx.dto.examination.GetQuestionBankOutDto;
 import com.yx.entity.GetExamListByStuNoEntity;
 import com.yx.entity.GetExamListByStuNoParm;
+import com.yx.entity.GetQuestionBankEntity;
+import com.yx.entity.GetQuestionBankParm;
 import com.yx.entity.GetQuestionsSettingEntity;
 import com.yx.entity.GetQuestionsSettingParm;
 import com.yx.entity.GetQuestionsTypeEntity;
@@ -9,6 +13,8 @@ import com.yx.entity.GetQuestionsTypeParm;
 import com.yx.entity.GetRandomQuestionParm;
 import com.yx.entity.GetRankingEntity;
 import com.yx.entity.GetRankingParm;
+import com.yx.entity.GetTkxxByTkbhEntity;
+import com.yx.entity.GetTkxxByTkbhParm;
 import com.yx.entity.GetTmxxEntity;
 import com.yx.entity.GetTmxxParm;
 import com.yx.entity.GetTrainByNoEntity;
@@ -77,5 +83,16 @@ public interface ExaminationMapper {
 	// 获取培训学员模拟考试成绩排名
 	public List<GetRankingEntity> getRankingForMock(GetRankingParm parm);
 	
+	// 获取考试题库
+	public List<GetQuestionBankEntity> getQuestionBank(GetQuestionBankParm parm);
+	
+	// 获取题库编号获取题库信息
+	public GetTkxxByTkbhEntity getTkxxByTkbh(GetTkxxByTkbhParm parm);
+	
+	// 根据题库编号获取固定出题的试题信息
+	public List<GetTmxxEntity> getTmxxForZxksByTkbh(String tkbh);
+	
+	// 根据组织Id获取所对应的所有父组织
+	public String getParentIdById(String childId);
 	
 }

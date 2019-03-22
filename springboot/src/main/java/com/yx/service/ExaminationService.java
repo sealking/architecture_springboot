@@ -4,6 +4,8 @@ import java.util.List;
 
 import com.yx.dto.examination.GetExamListByStuNoInDto;
 import com.yx.dto.examination.GetExamListByStuNoOutDto;
+import com.yx.dto.examination.GetQuestionBankInDto;
+import com.yx.dto.examination.GetQuestionBankOutDto;
 import com.yx.dto.examination.GetQuestionByTypeInDto;
 import com.yx.dto.examination.GetQuestionByTypeOutDto;
 import com.yx.dto.examination.GetQuestionInDto;
@@ -51,4 +53,7 @@ public interface ExaminationService {
 	// 根据用户编号获取所有的培训信息
 	public List<GetTrainByStuNoOutDto> getTrainByStuNo(String stuNo);
 	
+	// 获取考试题库
+	public List<GetQuestionBankOutDto> getQuestionBank(GetQuestionBankInDto inDto);
+
 }

@@ -89,24 +89,20 @@
 	
 	<select id="getQuestionsSetting" resultType="com.yx.entity.GetQuestionsSettingEntity" parameterType="com.yx.entity.GetQuestionsSettingParm">
 		SELECT
-			tksd.tkbh,
-			tksd.tmzl,
-			tksd.tmlx,
-			tksd.tmnyd,
-			tksd.tmsl
+			tkbh,
+			tmzl,
+			tmlx,
+			tmnyd,
+			tmsl
 		FROM
-			b_tkxx tkxx,
-			b_tksd tksd
+			b_tksd
 		WHERE
-			tkxx.gz = #{workTypeCode}
-			AND tkxx.tkbh = tksd.tkbh
-			AND tkxx.tklb = '2'
-			AND tkxx.delFlag = 0
-			AND tksd.delFlag = 0
+			tkbh = #{questionBankId}
+			AND delFlag = 0
 		ORDER BY
-			tksd.tmlx,
-			tksd.tmzl,
-			tksd.tmnyd
+			tmlx,
+			tmzl,
+			tmnyd
 	</select>
 	
 	<select id="getRandomQuestion" resultType="com.yx.entity.GetTmxxEntity" parameterType="com.yx.entity.GetRandomQuestionParm">
@@ -154,7 +150,7 @@
 			tkls.xybh = #{xybh}
 			AND tkls.tkbh = tkxx.tkbh
 			AND tkxx.tklb = '2'
-			AND tkxx.gz = #{gz}
+			AND tkxx.tkbh = #{tkbh}
 			AND tkls.delFlag = 0
 		GROUP BY
 			tkls.tkbh,tkls.sdrq
@@ -362,4 +358,72 @@
 		ORDER BY
 			xycj.kscj DESC
 	</select>
+	
+	<select id="getQuestionBank" resultType="com.yx.entity.GetQuestionBankEntity" parameterType="com.yx.entity.GetQuestionBankParm">
+		SELECT
+			tkbh
+		FROM
+			b_tkxx
+		WHERE
+			gz = #{gz}
+			AND pxcc = #{pxcc}
+			AND pxlb = #{pxlb}
+			AND (sylx = #{sylx} OR sylx = '0')
+			AND orgId in
+			<foreach item="item" collection="orgIdList" separator="," open="(" close=")" index="">
+      			#{item}
+    		</foreach>
+			<choose>
+				<when  test="tklb == 1">
+					AND 
+						(
+						tklb = '1' 
+						OR tklb = '3'
+						)
+				</when>
+				<otherwise>
+					AND tklb = '2' 
+				</otherwise>
+			</choose>
+			AND delFlag = '0'
+	</select>
+	
+	<select id="getTkxxByTkbh" resultType="com.yx.entity.GetTkxxByTkbhEntity" parameterType="com.yx.entity.GetTkxxByTkbhParm">
+		SELECT
+			id,tkbh,gz,sdrq,tklb,pxcc,pxlb,sylx,orgId
+		FROM
+			b_tkxx
+		WHERE
+			tkbh = #{tkbh}
+			AND delFlag = '0'
+	</select>
+	
+	<select id="getTmxxForZxksByTkbh" resultType="com.yx.entity.GetTmxxEntity" parameterType="com.yx.entity.GetTmxxParm" >
+		SELECT 
+			tmxx.tmbh,
+			tmxx.tmzl,
+			tmxx.tmlx,
+			tmxx.tmnr,
+			tmxx.tmxx,
+			tmxx.tmda,
+			tmxx.tmfz
+		FROM
+			b_tkls tkls
+			INNER JOIN b_tmxx tmxx ON tkls.tmbh = tmxx.tmbh AND tmxx.delflag = 0
+		WHERE
+			tkls.tkbh = #{tkbh}
+			AND tkls.delflag = 0
+		ORDER BY
+			tmxx.tmlx,tmxx.tmzl,tmxx.createtime
+	</select>
+	
+	<select id="getParentIdById" resultType="string" parameterType="string" >
+		SELECT 
+			parentId
+		FROM
+			m_org
+		WHERE
+			orgid = #{childId}
+	</select>
+	
 </mapper>

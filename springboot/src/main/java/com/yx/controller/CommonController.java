@@ -54,8 +54,8 @@ public class CommonController {
 	 * @return
 	 */
 	@RequestMapping("/getFileInfo")
-	public List<FileInfoOutDto> getFileInfo() {
-		List<FileInfoOutDto> outDtoList = commonService.getFileInfo();
+	public List<FileInfoOutDto> getFileInfo(String fileTypeKey) {
+		List<FileInfoOutDto> outDtoList = commonService.getFileInfo(fileTypeKey);
         return outDtoList;
 	}
 }

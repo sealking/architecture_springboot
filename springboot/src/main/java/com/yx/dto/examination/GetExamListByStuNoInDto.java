@@ -10,4 +10,7 @@ public class GetExamListByStuNoInDto {
 	
 	// 工种
 	private String workType;
+	
+	// 题库编号
+	private String questionBank;
 }

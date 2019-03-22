@@ -86,15 +86,15 @@ public class CommonServiceImpl implements CommonService {
 	 * @return
 	 */
 	@Override
-	public List<FileInfoOutDto> getFileInfo() {
+	public List<FileInfoOutDto> getFileInfo(String fileTypeKey) {
 		List<FileInfoOutDto> outDtoList = new ArrayList<FileInfoOutDto>();
 		List<FileEntity> list = new ArrayList<FileEntity>();
-		list = commonMapper.getFileInfo();
+		list = commonMapper.getFileInfo(fileTypeKey);
 		for(FileEntity entity : list) {
 			FileInfoOutDto outDto = new FileInfoOutDto();
 			outDto.setId(entity.getId());
 			outDto.setFileName(entity.getFileName());
-			outDto.setFilePath(myConfig.getServerUrl() + entity.getFilePath());
+			outDto.setFilePath(myConfig.getServerUrl() + "upload/" + entity.getFilePath());
 			SimpleDateFormat simpleFormat = new SimpleDateFormat("yyyy-MM-dd");
 			outDto.setUploadTime(simpleFormat.format(entity.getUploadTime()));
 			outDtoList.add(outDto);
