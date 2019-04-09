@@ -81,6 +81,7 @@
 			tkxx.gz = #{workTypeCode}
 			AND tkxx.tkbh = tksd.tkbh
 			AND tkxx.tklb = '2'
+			AND tkxx.sfxs = '1'
 			AND tkxx.delFlag = 0
 			AND tksd.delFlag = 0
 		GROUP BY
@@ -386,6 +387,7 @@
 				</otherwise>
 			</choose>
 			AND delFlag = '0'
+			AND sfxs = '1'
 	</select>
 	
 	<select id="getTkxxByTkbh" resultType="com.yx.entity.GetTkxxByTkbhEntity" parameterType="com.yx.entity.GetTkxxByTkbhParm">
