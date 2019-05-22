@@ -12,7 +12,7 @@
 			AND datatypedetail.delflag = 0
 			AND datatype.typeCode = #{typeCode}
 		ORDER BY 
-			datatype.typeCode,datatypedetail.typeDetailCode
+			datatype.typeCode,cast(datatypedetail.typeDetailCode as UNSIGNED INTEGER)
 	</select>
 	
 	<select id="getDataTypeInfoByDetailCode" resultType="String" parameterType="com.yx.entity.GetDataTypeInfoByDetailCodeParm" >
