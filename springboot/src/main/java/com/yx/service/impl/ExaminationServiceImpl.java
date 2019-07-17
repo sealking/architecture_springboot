@@ -36,6 +36,7 @@ import com.yx.dto.examination.GetRankingOutDto;
 import com.yx.dto.examination.GetTrainByNoInDto;
 import com.yx.dto.examination.GetTrainByNoOutDto;
 import com.yx.dto.examination.GetTrainByStuNoOutDto;
+import com.yx.dto.examination.GetTrainByStuNoForExamOutDto;
 import com.yx.dto.examination.QuestionInfoDto;
 import com.yx.dto.examination.UpdateIsExamFlagInDto;
 import com.yx.dto.examination.UpdateScoreInDto;
@@ -56,6 +57,7 @@ import com.yx.entity.GetTmxxEntity;
 import com.yx.entity.GetTmxxParm;
 import com.yx.entity.GetTrainByNoEntity;
 import com.yx.entity.GetTrainByStuNoEntity;
+import com.yx.entity.GetTrainByStuNoForExamEntity;
 import com.yx.entity.InsertQuestionsHistoryParm;
 import com.yx.entity.UpdateIsExamFlagParm;
 import com.yx.entity.InsertMockScoreParm;
@@ -85,6 +87,7 @@ public class ExaminationServiceImpl implements ExaminationService {
 		// 设置学员编号
 		GetTmxxParm getTmxxParm = new GetTmxxParm();
 		getTmxxParm.setStudentNo(inDto.getStudentNo());
+		getTmxxParm.setTrainNo(inDto.getTrainNo());
 
 		List<GetTmxxEntity> tmxxEntityList = new ArrayList<GetTmxxEntity>();
 
@@ -163,6 +166,7 @@ public class ExaminationServiceImpl implements ExaminationService {
 										historyParm.setTkbh(settingEntityList.get(0).getTkbh());
 										historyParm.setTmbh(tmxxEntity.getTmbh());
 										historyParm.setXybh(inDto.getStudentNo());
+										historyParm.setPxbh(inDto.getTrainNo());
 										historyParm.setKsbh("");
 										historyParm.setSdrq(sdrq);
 										historyList.add(historyParm);
@@ -212,6 +216,7 @@ public class ExaminationServiceImpl implements ExaminationService {
 					historyParm.setTkbh(settingEntityList.get(0).getTkbh());
 					historyParm.setTmbh(tmxxEntity.getTmbh());
 					historyParm.setXybh(inDto.getStudentNo());
+					historyParm.setPxbh(inDto.getTrainNo());
 					historyParm.setKsbh("");
 					historyParm.setSdrq(sdrq);
 					historyList.add(historyParm);
@@ -228,6 +233,7 @@ public class ExaminationServiceImpl implements ExaminationService {
 				outDto.setMsg("该学员考试信息不存在，请与管理员联系！");
 				return outDto;
 			}
+			// 培训编号
 			outDto.setTrainNo(examinationTime.get("pxbh"));
 			// 考试时间
 			outDto.setExaminationMinute(90);
@@ -303,12 +309,14 @@ public class ExaminationServiceImpl implements ExaminationService {
 		List<GetExamListByStuNoEntity> entityList = new ArrayList<GetExamListByStuNoEntity>();
 		parm.setXybh(inDto.getStudentNo());
 		parm.setTkbh(inDto.getQuestionBank());
+		parm.setPxbh(inDto.getTrainNo());
 		entityList = examinationMapper.getExamListByStuNo(parm);
 
 		for (GetExamListByStuNoEntity entity : entityList) {
 			GetExamListByStuNoOutDto outDto = new GetExamListByStuNoOutDto();
 			outDto.setStudentNo(entity.getXybh());
 			outDto.setQuestionsNo(entity.getTkbh());
+			outDto.setTrainNo(entity.getPxbh());
 			SimpleDateFormat simpleFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 			outDto.setSettingDate(simpleFormat.format(entity.getSdrq()));
 			outList.add(outDto);
@@ -328,6 +336,7 @@ public class ExaminationServiceImpl implements ExaminationService {
 		List<QuestionInfoDto> list = new ArrayList<QuestionInfoDto>();
 		GetTmxxParm getTmxxParm = new GetTmxxParm();
 
+		getTmxxParm.setTrainNo(inDto.getTrainNo());
 		getTmxxParm.setStudentNo(inDto.getStudentNo());
 		getTmxxParm.setQuestionsNo(inDto.getQuestionsNo());
 		getTmxxParm.setSettingDate(inDto.getSettingDate());
@@ -521,6 +530,30 @@ public class ExaminationServiceImpl implements ExaminationService {
 			outDto.setId(entity.getId());
 			outDto.setNo(entity.getPxbh());
 			outDto.setName(entity.getPxmc());
+			outDtoList.add(outDto);
+		}
+		return outDtoList;
+	}
+	
+	/**
+	 *  根据用户编号获取所有的培训信息(考试用)
+	 * 
+	 * @param stuNo
+	 * @return
+	 */
+	@Override
+	public List<GetTrainByStuNoForExamOutDto> getTrainByStuNoForExam(String stuNo) {
+		List<GetTrainByStuNoForExamOutDto> outDtoList = new ArrayList<GetTrainByStuNoForExamOutDto>();
+		List<GetTrainByStuNoForExamEntity> getTrainByStuNoEntityList = examinationMapper.getTrainByStuNoForExam(stuNo);
+		for(GetTrainByStuNoForExamEntity entity : getTrainByStuNoEntityList) {
+			GetTrainByStuNoForExamOutDto outDto = new GetTrainByStuNoForExamOutDto();
+			outDto.setId(entity.getId());
+			outDto.setNo(entity.getPxbh());
+			outDto.setName(entity.getPxmc());
+			outDto.setTrainType(entity.getPxlb());
+			outDto.setTrainTypeName(entity.getPxlbName());
+			outDto.setTrainLevel(entity.getPxcc());
+			outDto.setTrainLevelName(entity.getPxccName());
 			outDtoList.add(outDto);
 		}
 		return outDtoList;

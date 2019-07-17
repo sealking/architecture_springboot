@@ -1,0 +1,28 @@
+server:
+  port: 2500
+  
+spring:
+  mvc:
+    view:
+      prefix: /pages/
+      suffix: .html
+    static-path-pattern: /**
+  resources:
+    static-locations: file:E://LLJK
+      
+  datasource:
+    url: jdbc:mysql://localhost:3306/db_lljk?useUnicode=true&serverTimezone=GMT%2B8&characterEncoding=utf8
+    username: db_lljk
+    password: db_lljk
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+mybatis:
+  type-aliases-package: com.yx.entity
+  mapper-locations: classpath*:com/yx/mapper/*.xml
+
+logging:
+  level:
+    com.yx.dao: debug
+    
+myconfig: 
+  server-url: http://221.214.209.231:2500/examination/

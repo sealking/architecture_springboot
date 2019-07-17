@@ -19,6 +19,9 @@ public class InsertQuestionsHistoryParm {
 	// 学员编号
 	private String xybh;
 	
+	// 培训编号
+	private String pxbh;
+	
 	// 考试编号
 	private String ksbh;
 	

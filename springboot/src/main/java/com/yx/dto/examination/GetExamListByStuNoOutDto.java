@@ -12,6 +12,9 @@ public class GetExamListByStuNoOutDto extends BaseOutDto{
 	// 题库编号
 	private String questionsNo;
 	
+	// 培训编号
+	private String trainNo;
+	
 	// 设定时间
 	private String settingDate;
 }

@@ -24,6 +24,7 @@ import com.yx.dto.examination.GetRankingOutDto;
 import com.yx.dto.examination.GetTrainByNoInDto;
 import com.yx.dto.examination.GetTrainByNoOutDto;
 import com.yx.dto.examination.GetTrainByStuNoOutDto;
+import com.yx.dto.examination.GetTrainByStuNoForExamOutDto;
 import com.yx.service.ExaminationService;
 
 @RestController
@@ -136,6 +137,18 @@ public class ExaminationController {
 	@RequestMapping("/getTrainByStuNo")
 	public List<GetTrainByStuNoOutDto> getTrainByStuNo(String stuNo) {
 		List<GetTrainByStuNoOutDto> outDtoList = examinationService.getTrainByStuNo(stuNo);
+		return outDtoList;
+	}
+	
+	/**
+	 * 根据用户编号获取所有的培训信息
+	 * 
+	 * @param inDto
+	 * @return
+	 */
+	@RequestMapping("/getTrainByStuNoForExam")
+	public List<GetTrainByStuNoForExamOutDto> getTrainByStuNoForExam(String stuNo) {
+		List<GetTrainByStuNoForExamOutDto> outDtoList = examinationService.getTrainByStuNoForExam(stuNo);
 		return outDtoList;
 	}
 	

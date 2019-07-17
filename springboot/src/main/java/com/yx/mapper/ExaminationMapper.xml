@@ -61,13 +61,7 @@
 			INNER JOIN b_ksxx ksxx ON xycj.ksbh = ksxx.id AND ksxx.delflag = 0
 		WHERE
 			xyxx.id = #{studentNo}
-			AND ksxx.ksrq = 
-				(
-					SELECT MAX(ksxx1.ksrq) FROM b_xyxx xyxx1 
-					INNER JOIN b_xycj xycj1 ON xyxx1.id = xycj1.xybh AND xycj1.delflag = 0 
-					INNER JOIN b_ksxx ksxx1 ON xycj1.ksbh = ksxx1.id AND ksxx1.delflag = 0 WHERE
-					xyxx1.id = #{studentNo}
-					AND xyxx1.delflag = 0)
+			AND ksxx.pxbh = #{trainNo}
 			AND xyxx.delflag = 0
 	</select>
 	
@@ -124,7 +118,7 @@
 	</select>
 	
 	<insert id="insertQuestionsHistory" parameterType="java.util.List">
-		insert into b_tkls(id,tkbh,tmbh,xybh,ksbh,sdrq,delFlag)
+		insert into b_tkls(id,tkbh,tmbh,xybh,pxbh,ksbh,sdrq,delFlag)
 		values
 		<foreach collection="list" item="item" index="index" separator=",">
 			(
@@ -132,6 +126,7 @@
         		#{item.tkbh},
         		#{item.tmbh},
         		#{item.xybh},
+        		#{item.pxbh},
         		#{item.ksbh},
         		#{item.sdrq},
         		0
@@ -143,12 +138,14 @@
 		SELECT
 			tkls.xybh,
 			tkls.tkbh,
+			tkls.pxbh,
 			tkls.sdrq
 		FROM
 			b_tkls tkls,
 			b_tkxx tkxx
 		WHERE
 			tkls.xybh = #{xybh}
+			AND tkls.pxbh = #{pxbh}
 			AND tkls.tkbh = tkxx.tkbh
 			AND tkxx.tklb = '2'
 			AND tkxx.tkbh = #{tkbh}
@@ -173,6 +170,7 @@
 			b_tmxx tmxx
 		WHERE
 			tkls.xybh = #{studentNo}
+			AND tkls.pxbh = #{trainNo}
 			AND tkls.tkbh = #{questionsNo}
 			AND tkls.sdrq = #{settingDate}
 			AND tkls.tmbh = tmxx.tmbh
@@ -266,6 +264,26 @@
 			ksxx.ksrq desc
 	</select>
 	
+	<select id="getTrainByStuNoForExam" resultType="com.yx.entity.GetTrainByStuNoForExamEntity" parameterType="string">
+		SELECT
+			pxxx.id,pxxx.pxbh,pxxx.pxmc,pxxx.pxlb,pxlbdetail.typeDetailName as pxlbName,pxxx.pxcc,pxccdetail.typeDetailName as pxccName
+		FROM
+			b_xycj xycj,b_pxxx pxxx,b_ksxx ksxx,m_datatypedetail pxlbdetail,m_datatypedetail pxccdetail
+		WHERE
+			xycj.pxbh = pxxx.pxbh
+			AND xycj.ksbh = ksxx.id
+			AND xycj.xybh = #{xybh}
+			AND pxlbdetail.typeCode = 'pxlb'
+			AND pxlbdetail.typeDetailCode = pxxx.pxlb
+			AND pxccdetail.typeCode = 'pxcc'
+			AND pxccdetail.typeDetailCode = pxxx.pxcc
+			AND xycj.delFlag = 0
+			AND pxxx.delFlag = 0
+			AND date_format(ksxx.ksrq,'%Y-%m-%d') >= date_format(SYSDATE(),'%Y-%m-%d')
+		ORDER BY
+			ksxx.ksrq desc
+	</select>
+		
 	<select id="getRankingForMock" resultType="com.yx.entity.GetRankingEntity" parameterType="com.yx.entity.GetRankingParm">
 		SELECT	
 			xycj.xybh,
@@ -427,5 +445,5 @@
 		WHERE
 			orgid = #{childId}
 	</select>
-	
+
 </mapper>

@@ -13,4 +13,7 @@ public class GetExamListByStuNoInDto {
 	
 	// 题库编号
 	private String questionBank;
+	
+	// 培训编号
+	private String trainNo;
 }

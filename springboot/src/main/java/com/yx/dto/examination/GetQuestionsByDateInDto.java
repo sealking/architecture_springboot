@@ -5,6 +5,9 @@ import lombok.Data;
 @Data
 public class GetQuestionsByDateInDto {
 
+	// 培训编号
+	private String trainNo;
+	
 	// 学员编号
 	private String studentNo;
 	

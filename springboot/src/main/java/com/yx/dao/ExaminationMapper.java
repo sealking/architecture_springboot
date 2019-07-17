@@ -19,6 +19,7 @@ import com.yx.entity.GetTmxxEntity;
 import com.yx.entity.GetTmxxParm;
 import com.yx.entity.GetTrainByNoEntity;
 import com.yx.entity.GetTrainByStuNoEntity;
+import com.yx.entity.GetTrainByStuNoForExamEntity;
 import com.yx.entity.InsertQuestionsHistoryParm;
 import com.yx.entity.UpdateIsExamFlagParm;
 import com.yx.entity.InsertMockScoreParm;
@@ -76,6 +77,9 @@ public interface ExaminationMapper {
 	
 	// 根据用户编号获取所有的培训信息
 	public List<GetTrainByStuNoEntity> getTrainByStuNo(String xybh);
+	
+	// 根据用户编号获取所有的培训信息（考试用）
+	public List<GetTrainByStuNoForExamEntity> getTrainByStuNoForExam(String xybh);
 	
 	// 获取培训学员在线考试成绩排名
 	public List<GetRankingEntity> getRankingForOnline(GetRankingParm parm);

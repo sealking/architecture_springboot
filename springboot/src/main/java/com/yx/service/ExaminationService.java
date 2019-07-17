@@ -18,6 +18,7 @@ import com.yx.dto.examination.GetRankingOutDto;
 import com.yx.dto.examination.GetTrainByNoInDto;
 import com.yx.dto.examination.GetTrainByNoOutDto;
 import com.yx.dto.examination.GetTrainByStuNoOutDto;
+import com.yx.dto.examination.GetTrainByStuNoForExamOutDto;
 import com.yx.dto.examination.UpdateIsExamFlagInDto;
 import com.yx.dto.examination.UpdateScoreInDto;
 
@@ -52,6 +53,9 @@ public interface ExaminationService {
 	
 	// 根据用户编号获取所有的培训信息
 	public List<GetTrainByStuNoOutDto> getTrainByStuNo(String stuNo);
+	
+	// 根据用户编号获取所有的培训信息(考试用)
+	public List<GetTrainByStuNoForExamOutDto> getTrainByStuNoForExam(String stuNo);
 	
 	// 获取考试题库
 	public List<GetQuestionBankOutDto> getQuestionBank(GetQuestionBankInDto inDto);
